@@ -1,7 +1,7 @@
-Aqui está o código completo de um portal de apoio ao estudante com personagens de anime, chat interativo, quiz, frases motivacionais e todos os requisitos solicitados:
+# Vou criar o código HTML completo e funcional com todas as correçª¥es
+# O código original está incompleto - falta JavaScript e seçª¥es
 
-```html
-<!DOCTYPE html>
+html_completo = '''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
@@ -14,10 +14,10 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
 
     <style>
         /* =============================================
-                   CSS INTERNO (ESTILOS COMPLETOS)
-                   ============================================= */
+                         CSS INTERNO (ESTILOS COMPLETOS)
+                         ============================================= */
 
-        /* ----- RESET E VARIÁVEIS ----- */
+        /* ----- RESET E VARIÁ§VEIS ----- */
         * {
             margin: 0;
             padding: 0;
@@ -54,7 +54,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
                 radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.06) 0%, transparent 50%);
         }
 
-        /* MODO ESCURO (já é o padrão, mas mantemos para toggle) */
+        /* MODO CLARO */
         body.light-mode {
             --bg: #f5f0ff;
             --surface: #ffffff;
@@ -182,7 +182,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
             background: rgba(108, 92, 231, 0.15);
         }
 
-        /* ----- BOTÕES ----- */
+        /* ----- BOTÕµES ----- */
         .btn {
             border: none;
             border-radius: 60px;
@@ -257,7 +257,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
             justify-content: center;
         }
 
-        /* ----- SEÇÕES ----- */
+        /* ----- SEÇ§ES ----- */
         .section {
             padding: 40px 0;
         }
@@ -863,7 +863,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
             flex-wrap: wrap;
         }
 
-        /* ----- REFERÊNCIAS ----- */
+        /* ----- REFERÍªNCIAS ----- */
         .ref-list {
             list-style: none;
             display: grid;
@@ -942,7 +942,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
             color: var(--accent);
         }
 
-        /* ----- REVELAR ANIMAÇÃO ----- */
+        /* ----- REVELAR ANIMAÇ§O ----- */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -1026,12 +1026,12 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
                 <i class="fa-solid fa-bars"></i>
             </button>
             <nav class="nav-links" id="navLinks">
-                <a href="#inicio" class="active"><i class="fa-solid fa-house"></i> Início</a>
+                <a href="#inicio" class="active"><i class="fa-solid fa-house"></i> InÃ£cio</a>
                 <a href="#personagens"><i class="fa-solid fa-users"></i> Personagens</a>
                 <a href="#chat"><i class="fa-solid fa-comment-dots"></i> Chat</a>
                 <a href="#frases"><i class="fa-solid fa-quote-left"></i> Frases</a>
                 <a href="#quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a>
-                <a href="#referencias"><i class="fa-solid fa-book"></i> Referências</a>
+                <a href="#referencias"><i class="fa-solid fa-book"></i> ReferÃªncias</a>
             </nav>
         </div>
     </header>
@@ -1045,7 +1045,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
         <section id="inicio" class="hero reveal">
             <div class="container">
                 <h1>🎌 Converse com seus personagens favoritos!</h1>
-                <p>Desestresse, peça conselhos e compartilhe seus sentimentos com Gojo, Sasuke, Zoro, Nami, Reze e muitos outros heróis do anime!</p>
+                <p>Desestresse, peça conselhos e compartilhe seus sentimentos com Gojo, Sasuke, Zoro, Nami, Reze e muitos outros herÃ³is do anime!</p>
                 <div class="hero-actions">
                     <a href="#chat" class="btn btn-primary"><i class="fa-solid fa-comment"></i> Conversar agora</a>
                     <a href="#personagens" class="btn btn-secondary"><i class="fa-solid fa-users"></i> Ver personagens</a>
@@ -1096,7 +1096,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
                     </div>
                     <div class="chat-main">
                         <div class="chat-header" id="chatHeader">
-                            <img id="chatAvatar" src="https://i.pinimg.com/736x/8b/6f/2a/8b6f2a8f8a5c8a5c8a5c8a5c8a5c8a5c.jpg" alt="Avatar" />
+                            <img id="chatAvatar" src="https://via.placeholder.com/40" alt="Avatar" />
                             <div>
                                 <div class="chat-with" id="chatWith">Selecione um personagem</div>
                                 <span style="color:var(--green);font-size:0.75rem;">● Online</span>
@@ -1126,7 +1126,7 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
                 <div class="card quote-box" id="quoteBox">
                     <span class="quote-emoji" id="quoteEmoji">⚡</span>
                     <blockquote id="quoteText">
-                        "A força não vem da capacidade física, mas de uma vontade indomável."
+                        "A força não vem da capacidade física, mas de uma vontade indomÃ¡vel."
                     </blockquote>
                     <div class="quote-author" id="quoteAuthor">— Saitama (One Punch Man)</div>
                     <button class="btn btn-secondary btn-sm" id="newQuoteBtn" style="margin-top:16px;">
@@ -1139,8 +1139,733 @@ Aqui está o código completo de um portal de apoio ao estudante com personagens
         <!-- ===== CARROSSEL ===== -->
         <section class="section reveal">
             <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-images" style="color:var(--pink);"></i> Conselhos dos heróis</h2>
+                <h2 class="section-title"><i class="fa-solid fa-images" style="color:var(--pink);"></i> Conselhos dos herÃ³is</h2>
                 <p class="section-sub">Mensagens de apoio dos personagens para você!</p>
                 <div class="carousel-container">
                     <div class="carousel-track" id="carouselTrack">
                         <!-- Inserido via JS -->
+                    </div>
+                    <button class="carousel-btn prev" id="carouselPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" id="carouselNext"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <!-- ===== QUIZ ===== -->
+        <section id="quiz" class="section reveal">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-gamepad" style="color:var(--secondary);"></i> Quiz de Animes</h2>
+                <p class="section-sub">Teste seus conhecimentos sobre animes!</p>
+                <div class="card" id="quizCard">
+                    <div id="quizQuestion">
+                        <div class="quiz-progress">
+                            <div class="quiz-progress-fill" id="quizProgressFill" style="width: 0%;"></div>
+                        </div>
+                        <h3 id="quizQuestionText" style="margin-bottom: 16px;">Carregando pergunta...</h3>
+                        <div class="quiz-options" id="quizOptions">
+                            <!-- Opçªµes inseridas via JS -->
+                        </div>
+                        <div class="quiz-feedback" id="quizFeedback"></div>
+                        <button class="btn btn-primary" id="nextQuestionBtn" style="display: none; margin-top: 12px;">
+                            <i class="fa-solid fa-arrow-right"></i> PrÃ³xima
+                        </button>
+                    </div>
+                    <div id="quizResult">
+                        <div class="result-badge">🏆</div>
+                        <h3 style="margin: 16px 0;">Quiz Completado!</h3>
+                        <p id="quizScore" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 12px;">0/0</p>
+                        <p id="quizMessage" style="color: var(--muted); margin-bottom: 20px;"></p>
+                        <button class="btn btn-accent" id="restartQuizBtn">
+                            <i class="fa-solid fa-rotate-right"></i> Tentar Novamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REFERÍªNCIAS ===== -->
+        <section id="referencias" class="section reveal">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-book" style="color:var(--accent);"></i> ReferÃªncias e Recursos</h2>
+                <p class="section-sub">Links Ãšteis para apoio emocional e saÃºde mental</p>
+                <ul class="ref-list">
+                    <li><a href="https://www.cvv.org.br/" target="_blank"><i class="fa-solid fa-phone"></i> CVV - Centro de Valorizaçª£o da Vida (188)</a></li>
+                    <li><a href="https://www.gov.br/saude/pt-br" target="_blank"><i class="fa-solid fa-hospital"></i> Ministério da SaÃºde - SaÃºde Mental</a></li>
+                    <li><a href="https://www.psicoativo.com/" target="_blank"><i class="fa-solid fa-brain"></i> Psicoativo - Artigos sobre Psicologia</a></li>
+                    <li><a href="https://www.ted.com/topics/mental-health" target="_blank"><i class="fa-solid fa-video"></i> TED Talks - SaÃºde Mental</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =============================================
+    FOOTER
+    ============================================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Anime Acolhe - Portal de Apoio ao Estudante</p>
+            <div class="footer-links">
+                <a href="#inicio"><i class="fa-solid fa-house"></i> InÃ£cio</a>
+                <a href="#personagens"><i class="fa-solid fa-users"></i> Personagens</a>
+                <a href="#chat"><i class="fa-solid fa-comment-dots"></i> Chat</a>
+                <a href="#quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BotÃ£o Voltar ao Topo -->
+    <button id="backTop" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- =============================================
+    JAVASCRIPT
+    ============================================= -->
+    <script>
+        // ===== DADOS DOS PERSONAGENS =====
+        const characters = [
+            {
+                id: 1,
+                name: "Gojo Satoru",
+                anime: "Jujutsu Kaisen",
+                avatar: "https://i.pinimg.com/564x/9e/1a/3c/9e1a3c8f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "confiante, divertido, protetor",
+                responses: [
+                    "Calma, vou te proteger! Tudo vai ficar bem.",
+                    "Vocêªª é mais forte do que imagina! Acredite em si mesmo!",
+                    "À¥s vezes precisamos descansar para ficar mais fortes.",
+                    "Hehe, não se preocupe! Eu tô aqui com você!",
+                    "Respire fundo... Você consegue superar isso!",
+                    "Lembre-se: seus sentimentos são vÃ¡lidos!",
+                    "Tire um tempo para cuidar de você mesmo!",
+                    "Estude com moderaçª£o e não se esqueÃ§a de descansar!"
+                ]
+            },
+            {
+                id: 2,
+                name: "Sasuke Uchiha",
+                anime: "Naruto",
+                avatar: "https://i.pinimg.com/564x/a2/b3/4c/a2b34c8f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "sÃ©rio, determinado, introspectivo",
+                responses: [
+                    "Foque nos seus objetivos. Não desista.",
+                    "A dor faz parte do crescimento. Continue firme.",
+                    "Vocêªª precisa encontrar seu próprio caminho.",
+                    "NÃ£o deixe que nada te distraia do que realmente importa.",
+                    "À¥s vezes, precisamos ficar sozinhos para refletir.",
+                    "Sua força vem de dentro. Descubra-a.",
+                    "O passado não define seu futuro.",
+                    "Meditaçª£o e foco podem te ajudar a clarear a mente."
+                ]
+            },
+            {
+                id: 3,
+                name: "Roronoa Zoro",
+                anime: "One Piece",
+                avatar: "https://i.pinimg.com/564x/b3/c4/5d/b3c45d8f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "leal, forte, direto",
+                responses: [
+                    "Nunca perca seu rumo! Mantenha o foco!",
+                    "Treine duro e nunca desista dos seus sonhos!",
+                    "Se perder o caminho, encontre um novo!",
+                    "ForÃ§a não é só física, é mental tambÃ©m!",
+                    "Proteja quem você ama. Isso te darÃ¡ força.",
+                    "Descanse quando precisar. AtÃ© espadas precisam ser afiadas.",
+                    "NÃ£o se preocupe com o que os outros pensam.",
+                    "Beba Ã ¡gua e durma bem. Isso ajuda muito!"
+                ]
+            },
+            {
+                id: 4,
+                name: "Nami",
+                anime: "One Piece",
+                avatar: "https://i.pinimg.com/564x/c4/d5/6e/c4d56e8f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "inteligente, carinhosa, prÃ¡tica",
+                responses: [
+                    "Ei, tudo bem? Quer conversar sobre o que está acontecendo?",
+                    "Cuide de você! Você merece ser feliz!",
+                    "NÃ£o tenha medo de pedir ajuda quando precisar.",
+                    "Organize seus pensamentos. Isso ajuda muito!",
+                    "Lembre-se de se hidratar e comer bem!",
+                    "Seus amigos se importam com você. Converse com eles!",
+                    "Tire um tempo para fazer o que você gosta!",
+                    "Vocêªª é incrÃ¡vel! Não se esqueÃ§a disso!"
+                ]
+            },
+            {
+                id: 5,
+                name: "Reze",
+                anime: "Chainsaw Man",
+                avatar: "https://i.pinimg.com/564x/d5/e6/7f/d5e67f8f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "complexa, intensa, protetora",
+                responses: [
+                    "À¥s vezes, sÃ³ precisamos de um momento de paz...",
+                    "Vocêªª nÃ£o está sozinho. Estou aqui.",
+                    "NÃ£o tenha medo de mostrar seus sentimentos.",
+                    "A vida é complicada, mas você consegue lidar.",
+                    "Respire... Conte atÃ© dez. Vai passar.",
+                    "Se precisar falar, eu estou ouvindo.",
+                    "Cada dia é uma nova oportunidade.",
+                    "Cuide-se. O mundo precisa de você."
+                ]
+            },
+            {
+                id: 6,
+                name: "Tanjiro Kamado",
+                anime: "Demon Slayer",
+                avatar: "https://i.pinimg.com/564x/e6/f7/80/e6f7808f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "gentil, compassivo, resiliente",
+                responses: [
+                    "Seja gentil consigo mesmo. Você merece!",
+                    "A bondade é uma força. Continue sendo bom!",
+                    "Respire fundo... A respiraçª£o ajuda a acalmar.",
+                    "Nunca desista! Sua famÃ£lia acredita em você!",
+                    "Cada passo, por menor que seja, é progresso.",
+                    "Chorar nÃ£o é fraqueza. É humano.",
+                    "Proteja quem você ama com todo seu coraçª£o!",
+                    "O amanhecer sempre vem apÃ³s a noite mais escura."
+                ]
+            },
+            {
+                id: 7,
+                name: "Mikasa Ackerman",
+                anime: "Attack on Titan",
+                avatar: "https://i.pinimg.com/564x/f7/08/91/f708918f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "forte, leal, protetora",
+                responses: [
+                    "Seja forte. Você consegue superar isso.",
+                    "Proteja quem importa para você.",
+                    "NÃ£o desista. Lute pelo que acredita.",
+                    "À¥s vezes, precisamos ser duros para sobreviver.",
+                    "Seus sentimentos sÃ£o importantes. NÃ£o os ignore.",
+                    "Treine seu corpo e sua mente.",
+                    "Vocêªª nÃ£o estÃ¡ sozinho nessa batalha.",
+                    "Continue avanÃ§ando. Sempre."
+                ]
+            },
+            {
+                id: 8,
+                name: "Naruto Uzumaki",
+                anime: "Naruto",
+                avatar: "https://i.pinimg.com/564x/08/19/a2/0819a28f8a5c8a5c8a5c8a5c8a5c8a5c.jpg",
+                status: "online",
+                personality: "energÃ©tico, otimista, persistente",
+                responses: [
+                    "Nunca desista! Esse é meu lema!",
+                    "Vocêªª vai conseguir! Acredite!",
+                    "Se cair, levante! É assim que crescemos!",
+                    "Seus sonhos valem a pena lutar!",
+                    "Eu acredito em você! Dattebayo!",
+                    "NÃ£o deixe ninguém te dizer o que você pode ou nÃ£o fazer!",
+                    "Amigos sÃ£o a maior fonte de força!",
+                    "Vamos comer um lÃ¡men juntos? Isso ajuda!"
+                ]
+            }
+        ];
+
+        // ===== FRASES MOTIVACIONAIS =====
+        const quotes = [
+            { text: "A força não vem da capacidade física, mas de uma vontade indomÃ¡vel.", author: "Saitama (One Punch Man)", emoji: "⚡" },
+            { text: "Se você nÃ£o lutar, não pode vencer!", author: "Eren Yeager (Attack on Titan)", emoji: "🔥" },
+            { text: "O mundo não é perfeito, mas ainda assim é lindo.", author: "Roy Mustang (Fullmetal Alchemist)", emoji: "🌍" },
+            { text: "NÃ£o tenha medo de começar de novo.", author: "Senku Ishigami (Dr. Stone)", emoji: "🚀" },
+            { text: "A dor é temporÃ¡ria. A desistÃªncia dura para sempre.", author: "Lance Armstrong (adaptado)", emoji: "💪" },
+            { text: "Seja a mudanÃ§a que você quer ver no mundo.", author: "Mahatma Gandhi", emoji: "🌟" },
+            { text: "O Ãșnico limite para o nosso amanhÃ£ são nossas dÃºvidas de hoje.", author: "Franklin D. Roosevelt", emoji: "☀️" },
+            { text: "Acredite que você pode, e você jÃ¡ estarÃ¡ no meio do caminho.", author: "Theodore Roosevelt", emoji: "✨" },
+            { text: "NÃ£o importa o quÃ£o devagar você vÃ¡, desde que você nÃ£o pare.", author: "ConfÃºcio", emoji: "🐢" },
+            { text: "A vida é 10% o que acontece e 90% como você reage.", author: "Charles R. Swindoll", emoji: "🎭" }
+        ];
+
+        // ===== PERGUNTAS DO QUIZ =====
+        const quizQuestions = [
+            {
+                question: "Qual é o nome do protagonista de 'Jujutsu Kaisen'?",
+                options: ["Satoru Gojo", "Yuji Itadori", "Megumi Fushiguro", "Sukuna"],
+                correct: 1,
+                explanation: "Yuji Itadori é o protagonista que ingere o dedo de Sukuna para salvar seus amigos."
+            },
+            {
+                question: "Em 'Naruto', qual é o nome da vila onde Naruto nasceu?",
+                options: ["Vila da Pedra", "Vila da Nuvem", "Vila da Folha", "Vila da Areia"],
+                correct: 2,
+                explanation: "Konohagakure, a Vila Oculta da Folha, é onde Naruto nasceu e cresceu."
+            },
+            {
+                question: "Qual é o sonho de Luffy em 'One Piece'?",
+                options: ["Ser o maior espadachim", "Ser o Rei dos Piratas", "Encontrar o All Blue", "Ser o maior mÃ©dico"],
+                correct: 1,
+                explanation: "Luffy quer se tornar o Rei dos Piratas e encontrar o One Piece!"
+            },
+            {
+                question: "Em 'Demon Slayer', qual é a tÃ©cnica de respiraçª£o usada por Tanjiro?",
+                options: ["Respiraçª£o do TrovÃ£o", "Respiraçª£o do Vento", "Respiraçª£o da Ãgua", "Respiraçª£o do Fogo"],
+                correct: 2,
+                explanation: "Tanjiro usa a Respiraçª£o da Ãgua, aprendida com Urokodaki."
+            },
+            {
+                question: "Qual é o nome do titÃ£ controlado por Eren em 'Attack on Titan'?",
+                options: ["TitÃ£ Colossal", "TitÃ£ de Ataque", "TitÃ£ Blindado", "TitÃ£ FÃªmea"],
+                correct: 1,
+                explanation: "Eren possui o poder do TitÃ£ de Ataque, que lhe dÃ¡ liberdade absoluta."
+            },
+            {
+                question: "Em 'Chainsaw Man', qual é o nome do protagonista?",
+                options: ["Aki Hayakawa", "Power", "Denji", "Makima"],
+                correct: 2,
+                explanation: "Denji é o protagonista que se transforma no Chainsaw Man."
+            },
+            {
+                question: "Qual é o nome da espada de Zoro em 'One Piece'?",
+                options: ["Wado Ichimonji", "Excalibur", "Mjolnir", "Zangetsu"],
+                correct: 0,
+                explanation: "Wado Ichimonji é uma das trÃªs espadas de Zoro, herdada de Kuina."
+            },
+            {
+                question: "Em 'My Hero Academia', qual é o poder do All Might?",
+                options: ["One For All", "All For One", "Super Strength", "Flight"],
+                correct: 0,
+                explanation: "One For All é o poder que All Might passa para Deku."
+            },
+            {
+                question: "Qual anime tem como protagonista um jovem que quer ser Hokage?",
+                options: ["One Piece", "Bleach", "Naruto", "Dragon Ball"],
+                correct: 2,
+                explanation: "Naruto Uzumaki sonha em se tornar Hokage, o lÃ£der de sua vila."
+            },
+            {
+                question: "Em 'Death Note', qual é o nome do protagonista?",
+                options: ["L Lawliet", "Light Yagami", "Ryuk", "Misa Amane"],
+                correct: 1,
+                explanation: "Light Yagami encontra o Death Note e tenta criar um mundo perfeito."
+            }
+        ];
+
+        // ===== ESTADO DA APLICAÇ§O =====
+        let currentChat = null;
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+        let carouselIndex = 0;
+        let fontSize = 16;
+
+        // ===== INICIALIZAÇ§O =====
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharacters();
+            initChat();
+            initQuotes();
+            initCarousel();
+            initQuiz();
+            initAccessibility();
+            initScrollEffects();
+            initNavigation();
+        });
+
+        // ===== PERSONAGENS =====
+        function initCharacters() {
+            const grid = document.getElementById('charactersGrid');
+            const contactList = document.getElementById('contactList');
+            
+            characters.forEach(char => {
+                // Cards dos personagens
+                const card = document.createElement('div');
+                card.className = 'char-card';
+                card.innerHTML = `
+                    <img src="${char.avatar}" alt="${char.name}" onerror="this.src='https://via.placeholder.com/160x180?text=${char.name.split(' ')[0]}'" />
+                    <div class="char-name">${char.name}</div>
+                    <div class="char-anime">${char.anime}</div>
+                    <div class="char-status">● ${char.status}</div>
+                `;
+                card.addEventListener('click', () => selectCharacter(char.id));
+                grid.appendChild(card);
+
+                // Lista de contatos do chat
+                const contact = document.createElement('div');
+                contact.className = 'chat-contact';
+                contact.dataset.id = char.id;
+                contact.innerHTML = `
+                    <img src="${char.avatar}" alt="${char.name}" onerror="this.src='https://via.placeholder.com/36?text=${char.name.split(' ')[0]}'" />
+                    <div>
+                        <div class="contact-name">${char.name}</div>
+                        <div class="contact-status">● ${char.status}</div>
+                    </div>
+                `;
+                contact.addEventListener('click', () => selectCharacter(char.id));
+                contactList.appendChild(contact);
+            });
+        }
+
+        // ===== CHAT =====
+        function initChat() {
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendBtn');
+            
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+        }
+
+        function selectCharacter(id) {
+            currentChat = characters.find(c => c.id === id);
+            
+            // Atualiza header do chat
+            document.getElementById('chatAvatar').src = currentChat.avatar;
+            document.getElementById('chatAvatar').onerror = function() { this.src = 'https://via.placeholder.com/40'; };
+            document.getElementById('chatWith').textContent = currentChat.name;
+            
+            // Atualiza contato ativo
+            document.querySelectorAll('.chat-contact').forEach(c => {
+                c.classList.remove('active');
+                if (parseInt(c.dataset.id) === id) c.classList.add('active');
+            });
+            
+            // Limpa mensagens e adiciona saudaçª£o
+            const messages = document.getElementById('chatMessages');
+            messages.innerHTML = '';
+            addBotMessage(`Oi! Eu sou ${currentChat.name} de ${currentChat.anime}. Como posso te ajudar hoje?`);
+            
+            // Scroll para o chat
+            document.getElementById('chat').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Adiciona mensagem do usuÃ¡rio
+            addUserMessage(message);
+            input.value = '';
+            
+            // Resposta do bot
+            setTimeout(() => {
+                if (currentChat) {
+                    const randomResponse = currentChat.responses[Math.floor(Math.random() * currentChat.responses.length)];
+                    addBotMessage(randomResponse);
+                }
+            }, 1000);
+        }
+
+        function addUserMessage(text) {
+            const messages = document.getElementById('chatMessages');
+            const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg user';
+            msg.innerHTML = `
+                <div class="msg-name">👤 Você</div>
+                ${text}
+                <span class="msg-time">${time}</span>
+            `;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function addBotMessage(text) {
+            const messages = document.getElementById('chatMessages');
+            const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg bot';
+            msg.innerHTML = `
+                <div class="msg-name">👤 ${currentChat ? currentChat.name : 'Assistente'}</div>
+                ${text}
+                <span class="msg-time">${time}</span>
+            `;
+            messages.appendChild(msg);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // ===== FRASES =====
+        function initQuotes() {
+            const quoteBox = document.getElementById('quoteBox');
+            const newQuoteBtn = document.getElementById('newQuoteBtn');
+            
+            // Carrega primeira frase
+            showRandomQuote();
+            
+            // Clique na caixa tambÃ©m muda a frase
+            quoteBox.addEventListener('click', (e) => {
+                if (!e.target.closest('button')) {
+                    showRandomQuote();
+                }
+            });
+            
+            newQuoteBtn.addEventListener('click', showRandomQuote);
+        }
+
+        function showRandomQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quoteEmoji').textContent = quote.emoji;
+            document.getElementById('quoteText').textContent = `"${quote.text}"`;
+            document.getElementById('quoteAuthor').textContent = `— ${quote.author}`;
+        }
+
+        // ===== CARROSSEL =====
+        function initCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const dotsContainer = document.getElementById('carouselDots');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            
+            // Cria slides
+            characters.slice(0, 6).forEach(char => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `
+                    <img src="${char.avatar}" alt="${char.name}" onerror="this.src='https://via.placeholder.com/120?text=${char.name.split(' ')[0]}'" />
+                    <div class="slide-name">${char.name}</div>
+                    <div class="slide-quote">"${char.responses[0]}"</div>
+                `;
+                track.appendChild(slide);
+            });
+            
+            // Cria dots
+            const slides = document.querySelectorAll('.carousel-slide');
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            // BotÃµes
+            prevBtn.addEventListener('click', () => {
+                carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                carouselIndex = (carouselIndex + 1) % slides.length;
+                updateCarousel();
+            });
+            
+            // Auto-play
+            setInterval(() => {
+                carouselIndex = (carouselIndex + 1) % slides.length;
+                updateCarousel();
+            }, 5000);
+        }
+
+        function goToSlide(index) {
+            carouselIndex = index;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === carouselIndex);
+            });
+        }
+
+        // ===== QUIZ =====
+        function initQuiz() {
+            loadQuestion();
+            
+            document.getElementById('nextQuestionBtn').addEventListener('click', () => {
+                currentQuizIndex++;
+                if (currentQuizIndex < quizQuestions.length) {
+                    loadQuestion();
+                } else {
+                    showResult();
+                }
+            });
+            
+            document.getElementById('restartQuizBtn').addEventListener('click', restartQuiz);
+        }
+
+        function loadQuestion() {
+            const q = quizQuestions[currentQuizIndex];
+            document.getElementById('quizQuestionText').textContent = `${currentQuizIndex + 1}. ${q.question}`;
+            
+            // Atualiza progresso
+            const progress = ((currentQuizIndex) / quizQuestions.length) * 100;
+            document.getElementById('quizProgressFill').style.width = `${progress}%`;
+            
+            // Cria opçªµes
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.innerHTML = `
+                    <span class="letter">${String.fromCharCode(65 + index)}</span>
+                    <span>${option}</span>
+                `;
+                btn.addEventListener('click', () => selectAnswer(index, btn));
+                optionsContainer.appendChild(btn);
+            });
+            
+            // Esconde feedback e botÃ£o prÃ³ximo
+            document.getElementById('quizFeedback').classList.remove('show');
+            document.getElementById('nextQuestionBtn').style.display = 'none';
+        }
+
+        function selectAnswer(selectedIndex, btn) {
+            const q = quizQuestions[currentQuizIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            // Desabilita todas
+            options.forEach(opt => opt.disabled = true);
+            
+            // Marca correta/errada
+            if (selectedIndex === q.correct) {
+                btn.classList.add('correct');
+                quizScore++;
+                showFeedback(true, q.explanation);
+            } else {
+                btn.classList.add('wrong');
+                options[q.correct].classList.add('correct');
+                showFeedback(false, q.explanation);
+            }
+            
+            // Mostra botÃ£o prÃ³ximo
+            document.getElementById('nextQuestionBtn').style.display = 'inline-flex';
+        }
+
+        function showFeedback(isCorrect, explanation) {
+            const feedback = document.getElementById('quizFeedback');
+            feedback.innerHTML = `
+                <strong>${isCorrect ? '✅ Correto!' : '❌ Errado!'}</strong><br>
+                ${explanation}
+            `;
+            feedback.classList.add('show');
+        }
+
+        function showResult() {
+            document.getElementById('quizQuestion').style.display = 'none';
+            document.getElementById('quizResult').classList.add('show');
+            
+            const percentage = (quizScore / quizQuestions.length) * 100;
+            document.getElementById('quizScore').textContent = `${quizScore}/${quizQuestions.length} (${percentage.toFixed(0)}%)`;
+            
+            let message = '';
+            if (percentage === 100) message = 'Perfeito! Você é um verdadeiro mestre dos animes! 🏆';
+            else if (percentage >= 80) message = 'Excelente! VocÃª sabe muito sobre animes! 🌟';
+            else if (percentage >= 60) message = 'Muito bom! Continue assistindo animes! 👍';
+            else if (percentage >= 40) message = 'Bom esforÃ§o! Que tal assistir mais animes? 📺';
+            else message = 'Continue estudando! VocÃª vai melhorar! 💪';
+            
+            document.getElementById('quizMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            currentQuizIndex = 0;
+            quizScore = 0;
+            document.getElementById('quizQuestion').style.display = 'block';
+            document.getElementById('quizResult').classList.remove('show');
+            loadQuestion();
+        }
+
+        // ===== ACESSIBILIDADE =====
+        function initAccessibility() {
+            const darkToggle = document.getElementById('darkToggle');
+            const contrastToggle = document.getElementById('contrastToggle');
+            const fontDecrease = document.getElementById('fontDecrease');
+            const fontReset = document.getElementById('fontReset');
+            const fontIncrease = document.getElementById('fontIncrease');
+            
+            darkToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                darkToggle.innerHTML = document.body.classList.contains('light-mode') 
+                    ? '<i class="fa-solid fa-sun"></i> Modo escuro' 
+                    : '<i class="fa-solid fa-moon"></i> Modo claro';
+            });
+            
+            contrastToggle.addEventListener('click', () => {
+                document.body.classList.toggle('high-contrast');
+            });
+            
+            fontDecrease.addEventListener('click', () => {
+                fontSize = Math.max(12, fontSize - 2);
+                document.body.style.fontSize = fontSize + 'px';
+            });
+            
+            fontReset.addEventListener('click', () => {
+                fontSize = 16;
+                document.body.style.fontSize = fontSize + 'px';
+            });
+            
+            fontIncrease.addEventListener('click', () => {
+                fontSize = Math.min(24, fontSize + 2);
+                document.body.style.fontSize = fontSize + 'px';
+            });
+        }
+
+        // ===== SCROLL EFFECTS =====
+        function initScrollEffects() {
+            const revealElements = document.querySelectorAll('.reveal');
+            const backTop = document.getElementById('backTop');
+            
+            window.addEventListener('scroll', () => {
+                // Reveal animations
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+                
+                // Back to top button
+                if (window.scrollY > 300) {
+                    backTop.classList.add('show');
+                } else {
+                    backTop.classList.remove('show');
+                }
+            });
+            
+            backTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // ===== NAVIGATION =====
+        function initNavigation() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    
+                    // Update active link
+                    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+'''
+
+# Salva o arquivo
+with open('output/anime_acolhe.html', 'w', encoding='utf-8') as f:
+    f.write(html_completo)
+
+print("✅ Código HTML completo e funcional criado com sucesso!")
+print(f"📁 Arquivo salvo como: output/anime_acolhe.html")
+print(f"📊 Tamanho do arquivo: {len(html_completo)} caracteres"
