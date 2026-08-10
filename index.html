@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌟 Acolhe Jovem – Portal de Apoio</title>
+  <title>🌈 Acolhe Jovem - Seu Espaço de Apoio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
       --surface: #ffffff;
       --text: #1f2a3e;
       --muted: #5b6b7e;
-      --primary: #ff7a5c;
+      --primary: #ff6b6b;
       --secondary: #6c5ce7;
       --accent: #00d2d3;
       --warm: #fdcb6e;
@@ -60,17 +60,46 @@
       font-family: var(--font);
       transition: background 0.3s, color 0.3s;
       line-height: 1.5;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* PARTÍCULAS FLUTUANTES */
+    .floating-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 1.8rem;
+      animation: floatParticle 8s ease-in-out infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      25% { transform: translateY(-30px) rotate(10deg) scale(1.1); }
+      75% { transform: translateY(30px) rotate(-10deg) scale(0.9); }
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     /* HEADER */
     .site-header {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 3px solid var(--warm);
       position: sticky;
@@ -80,7 +109,7 @@
     }
 
     body.dark-mode .site-header {
-      background: rgba(30, 39, 46, 0.85);
+      background: rgba(30, 39, 46, 0.9);
       border-bottom-color: var(--secondary);
     }
 
@@ -95,11 +124,25 @@
     .brand {
       font-weight: 700;
       font-size: 1.7rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand i {
+      -webkit-text-fill-color: initial;
+      color: var(--warm);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     .hamburger {
@@ -127,12 +170,27 @@
       padding: 6px 0;
       border-bottom: 3px solid transparent;
       transition: 0.2s;
+      position: relative;
     }
 
-    .nav-links a:hover,
-    .nav-links a[aria-current="page"] {
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a[aria-current="page"]::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
       color: var(--primary);
-      border-bottom-color: var(--primary);
     }
 
     /* HERO */
@@ -144,11 +202,18 @@
 
     .hero h1 {
       font-size: clamp(2.3rem, 6vw, 4rem);
-      background: linear-gradient(145deg, var(--primary), var(--secondary), var(--accent));
+      background: linear-gradient(145deg, var(--primary), var(--secondary), var(--accent), var(--pink));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 12px;
+      animation: shimmer 3s ease-in-out infinite;
+      background-size: 300% 300%;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .hero p {
@@ -156,6 +221,23 @@
       max-width: 680px;
       margin: 0 auto 24px;
       font-size: 1.2rem;
+    }
+
+    .hero-mascot {
+      font-size: 4rem;
+      display: inline-block;
+      animation: floatMascot 3s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .hero-mascot:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    @keyframes floatMascot {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
     .btn {
@@ -169,11 +251,32 @@
       align-items: center;
       gap: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn:hover {
-      transform: scale(1.03) translateY(-3px);
+      transform: scale(1.05) translateY(-3px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:active {
+      transform: scale(0.95);
     }
 
     .btn-primary {
@@ -188,8 +291,20 @@
     }
 
     .btn-warm {
-      background: var(--warm);
+      background: linear-gradient(145deg, var(--warm), #f9ca24);
       color: #2d3436;
+    }
+
+    .btn-green {
+      background: linear-gradient(145deg, var(--green), #00a381);
+      color: #fff;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
     }
 
     /* SECTIONS */
@@ -203,6 +318,15 @@
       align-items: center;
       gap: 10px;
       margin-bottom: 6px;
+    }
+
+    .section h2 i {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
     .section > .container > p.section-text {
@@ -222,12 +346,46 @@
       border-radius: var(--radius);
       padding: 28px 24px;
       box-shadow: var(--shadow);
-      transition: 0.2s;
+      transition: all 0.3s;
       border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(108, 92, 231, 0.05) 0%, transparent 70%);
+      transition: all 0.5s;
+      pointer-events: none;
+    }
+
+    .card:hover::after {
+      top: 0;
+      right: 0;
     }
 
     .card:hover {
+      transform: translateY(-5px);
       border-color: var(--warm);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-3d {
+      perspective: 1000px;
+    }
+
+    .card-3d-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .card-3d:hover .card-3d-inner {
+      transform: rotateY(5deg) rotateX(5deg);
     }
 
     /* Acessibilidade */
@@ -254,6 +412,7 @@
       background: var(--primary);
       color: #fff;
       border-color: var(--primary);
+      transform: scale(1.05);
     }
 
     /* ESCUTA */
@@ -315,12 +474,13 @@
       border-radius: 24px;
       line-height: 1.5;
       font-weight: 500;
-      animation: popIn 0.2s ease;
+      animation: popIn 0.3s ease;
+      position: relative;
     }
 
     @keyframes popIn {
-      0% { opacity: 0; transform: scale(0.9); }
-      100% { opacity: 1; transform: scale(1); }
+      0% { opacity: 0; transform: scale(0.8) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .chat-bubble.user {
@@ -336,6 +496,37 @@
       color: var(--text);
       border-bottom-left-radius: 8px;
       border: 2px solid var(--warm);
+    }
+
+    .chat-bubble.bot::before {
+      content: '🤖';
+      margin-right: 8px;
+    }
+
+    .chat-typing {
+      align-self: flex-start;
+      background: var(--surface);
+      padding: 12px 20px;
+      border-radius: 24px;
+      display: flex;
+      gap: 4px;
+      border: 2px solid var(--warm);
+    }
+
+    .chat-typing span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--muted);
+      animation: typingBounce 1.2s infinite ease-in-out;
+    }
+
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-10px); opacity: 1; }
     }
 
     .chat-form {
@@ -409,25 +600,52 @@
       border-radius: 60px;
       background: var(--bg);
       cursor: pointer;
-      transition: 0.15s;
+      transition: all 0.2s;
       font-weight: 600;
     }
 
     .quiz-option:hover {
-      transform: translateX(6px);
+      transform: translateX(6px) scale(1.02);
       border-color: var(--secondary);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    }
+
+    .quiz-option .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--secondary), var(--accent));
+      color: #fff;
+      font-weight: 700;
     }
 
     .quiz-option.is-correct {
       background: #d4edda;
       border-color: var(--green);
       color: #155724;
+      animation: correctPop 0.4s ease;
     }
 
     .quiz-option.is-wrong {
       background: #f8d7da;
       border-color: #e17055;
       color: #721c24;
+      animation: wrongShake 0.4s ease;
+    }
+
+    @keyframes correctPop {
+      0% { transform: scale(0.9); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes wrongShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
     }
 
     .quiz-progress {
@@ -442,8 +660,15 @@
     .quiz-progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--warm), var(--primary), var(--secondary));
-      transition: width 0.4s ease;
+      background: linear-gradient(90deg, var(--warm), var(--primary), var(--secondary), var(--accent));
+      transition: width 0.5s ease;
+      background-size: 300% 100%;
+      animation: progressShimmer 2s ease-in-out infinite;
+    }
+
+    @keyframes progressShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .quiz-feedback {
@@ -453,6 +678,12 @@
       background: var(--surface);
       margin: 16px 0;
       border-left: 8px solid var(--secondary);
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .quiz-feedback.is-visible {
@@ -462,6 +693,7 @@
     #quiz-result {
       display: none;
       text-align: center;
+      animation: pop 0.5s ease;
     }
 
     #quiz-result.is-visible {
@@ -470,12 +702,38 @@
 
     .quiz-badge {
       font-size: 4.5rem;
-      animation: pop 0.5s ease;
+      animation: pop 0.6s ease;
     }
 
     @keyframes pop {
-      0% { transform: scale(0.2) rotate(-10deg); opacity: 0; }
+      0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+      60% { transform: scale(1.2) rotate(5deg); }
       100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+
+    /* CONFETES */
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: -20px;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg) scale(0.3); opacity: 0; }
     }
 
     /* MODAL */
@@ -483,12 +741,18 @@
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
       z-index: 200;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     .modal.is-open {
@@ -504,6 +768,12 @@
       padding: 32px 28px;
       box-shadow: var(--shadow);
       text-align: center;
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(30px) scale(0.9); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
     }
 
     .modal-actions {
@@ -522,14 +792,14 @@
       height: 56px;
       border-radius: 60px;
       border: none;
-      background: var(--secondary);
+      background: linear-gradient(145deg, var(--secondary), var(--accent));
       color: #fff;
       font-size: 1.6rem;
       cursor: pointer;
       box-shadow: var(--shadow);
       opacity: 0;
       pointer-events: none;
-      transition: 0.3s;
+      transition: all 0.3s;
       z-index: 80;
     }
 
@@ -538,15 +808,19 @@
       pointer-events: auto;
     }
 
+    #back-to-top:hover {
+      transform: scale(1.1);
+    }
+
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(40px) scale(0.95);
+      transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .reveal.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     .site-footer {
@@ -555,6 +829,34 @@
       color: var(--muted);
       border-top: 3px solid var(--warm);
       margin-top: 30px;
+    }
+
+    /* ONDAS SONORAS */
+    .sound-waves {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 40px;
+      margin: 10px 0;
+    }
+
+    .sound-wave {
+      width: 6px;
+      height: 20px;
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+      animation: wave 0.8s ease-in-out infinite;
+    }
+
+    .sound-wave:nth-child(2) { height: 30px; animation-delay: 0.1s; }
+    .sound-wave:nth-child(3) { height: 40px; animation-delay: 0.2s; }
+    .sound-wave:nth-child(4) { height: 30px; animation-delay: 0.3s; }
+    .sound-wave:nth-child(5) { height: 20px; animation-delay: 0.4s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.5); }
+      50% { transform: scaleY(1); }
     }
 
     /* RESPONSIVE */
@@ -586,9 +888,35 @@
         font-size: 2.2rem;
       }
     }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, var(--secondary), var(--accent));
+    }
   </style>
 </head>
 <body>
+
+  <!-- PARTÍCULAS FLUTUANTES -->
+  <div class="floating-particles" id="particles"></div>
+
+  <!-- CONFETES -->
+  <div class="confetti-container" id="confettiContainer"></div>
+
   <header class="site-header">
     <div class="container header-inner">
       <span class="brand"><i class="fa-regular fa-face-smile"></i> Acolhe Jovem</span>
@@ -608,9 +936,19 @@
   <main>
     <section id="inicio" class="hero reveal">
       <div class="container">
+        <div class="hero-mascot" id="mascot">🦊</div>
         <h1>✨ Você não está sozinho ✨</h1>
         <p>Um espaço seguro para respirar, refletir e se fortalecer. Aqui você é acolhido com respeito e alegria.</p>
-        <div class="hero-actions" style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+
+        <div class="sound-waves">
+          <div class="sound-wave"></div>
+          <div class="sound-wave"></div>
+          <div class="sound-wave"></div>
+          <div class="sound-wave"></div>
+          <div class="sound-wave"></div>
+        </div>
+
+        <div class="hero-actions">
           <a class="btn btn-primary" href="#escuta"><i class="fa-regular fa-heart"></i> Desabafar</a>
           <a class="btn btn-secondary" href="#quiz"><i class="fa-regular fa-star"></i> Quiz</a>
           <button id="surprise-btn" class="btn btn-warm"><i class="fa-regular fa-face-smile-wink"></i> Surpresa!</button>
@@ -623,13 +961,15 @@
       <div class="container">
         <h2><i class="fa-regular fa-eye"></i> Acessibilidade</h2>
         <p class="section-text">Ajuste o visual do jeito que você prefere.</p>
-        <div class="card">
-          <div class="accessibility-controls">
-            <button id="dark-mode-toggle" aria-pressed="false"><i class="fa-solid fa-moon"></i> Escuro</button>
-            <button id="contrast-toggle" aria-pressed="false"><i class="fa-solid fa-circle-half-stroke"></i> Alto contraste</button>
-            <button id="font-decrease">A-</button>
-            <button id="font-reset">A</button>
-            <button id="font-increase">A+</button>
+        <div class="card card-3d">
+          <div class="card-3d-inner">
+            <div class="accessibility-controls">
+              <button id="dark-mode-toggle" aria-pressed="false"><i class="fa-solid fa-moon"></i> Escuro</button>
+              <button id="contrast-toggle" aria-pressed="false"><i class="fa-solid fa-circle-half-stroke"></i> Alto contraste</button>
+              <button id="font-decrease">A-</button>
+              <button id="font-reset">A</button>
+              <button id="font-increase">A+</button>
+            </div>
           </div>
         </div>
       </div>
@@ -640,15 +980,17 @@
       <div class="container">
         <h2><i class="fa-regular fa-pen-to-square"></i> Espaço de escuta</h2>
         <p class="section-text">Escreva o que sentir. Nada é salvo, sua privacidade é total.</p>
-        <div class="card">
-          <form id="listening-form">
-            <label for="listening-message" style="font-weight:600;">Como você está se sentindo?</label>
-            <textarea id="listening-message" placeholder="Escreva aqui... (máx. 800 caracteres)"></textarea>
-            <div class="meta-row">
-              <span id="char-counter">0 / 800</span>
-              <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Enviar (anônimo)</button>
-            </div>
-          </form>
+        <div class="card card-3d">
+          <div class="card-3d-inner">
+            <form id="listening-form">
+              <label for="listening-message" style="font-weight:600;">Como você está se sentindo?</label>
+              <textarea id="listening-message" placeholder="Escreva aqui... (máx. 800 caracteres)"></textarea>
+              <div class="meta-row">
+                <span id="char-counter">0 / 800</span>
+                <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Enviar (anônimo)</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -705,266 +1047,4 @@
           <h3 id="quiz-question"></h3>
           <div id="quiz-options" class="quiz-options"></div>
           <div id="quiz-feedback" class="quiz-feedback"></div>
-          <button id="quiz-next" class="btn btn-primary" disabled>Próxima <i class="fa-regular fa-arrow-right"></i></button>
-        </div>
-        <div id="quiz-result" class="card">
-          <div id="quiz-badge" class="quiz-badge">🌟</div>
-          <h3 id="quiz-badge-title">Estrela do Acolhimento</h3>
-          <p>Você acertou <strong id="quiz-score">0/5</strong></p>
-          <p id="quiz-result-message"></p>
-          <button id="quiz-restart" class="btn btn-primary"><i class="fa-regular fa-arrows-rotate"></i> Refazer</button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>💙 Acolhe Jovem – projeto educativo com muito carinho</p>
-    </div>
-  </footer>
-
-  <button id="back-to-top" aria-label="Topo"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <!-- MODAL -->
-  <div id="listening-modal" class="modal" aria-hidden="true">
-    <div class="modal-box">
-      <h3><i class="fa-regular fa-heart" style="color:var(--pink);"></i> Mensagem recebida</h3>
-      <p>Sua mensagem foi apagada após essa confirmação. Sua privacidade é importante.</p>
-      <div class="modal-actions">
-        <button id="modal-close" class="btn btn-secondary">Fechar</button>
-        <button id="modal-to-help" class="btn btn-primary">Ver orientações</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // ---------- ACESSIBILIDADE ----------
-      const body = document.body;
-      const darkToggle = document.getElementById('dark-mode-toggle');
-      const contrastToggle = document.getElementById('contrast-toggle');
-      const fontDecrease = document.getElementById('font-decrease');
-      const fontReset = document.getElementById('font-reset');
-      const fontIncrease = document.getElementById('font-increase');
-
-      let fontSize = 1;
-      const updateFont = () => { document.documentElement.style.setProperty('--font-scale', fontSize); };
-
-      darkToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const pressed = body.classList.contains('dark-mode');
-        darkToggle.setAttribute('aria-pressed', pressed);
-        darkToggle.innerHTML = pressed ? '<i class="fa-solid fa-sun"></i> Claro' : '<i class="fa-solid fa-moon"></i> Escuro';
-      });
-
-      contrastToggle.addEventListener('click', () => {
-        body.classList.toggle('high-contrast');
-        const pressed = body.classList.contains('high-contrast');
-        contrastToggle.setAttribute('aria-pressed', pressed);
-        contrastToggle.innerHTML = pressed ? 'Contraste normal' : 'Alto contraste';
-      });
-
-      fontDecrease.addEventListener('click', () => { fontSize = Math.max(0.8, fontSize - 0.1); updateFont(); });
-      fontReset.addEventListener('click', () => { fontSize = 1; updateFont(); });
-      fontIncrease.addEventListener('click', () => { fontSize = Math.min(1.4, fontSize + 0.1); updateFont(); });
-
-      // ---------- HAMBURGER ----------
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks = document.getElementById('nav-links');
-      hamburger.addEventListener('click', () => {
-        const open = navLinks.classList.toggle('is-open');
-        hamburger.setAttribute('aria-expanded', open);
-      });
-
-      // ---------- REVELAR AO SCROLL (Intersection) ----------
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('is-visible');
-        });
-      }, { threshold: 0.15 });
-      reveals.forEach(el => observer.observe(el));
-
-      // ---------- BACK TO TOP ----------
-      const backBtn = document.getElementById('back-to-top');
-      window.addEventListener('scroll', () => {
-        backBtn.classList.toggle('is-visible', window.scrollY > 500);
-      });
-      backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-      // ---------- ESCUTA (form) ----------
-      const form = document.getElementById('listening-form');
-      const textarea = document.getElementById('listening-message');
-      const counter = document.getElementById('char-counter');
-      const modal = document.getElementById('listening-modal');
-      const modalClose = document.getElementById('modal-close');
-
-      textarea.addEventListener('input', () => {
-        const len = textarea.value.length;
-        counter.textContent = `${len} / 800`;
-        if (len > 800) textarea.value = textarea.value.slice(0, 800);
-      });
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (textarea.value.trim() === '') return;
-        modal.classList.add('is-open');
-        document.getElementById('modal-to-help').addEventListener('click', () => {
-          alert('🔗 Orientações: procure um adulto de confiança ou ligue para o CVV 188.');
-          modal.classList.remove('is-open');
-        });
-        modalClose.addEventListener('click', () => modal.classList.remove('is-open'));
-        textarea.value = '';
-        counter.textContent = '0 / 800';
-      });
-
-      // ---------- CHAT ----------
-      const chatForm = document.getElementById('chat-form');
-      const chatInput = document.getElementById('chat-input');
-      const chatMessages = document.getElementById('chat-messages');
-
-      const botReplies = [
-        "Entendo. Que bom que você está compartilhando isso.",
-        "Isso é muito importante. Continue falando.",
-        "Você é incrível por se expressar assim.",
-        "Como posso te apoiar melhor agora?",
-        "Lembre-se: seus sentimentos são válidos.",
-        "Que legal! Você está no caminho certo.",
-        "Respire fundo. Estou aqui com você.",
-        "Obrigado por confiar em mim."
-      ];
-
-      chatForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const msg = chatInput.value.trim();
-        if (!msg) return;
-        // user
-        const userBubble = document.createElement('div');
-        userBubble.className = 'chat-bubble user';
-        userBubble.textContent = msg;
-        chatMessages.appendChild(userBubble);
-        chatInput.value = '';
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-
-        // bot com delay
-        setTimeout(() => {
-          const botBubble = document.createElement('div');
-          botBubble.className = 'chat-bubble bot';
-          const reply = botReplies[Math.floor(Math.random() * botReplies.length)];
-          botBubble.textContent = '🤖 ' + reply;
-          chatMessages.appendChild(botBubble);
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 500 + Math.random() * 600);
-      });
-
-      // ---------- FRASES (flip + nova) ----------
-      const flipCard = document.getElementById('quote-flip-card');
-      const flipBtn = document.getElementById('flip-quote-btn');
-      const newQuoteBtn = document.getElementById('new-quote-btn');
-
-      const quotesFront = [
-        "🌸 Você é mais forte do que imagina.",
-        "🌱 Cada dia é uma nova chance.",
-        "💪 Respeito é a base de tudo.",
-        "✨ Você merece ser feliz.",
-        "🌈 A esperança é o que nos move.",
-        "🌻 Sorrir também é um ato de coragem."
-      ];
-      const quotesBack = [
-        "🌈 Pedir ajuda é um ato de coragem.",
-        "💙 Você não está sozinho.",
-        "🌟 Seu valor não depende de ninguém.",
-        "🌊 As dificuldades passam, você fica.",
-        "🍀 Acredite no seu potencial.",
-        "🌺 Acolher é transformar."
-      ];
-
-      let currentFront = 0, currentBack = 0;
-
-      flipBtn.addEventListener('click', () => {
-        flipCard.classList.toggle('is-flipping');
-      });
-
-      newQuoteBtn.addEventListener('click', () => {
-        // muda as frases
-        const frontEl = flipCard.querySelector('.face-front .quote-text');
-        const backEl = flipCard.querySelector('.face-back .quote-text');
-        currentFront = (currentFront + 1) % quotesFront.length;
-        currentBack = (currentBack + 1) % quotesBack.length;
-        frontEl.textContent = quotesFront[currentFront];
-        backEl.textContent = quotesBack[currentBack];
-        // se estiver virado, desvira
-        if (flipCard.classList.contains('is-flipping')) {
-          flipCard.classList.remove('is-flipping');
-        }
-        // pequeno efeito
-        flipCard.style.transition = 'none';
-        flipCard.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          flipCard.style.transition = 'transform 0.4s ease';
-          flipCard.style.transform = 'scale(1)';
-        }, 50);
-      });
-
-      // ---------- QUIZ ----------
-      const quizData = [
-        {
-          question: "O que é bullying?",
-          options: ["Brincadeira saudável", "Atos repetidos de intimidação", "Uma forma de elogio", "Competição esportiva"],
-          correct: 1,
-          explanation: "Bullying é um comportamento agressivo e repetitivo que causa sofrimento."
-        },
-        {
-          question: "Como podemos ajudar alguém que está sofrendo bullying?",
-          options: ["Ignorar", "Apoiar e incentivar a procurar ajuda", "Participar também", "Fazer piadas"],
-          correct: 1,
-          explanation: "Apoiar e ouvir é fundamental. Incentive a pessoa a falar com um adulto."
-        },
-        {
-          question: "O que é empatia?",
-          options: ["Sentir pena", "Se colocar no lugar do outro", "Ser indiferente", "Ter razão sempre"],
-          correct: 1,
-          explanation: "Empatia é a capacidade de compreender os sentimentos do outro."
-        },
-        {
-          question: "Qual atitude NÃO é respeitosa?",
-          options: ["Ouvir com atenção", "Respeitar diferenças", "Zombar da aparência", "Pedir desculpas"],
-          correct: 2,
-          explanation: "Zombar ou desrespeitar a aparência de alguém é uma atitude prejudicial."
-        },
-        {
-          question: "Se alguém te conta um problema, o melhor a fazer é:",
-          options: ["Dizer que não se importa", "Contar para todos", "Ouvir e acolher", "Fazer pouco caso"],
-          correct: 2,
-          explanation: "Ouvir com atenção e acolher é a melhor forma de apoiar."
-        }
-      ];
-
-      let currentQ = 0, score = 0, answered = false;
-      const quizCard = document.getElementById('quiz-card');
-      const resultDiv = document.getElementById('quiz-result');
-      const questionEl = document.getElementById('quiz-question');
-      const optionsEl = document.getElementById('quiz-options');
-      const feedbackEl = document.getElementById('quiz-feedback');
-      const nextBtn = document.getElementById('quiz-next');
-      const progressLabel = document.getElementById('quiz-progress-label');
-      const progressFill = document.getElementById('quiz-progress-fill');
-      const scoreEl = document.getElementById('quiz-score');
-      const resultMsg = document.getElementById('quiz-result-message');
-      const badgeTitle = document.getElementById('quiz-badge-title');
-      const badgeIcon = document.getElementById('quiz-badge');
-
-      function loadQuiz() {
-        const q = quizData[currentQ];
-        questionEl.textContent = q.question;
-        optionsEl.innerHTML = '';
-        q.options.forEach((opt, idx) => {
-          const btn = document.createElement('button');
-          btn.className = 'quiz-option';
-          btn.innerHTML = `<span class="option-letter">${String.fromCharCode(65 + idx)}</span> ${opt}`;
-          btn.dataset.index = idx;
-          btn.addEventListener('click', () => selectOption(idx));
-          optionsEl.appendChild(btn);
-        });
-        feedbackEl.classList.remove
+          <button id="quiz-next" class="btn btn-primary" disabled
