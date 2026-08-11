@@ -1006,64 +1006,91 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function getBotResponse(userText) {
-            if (!currentChar) return "Selecione um personagem em 'Personagens' para conversar.";
+      function getBotResponse(userText) {
+    if (!currentChar) return "Selecione um personagem em 'Personagens' para conversar.";
 
-            const text = userText.toLowerCase();
-            const respostas = currentChar.respostas;
+    const text = userText.toLowerCase();
+    const respostas = currentChar.respostas;
 
-            if (text.includes('olá') || text.includes('oi') || text.includes('ola') || text.includes('hey') || text.includes('eai')) {
-                return getRandom(respostas.ola);
-            }
-            if (text.includes('bully') || text.includes('zoação') || text.includes('zoeira') || text.includes('humilha') || text.includes('agressão')) {
-                return getRandom(respostas.bullying);
-            }
-            if (text.includes('cyber') || text.includes('online') || text.includes('internet') || text.includes('rede social') || text.includes('instagram') || text.includes('whatsapp') || text.includes('facebook') || text.includes('tiktok')) {
-                return getRandom(respostas.cyberbullying);
-            }
-            if (text.includes('xing') || text.includes('ofend') || text.includes('insult') || text.includes('palavra') || text.includes('chamou de')) {
-                return getRandom(respostas.xingamento);
-            }
-            if (text.includes('amea') || text.includes('matar') || text.includes('morte') || text.includes('agredir') || text.includes('bater')) {
-                return getRandom(respostas.ameaca);
-            }
-            if (text.includes('exclu') || text.includes('ignorar') || text.includes('deixar de fora') || text.includes('não me querem') || text.includes('sozinho')) {
-                return getRandom(respostas.exclusao);
-            }
-            if (text.includes('ajuda') || text.includes('apoio') || text.includes('conversar') || text.includes('ligar') || text.includes('188') || text.includes('psicólogo') || text.includes('psicologa')) {
-                return getRandom(respostas.ajuda);
-            }
-            if (text.includes('triste') || text.includes('chorar') || text.includes('infeliz') || text.includes('desanimado')) {
-                return getRandom(respostas.triste);
-            }
-            if (text.includes('medo') || text.includes('assustado') || text.includes('ameaçado')) {
-                return getRandom(respostas.medo);
-            }
-            if (text.includes('escola') || text.includes('aula') || text.includes('professor') || text.includes('colega')) {
-                return getRandom(respostas.escola);
-            }
-            if (text.includes('amigo') || text.includes('amizade') || text.includes('galera')) {
-                return getRandom(respostas.amigo);
-            }
-            if (text.includes('familia') || text.includes('família') || text.includes('pai') || text.includes('mãe') || text.includes('irmao') || text.includes('irmã')) {
-                return getRandom(respostas.familia);
-            }
-            if (text.includes('suicid') || text.includes('morrer') || text.includes('acabar com tudo') || text.includes('desistir de tudo')) {
-                return getRandom(respostas.suicidio);
-            }
-            if (text.includes('ansiedade') || text.includes('ansioso') || text.includes('nervoso') || text.includes('taquicardia')) {
-                return getRandom(respostas.ansiedade);
-            }
-            if (text.includes('depressao') || text.includes('depressão') || text.includes('deprimido') || text.includes('vazio')) {
-                return getRandom(respostas.depressao);
-            }
+    // SAUDAÇÕES
+    if (text.includes('olá') || text.includes('oi') || text.includes('ola') || text.includes('hey') || text.includes('eai') || text.includes('e aí') || text.includes('bom dia') || text.includes('boa tarde') || text.includes('boa noite') || text.includes('salve') || text.includes('fala') || text.includes('opa')) {
+        return getRandom(respostas.ola);
+    }
 
-            return getRandom(respostas.generico);
-        }
+    // BULLYING
+    if (text.includes('bully') || text.includes('zoação') || text.includes('zoeira') || text.includes('humilha') || text.includes('agressão') || text.includes('agredir') || text.includes('bateram') || text.includes('empurraram') || text.includes('bater') || text.includes('me agrediram') || text.includes('me humilham') || text.includes('me zoam') || text.includes('me xingam') || text.includes('me ofendem') || text.includes('me excluem') || text.includes('me ignoram') || text.includes('me deixam de fora') || text.includes('me isolam') || text.includes('me perseguem') || text.includes('me ameaçam') || text.includes('me assediam') || text.includes('me assediaram') || text.includes('me batem') || text.includes('me empurram') || text.includes('me derrubaram') || text.includes('me chamam de') || text.includes('me apelidam') || text.includes('me gozam') || text.includes('me ridicularizam') || text.includes('me diminuem') || text.includes('me menosprezam') || text.includes('me desrespeitam') || text.includes('me tratam mal') || text.includes('me odeiam') || text.includes('me odeiam na escola') || text.includes('me odeiam no grupo') || text.includes('me odeiam na turma')) {
+        return getRandom(respostas.bullying);
+    }
 
-        function getRandom(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
+    // CYBERBULLYING
+    if (text.includes('cyber') || text.includes('online') || text.includes('internet') || text.includes('rede social') || text.includes('instagram') || text.includes('whatsapp') || text.includes('facebook') || text.includes('tiktok') || text.includes('twitter') || text.includes('x') || text.includes('snapchat') || text.includes('telegram') || text.includes('discord') || text.includes('jogo online') || text.includes('jogos online') || text.includes('game') || text.includes('games') || text.includes('mensagem') || text.includes('mensagens') || text.includes('print') || text.includes('prints') || text.includes('foto') || text.includes 'fotos') || text.includes('vídeo') || text.includes('vídeos') || text.includes('áudio') || text.includes('áudios') || text.includes('grupo') || text.includes('grupos') || text.includes('canal') || text.includes('canais') || text.includes('perfil') || text.includes('perfis') || text.includes('comentário') || text.includes('comentários') || text.includes('post') || text.includes('posts') || text.includes('story') || text.includes('stories') || text.includes('reels') || text.includes('live') || text.includes('lives')) {
+        return getRandom(respostas.cyberbullying);
+    }
+
+    // XINGAMENTO / OFENSA
+    if (text.includes('xing') || text.includes('ofend') || text.includes('insult') || text.includes('palavra') || text.includes('chamou de') || text.includes('me chamaram') || text.includes('me chamam') || text.includes('me xingaram') || text.includes('me xingam') || text.includes('me ofenderam') || text.includes('me ofendem') || text.includes('me insultaram') || text.includes('me insultam') || text.includes('me apelidaram') || text.includes('me apelidam') || text.includes('me gozaram') || text.includes('me gozam') || text.includes('me ridicularizaram') || text.includes('me ridicularizam') || text.includes('me diminuíram') || text.includes('me diminuem') || text.includes('me menosprezaram') || text.includes('me menosprezam') || text.includes('me desrespeitaram') || text.includes('me desrespeitam')) {
+        return getRandom(respostas.xingamento);
+    }
+
+    // AMEAÇA
+    if (text.includes('amea') || text.includes('matar') || text.includes('morte') || text.includes('agredir') || text.includes('bater') || text.includes('quebrar') || text.includes('quebraram') || text.includes('machucar') || text.includes('machucaram') || text.includes('ferir') || text.includes('feriram') || text.includes('dano') || text.includes('danos') || text.includes('processar') || text.includes('processo') || text.includes('denunciar') || text.includes('denúncia') || text.includes('boletim') || text.includes('ocorrência') || text.includes('delegacia') || text.includes('polícia') || text.includes('polícia') || text.includes('ameaçaram') || text.includes('ameaçam') || text.includes('vão me matar') || text.includes('vão me bater') || text.includes('vão me agredir') || text.includes('vão me machucar')) {
+        return getRandom(respostas.ameaca);
+    }
+
+    // EXCLUSÃO / ISOLAMENTO
+    if (text.includes('exclu') || text.includes('ignorar') || text.includes('deixar de fora') || text.includes('não me querem') || text.includes('sozinho') || text.includes('sozinha') || text.includes('isolado') || text.includes('isolada') || text.includes('sem amigos') || text.includes('sem amigo') || text.includes('sem amiga') || text.includes('ninguém me quer') || text.includes('ninguém gosta de mim') || text.includes('ninguém me inclui') || text.includes('ninguém me chama') || text.includes('ninguém me convida') || text.includes('me deixaram de fora') || text.includes('me deixam de fora') || text.includes('me isolaram') || text.includes('me isolam') || text.includes('me excluíram') || text.includes('me excluem')) {
+        return getRandom(respostas.exclusao);
+    }
+
+    // PEDIDO DE AJUDA / APOIO
+    if (text.includes('ajuda') || text.includes('apoio') || text.includes('conversar') || text.includes('ligar') || text.includes('188') || text.includes('psicólogo') || text.includes('psicologa') || text.includes('psicóloga') || text.includes('psiquiatra') || text.includes('terapeuta') || text.includes('terapia') || text.includes('aconselhamento') || text.includes('orientação') || text.includes('orientador') || text.includes('orientadora') || text.includes('professor') || text.includes('professora') || text.includes('coordenador') || text.includes('coordenadora') || text.includes('diretor') || text.includes('diretora') || text.includes('mãe') || text.includes('pai') || text.includes('responsável') || text.includes('adulto') || text.includes('adultos') || text.includes('cvv') || text.includes('centro de valorização') || text.includes('ligue 188') || text.includes('preciso de ajuda') || text.includes('quero ajuda') || text.includes('me ajude') || text.includes('me ajuda') || text.includes('não sei o que fazer') || text.includes('não sei o que faço') || text.includes('me oriente') || text.includes('me orientem')) {
+        return getRandom(respostas.ajuda);
+    }
+
+    // TRISTEZA / DESÂNIMO
+    if (text.includes('triste') || text.includes('chorar') || text.includes('infeliz') || text.includes('desanimado') || text.includes('desanimada') || text.includes('pra baixo') || text.includes('para baixo') || text.includes('cansado') || text.includes('cansada') || text.includes('exausto') || text.includes('exausta') || text.includes('sem vontade') || text.includes('sem ânimo') || text.includes('sem energia') || text.includes('desesperado') || text.includes('desesperada') || text.includes('angustiado') || text.includes('angustiada') || text.includes('sobrecarregado') || text.includes('sobrecarregada') || text.includes('overwhelmed') || text.includes('overwhelmed')) {
+        return getRandom(respostas.triste);
+    }
+
+    // MEDO / ASSUSTO
+    if (text.includes('medo') || text.includes('assustado') || text.includes('assustada') || text.includes('ameaçado') || text.includes('ameaçada') || text.includes('com medo') || text.includes('tremendo') || text.includes('tremendo de medo') || text.includes('apavorado') || text.includes('apavorada') || text.includes('nervoso') || text.includes('nervosa') || text.includes('ansioso') || text.includes('ansiosa') || text.includes('preocupado') || text.includes('preocupada') || text.includes('inseguro') || text.includes('insegura') || text.includes('insegurança') || text.includes('pânico') || text.includes('crise') || text.includes('crise de ansiedade') || text.includes('taquicardia') || text.includes('coração acelerado') || text.includes('suando') || text.includes('suando frio')) {
+        return getRandom(respostas.medo);
+    }
+
+    // ESCOLA / AULA / PROFESSOR / COLEGA
+    if (text.includes('escola') || text.includes('aula') || text.includes('professor') || text.includes('professora') || text.includes('colega') || text.includes('turma') || text.includes('classe') || text.includes('recreio') || text.includes('intervalo') || text.includes('pátio') || text.includes('corredor') || text.includes('banheiro') || text.includes('cantina') || text.includes('biblioteca') || text.includes('laboratório') || text.includes('quadra') || text.includes('ginásio') || text.includes('vestibular') || text.includes('prova') || text.includes('provas') || text.includes('trabalho') || text.includes('trabalhos') || text.includes('apresentação') || text.includes('apresentações') || text.includes('seminário') || text.includes('seminários') || text.includes('feira') || text.includes('feira de ciências') || text.includes('feira cultural')) {
+        return getRandom(respostas.escola);
+    }
+
+    // AMIGO / AMIZADE / GALERA
+    if (text.includes('amigo') || text.includes('amizade') || text.includes('galera') || text.includes('grupo') || text.includes 'grupos') || text.includes('panelinha') || text.includes('clique') || text.includes('turma') || text.includes('pessoal') || text.includes('pessoas') || text.includes('colegas') || text.includes('colega') || text.includes('amiga') || text.includes('amigas') || text.includes('amigos') || text.includes('melhor amigo') || text.includes('melhor amiga') || text.includes('amigo próximo') || text.includes('amiga próxima') || text.includes('amigo de verdade') || text.includes('amiga de verdade') || text.includes('amizade verdadeira') || text.includes('amizades verdadeiras')) {
+        return getRandom(respostas.amigo);
+    }
+
+    // FAMÍLIA / PAI / MÃE / IRMÃO / IRMÃ
+    if (text.includes('familia') || text.includes('família') || text.includes('pai') || text.includes('mãe') || text.includes('irmao') || text.includes('irmão') || text.includes('irmã') || text.includes('irmãos') || text.includes('irmãs') || text.includes('avó') || text.includes('avo') || text.includes('avô') || text.includes('avo') || text.includes('tios') || text.includes('tia') || text.includes('tio') || text.includes('primos') || text.includes('prima') || text.includes('primo') || text.includes('parentes') || text.includes('parente') || text.includes('casa') || text.includes('lar') || text.includes('meu pai') || text.includes('minha mãe') || text.includes('meu irmão') || text.includes('minha irmã') || text.includes('meus pais') || text.includes('meus irmãos') || text.includes('minhas irmãs')) {
+        return getRandom(respostas.familia);
+    }
+
+    // SUICÍDIO / MORRER / DESISTIR
+    if (text.includes('suicid') || text.includes('morrer') || text.includes('acabar com tudo') || text.includes('desistir de tudo') || text.includes('não quero mais viver') || text.includes('não quero mais existir') || text.includes('quero sumir') || text.includes 'quero desaparecer') || text.includes('quero me matar') || text.includes('pensando em me matar') || text.includes('pensando em suicídio') || text.includes('pensando em suicidio') || text.includes('ideia de suicídio') || text.includes('ideia de suicidio') || text.includes('plano de suicídio') || text.includes('plano de suicidio') || text.includes('já tentei') || text.includes('já tentei me matar') || text.includes('corte') || text.includes('cortes') || text.includes('me cortar') || text.includes('me machucar') || text.includes('autolesão') || text.includes('auto lesão') || text.includes('me machuco') || text.includes('me machuquei')) {
+        return getRandom(respostas.suicidio);
+    }
+
+    // ANSIEDADE / NERVOSISMO
+    if (text.includes('ansiedade') || text.includes('ansioso') || text.includes('ansiosa') || text.includes('nervoso') || text.includes('nervosa') || text.includes('taquicardia') || text.includes('coração acelerado') || text.includes('coração disparado') || text.includes('falta de ar') || text.includes('respiração curta') || text.includes('suando') || text.includes 'suando frio') || text.includes('tremendo') || text.includes('tremedeira') || text.includes('aperto no peito') || text.includes 'aperto no coração') || text.includes('medo excessivo') || text.includes('preocupação excessiva') || text.includes('pensamentos acelerados') || text.includes('não consigo parar de pensar') || text.includes 'não durmo') || text.includes('insônia') || text.includes('dormindo mal') || text.includes('acordando cansado') || text.includes('cansaço mental') || text.includes('cansaço emocional')) {
+        return getRandom(respostas.ansiedade);
+    }
+
+    // DEPRESSÃO / VAZIO / DESÂNIMO PROFUNDO
+    if (text.includes('depressao') || text.includes('depressão') || text.includes('deprimido') || text.includes('deprimida') || text.includes('vazio') || text.includes 'vazia') || text.includes('sem sentido') || text.includes('sem propósito') || text.includes('sem graça') || text.includes('sem vontade') || text.includes('sem ânimo') || text.includes('sem energia') || text.includes('sem forças') || text.includes('desesperança') || text.includes('desesperançado') || text.includes('desesperançada') || text.includes('tristeza profunda') || text.includes('choro fácil') || text.includes 'choro o tempo todo') || text.includes('isolamento') || text.includes('isolado') || text.includes('isolada') || text.includes('não consigo sair') || text.includes('não consigo levantar') || text.includes('não consigo fazer nada') || text.includes('não consigo estudar') || text.includes('não consigo trabalhar') || text.includes('não consigo comer') || text.includes('não consigo dormir')) {
+        return getRandom(respostas.depressao);
+    }
+
+    // RESPOSTA GENÉRICA
+    return getRandom(respostas.generico);
+}
+
 
         sendBtn.addEventListener('click', () => {
             const text = chatInput.value.trim();
@@ -1095,6 +1122,8 @@
             { text: "O único limite para o nosso amanhã são nossas dúvidas de hoje.", author: "Franklin D. Roosevelt", emoji: "☀️" },
             { text: "Com grandes poderes vêm grandes responsabilidades.", author: "Homem-Aranha", emoji: "🕷️" },
             { text: "Nunca desista! É esse o meu lema!", author: "Naruto Uzumaki", emoji: "🍥" }
+            { text:  "Se você não gosta do seu destino, não o aceite. Em vez disso, tenha a coragem para transformá-lo naquilo que você quer que ele seja.", author: "Naruto Uzumaki" , emoji: "🍥"}
+            { twxt: "Somente aqueles que sofreram por muito tempo conseguem ver luz através das sombras." , author:  "Roronoa Zoro" , emoji:"⚔️"}
         ];
 
         function showRandomQuote() {
