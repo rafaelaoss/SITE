@@ -583,46 +583,96 @@
             }
         ];
 
-        const charactersData = {
+        // RESPOSTAS DO CHAT (INTELIGENTES)
+        const chatResponses = {
             mikasa: {
                 name: "Mikasa Ackerman",
                 anime: "Attack on Titan",
                 image: "https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png",
-                responses: {
-                    default: [
-                        "Se alguém está te machucando, isso não é normal. Você merece respeito.",
-                        "Bullying não é brincadeira. É agressão. Procure ajuda de um adulto de confiança.",
-                        "Você não está sozinho(a). Converse com alguém que você confia.",
-                        "Nunca responda violência com violência. Denuncie e se proteja.",
-                        "Cyberbullying também é bullying. Prints são provas. Não apague.",
-                        "Seus sentimentos são importantes. Não minimize o que você sente.",
-                        "Se proteja: bloqueie, denuncie e peça ajuda.",
-                        "Você é forte. Mas não precisa carregar isso sozinho(a)."
+                respostas: {
+                    ola: ["Olá! Como posso te ajudar hoje?", "Oi! Estou aqui para ouvir você.", "Olá! Em que posso ser útil?"],
+                    bullying: [
+                        "Bullying é sério. Você não merece ser tratado assim.",
+                        "Isso é bullying. Converse com um adulto de confiança.",
+                        "Bullying não é normal. Denuncie e se proteja."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying também é bullying. Salve prints e denuncie.",
+                        "O que acontece online também machuca. Peça ajuda.",
+                        "Cyberbullying é crime. Denuncie nas plataformas e para um adulto."
                     ],
                     xingamento: [
-                        "Te xingar não define quem você é. Isso diz mais sobre quem ofende do que sobre você.",
-                        "Palavras podem doer, mas não precisam te destruir. Você é mais forte que isso.",
-                        "Ninguém merece ser xingado. Isso é bullying. Converse com um adulto."
+                        "Te xingar não define quem você é. Isso é bullying.",
+                        "Palavras podem doer, mas não precisam te destruir.",
+                        "Ninguém merece ser xingado. Converse com alguém."
                     ],
                     ameaca: [
-                        "Ameaças são sérias. Não ignore. Salve prints e conte para um responsável.",
-                        "Ameaçar alguém é errado e pode ser crime. Denuncie e se proteja.",
-                        "Você não precisa lidar com ameaças sozinho(a). Peça ajuda agora."
+                        "Ameaças são sérias. Não ignore. Denuncie.",
+                        "Ameaçar é errado. Salve provas e conte a um adulto.",
+                        "Ameaças online ou presencialmente são crime. Denuncie."
                     ],
                     exclusao: [
                         "Ser excluído dói, mas não significa que há algo errado com você.",
-                        "Amizades verdadeiras te valorizam, não te excluem. Você merece respeito.",
-                        "Se estão te excluindo, isso é bullying. Converse com alguém de confiança."
+                        "Amizades verdadeiras te valorizam, não te excluem.",
+                        "Exclusão é uma forma de bullying. Não se culpe."
                     ],
                     redeSocial: [
-                        "O que acontece online também machuca. Cyberbullying é sério.",
-                        "Não responda ofensas online. Bloqueie, denuncie e salve as provas.",
-                        "Redes sociais podem ser tóxicas. Cuide de você e peça ajuda."
+                        "Redes sociais podem ser tóxicas. Cuide de você.",
+                        "Não responda ofensas online. Bloqueie e denuncie.",
+                        "O virtual também é real. Cyberbullying machuca."
                     ],
                     ajuda: [
-                        "Pedir ajuda não é fraqueza, é coragem. Você está fazendo a coisa certa.",
-                        "Existem pessoas que querem te ajudar. Converse com um adulto de confiança.",
-                        "Você não está sozinho(a). Há apoio disponível. Ligue 188 se precisar."
+                        "Pedir ajuda é coragem. Você está fazendo a coisa certa.",
+                        "Existem pessoas que querem te ajudar. Converse com um adulto.",
+                        "Se precisar, ligue 188. Há quem queira te ouvir."
+                    ],
+                    triste: [
+                        "Sinto muito que esteja assim. Você merece cuidado.",
+                        "É válido se sentir assim. Não se isole. Busque apoio.",
+                        "Você não está sozinho. Há quem queira te ouvir."
+                    ],
+                    medo: [
+                        "Ter medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Medo de agressores é compreensível. Denuncie e se proteja.",
+                        "Você merece se sentir seguro. Busque ajuda."
+                    ],
+                    escola: [
+                        "Escola deve ser lugar seguro. Se não está, conte a um professor.",
+                        "Problemas na escola são sérios. Converse com orientadores.",
+                        "Você merece estudar em paz. Denuncie o bullying."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te apoiam, não te machucam.",
+                        "Se um 'amigo' te fere, isso não é amizade.",
+                        "Você merece amigos que te valorizam."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não está, busque outro adulto de confiança.",
+                        "Problemas em casa são difíceis. Há apoio disponível.",
+                        "Você merece cuidado e respeito, em casa e fora."
+                    ],
+                    suicidio: [
+                        "Sinto muito que esteja pensando nisso. Você é importante.",
+                        "Isso é muito sério. Ligue 188 agora. Há quem queira te ouvir.",
+                        "Você não está sozinho. Por favor, busque ajuda profissional."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real e merece cuidado. Busque apoio.",
+                        "Sentir ansiedade é comum, mas você não precisa carregar sozinho.",
+                        "Um psicólogo pode te ajudar muito. Considere buscar."
+                    ],
+                    depressao: [
+                        "Depressão é doença, não fraqueza. Busque ajuda profissional.",
+                        "Você não está sozinho. Há tratamento e apoio.",
+                        "Um psicólogo ou psiquiatra pode te ajudar muito."
+                    ],
+                    generico: [
+                        "Entendo. Isso pode ser muito difícil. Você já conversou com alguém?",
+                        "Sinto muito. Você merece respeito e cuidado.",
+                        "Isso não é justo. Que tal buscar apoio de um adulto?",
+                        "Você não está sozinho. Há pessoas que querem te ajudar.",
+                        "Seus sentimentos são válidos. Cuide de você.",
+                        "Se precisar, ligue 188. Há quem queira te ouvir."
                     ]
                 }
             },
@@ -630,41 +680,89 @@
                 name: "Batman",
                 anime: "DC Comics",
                 image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
-                responses: {
-                    default: [
-                        "Fazer o que é certo nem sempre é fácil, mas é necessário.",
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
                         "Bullying é covardia. Heróis protegem, não humilham.",
-                        "Se você está sofrendo, não se cale. Denuncie.",
-                        "Cyberbullying deixa rastros. Salve as provas e peça ajuda.",
-                        "Você não merece ser tratado assim. Ninguém merece.",
-                        "Converse com um adulto de confiança. Isso é sério.",
-                        "Não responda com ódio. Denuncie e se afaste.",
-                        "Você é mais forte do que imagina. Mas peça ajuda."
+                        "Isso é bullying. Denuncie e se proteja.",
+                        "Bullying não é brincadeira. É agressão."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying deixa rastros. Salve provas e denuncie.",
+                        "Online também é vida real. Cyberbullying é sério.",
+                        "Cyberbullying é crime. Denuncie."
                     ],
                     xingamento: [
-                        "Ofensas não definem seu valor. Você é mais que palavras maldosas.",
-                        "Heróis enfrentam vilões, mas também enfrentam palavras duras. Você consegue.",
-                        "Xingamentos são armas dos fracos. Denuncie e siga em frente."
+                        "Ofensas não definem seu valor. Você é mais que isso.",
+                        "Xingamentos são armas dos fracos. Denuncie.",
+                        "Palavras podem ferir, mas não apagam seu brilho."
                     ],
                     ameaca: [
-                        "Ameaças são coisa séria. Não ignore. Denuncie e se proteja.",
-                        "Vilões ameaçam, heróis agem. Conte a um adulto e tome providências.",
-                        "Ameaças online ou presencialmente são crime. Salve provas e denuncie."
+                        "Ameaças são sérias. Não ignore. Denuncie.",
+                        "Ameaçar é crime. Salve provas e conte a um adulto.",
+                        "Vilões ameaçam, heróis agem. Denuncie."
                     ],
                     exclusao: [
-                        "Ser deixado de fora dói, mas não diminui seu valor.",
-                        "Grupos que excluem não merecem você. Você merece respeito.",
-                        "Exclusão é uma forma de bullying. Não se culpe. Peça ajuda."
+                        "Ser excluído não diminui seu valor.",
+                        "Grupos que excluem não merecem você.",
+                        "Exclusão é bullying. Não se culpe."
                     ],
                     redeSocial: [
-                        "Online também é vida real. Cyberbullying machuca de verdade.",
-                        "Não alimente trolls. Bloqueie, denuncie e proteja sua paz.",
-                        "Redes sociais não devem ser campo de batalha. Cuide de você."
+                        "Redes sociais não devem ser campo de batalha.",
+                        "Não alimente trolls. Bloqueie e denuncie.",
+                        "Cuide de você online. Sua paz importa."
                     ],
                     ajuda: [
                         "Pedir ajuda é ato de coragem. Heróis também pedem apoio.",
-                        "Você não está sozinho. Existem pessoas prontas para ajudar.",
-                        "Se precisar, ligue 188. Há quem queira te ouvir."
+                        "Você não está sozinho. Há quem queira ajudar.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim. Busque apoio.",
+                        "Você não está sozinho."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie ameaças.",
+                        "Você merece se sentir seguro."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Se não está, denuncie.",
+                        "Problemas na escola são sérios. Converse com professores.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te apoiam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te valoriza."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não está, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188 agora.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento. Você não está sozinho.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio. Você não está sozinho.",
+                        "Seus sentimentos são válidos.",
+                        "Se precisar, ligue 188."
                     ]
                 }
             },
@@ -672,41 +770,89 @@
                 name: "Superman",
                 anime: "DC Comics",
                 image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png",
-                responses: {
-                    default: [
-                        "Ser herói é defender quem precisa. Você merece ser defendido.",
-                        "Bullying não é brincadeira. É abuso.",
-                        "Não tenha medo de pedir ajuda. Isso é coragem.",
-                        "Cyberbullying é crime. Denuncie nas plataformas e para um adulto.",
-                        "Você tem valor. Não deixe ninguém te diminuir.",
-                        "Salve prints, bloqueie agressores e procure apoio.",
-                        "Ninguém deveria passar por isso sozinho.",
-                        "Você é importante. Sua vida importa."
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
+                        "Bullying é abuso. Você merece ser defendido.",
+                        "Isso é sério. Denuncie e se proteja.",
+                        "Bullying não é brincadeira."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying é crime. Denuncie.",
+                        "Online também machuca. Proteja-se.",
+                        "Salve provas e denuncie."
                     ],
                     xingamento: [
-                        "Palavras podem ferir, mas não apagam seu brilho interior.",
-                        "Você é valioso, independentemente do que dizem por aí.",
-                        "Ofensas são sombras. Você é luz. Não deixe que te apaguem."
+                        "Palavras não apagam seu brilho.",
+                        "Você é valioso, independentemente do que dizem.",
+                        "Ofensas são sombras. Você é luz."
                     ],
                     ameaca: [
-                        "Ameaças não podem ser ignoradas. Denuncie e se proteja.",
-                        "Heróis protegem os outros, mas também se protegem. Faça o mesmo.",
-                        "Ameaças são sérias. Converse com um adulto agora."
+                        "Ameaças são sérias. Denuncie.",
+                        "Heróis se protegem. Faça o mesmo.",
+                        "Ameaçar é crime. Conte a um adulto."
                     ],
                     exclusao: [
-                        "Ser excluído não significa que você não é bom o suficiente.",
-                        "Você merece estar onde é valorizado, não tolerado.",
-                        "Exclusão é uma forma de violência. Não se culpe. Busque ajuda."
+                        "Ser excluído não significa que você não é bom.",
+                        "Você merece estar onde é valorizado.",
+                        "Exclusão é violência. Não se culpe."
                     ],
                     redeSocial: [
-                        "O virtual também é real. Cyberbullying deixa marcas.",
-                        "Não enfrente sozinho(a). Bloqueie, denuncie e peça apoio.",
-                        "Sua segurança online é importante. Cuide-se."
+                        "Redes sociais podem ser tóxicas. Cuide-se.",
+                        "Não enfrente sozinho. Bloqueie e denuncie.",
+                        "Sua segurança online importa."
                     ],
                     ajuda: [
-                        "Pedir ajuda é um superpoder. Use-o.",
-                        "Você merece apoio. Não tenha medo de buscar.",
-                        "Se precisar, ligue 188. Há quem queira te ajudar."
+                        "Pedir ajuda é um superpoder.",
+                        "Você merece apoio. Não tenha medo.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim. Busque apoio.",
+                        "Você não está sozinho."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie.",
+                        "Você merece segurança."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Denuncie problemas.",
+                        "Problemas na escola são sérios.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te valorizam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te apoia."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento. Você não está sozinho.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio. Você não está sozinho.",
+                        "Seus sentimentos são válidos.",
+                        "Se precisar, ligue 188."
                     ]
                 }
             },
@@ -714,41 +860,89 @@
                 name: "Ichigo Kurosaki",
                 anime: "Bleach",
                 image: "https://static.wikia.nocookie.net/bleach/images/7/72/Ichigo_Kurosaki_E91.png",
-                responses: {
-                    default: [
-                        "Se alguém te machuca, isso não é normal. Você merece respeito.",
-                        "Bullying é covardia. Não tenha medo de denunciar.",
-                        "Não carregue isso sozinho. Converse com alguém.",
-                        "Cyberbullying também machuca. Prints são provas.",
-                        "Você não é fraco por pedir ajuda. É forte por se proteger.",
-                        "Bloqueie, denuncie e se afaste de quem te faz mal.",
-                        "Ninguém merece ser humilhado. Você não está errado em se sentir assim.",
-                        "Se proteja. Sua segurança é prioridade."
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
+                        "Bullying é covardia. Denuncie.",
+                        "Isso é sério. Você merece respeito.",
+                        "Bullying não é normal."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying também machuca. Denuncie.",
+                        "Online também é vida real.",
+                        "Salve provas e denuncie."
                     ],
                     xingamento: [
-                        "Te xingar não te define. Você é mais que isso.",
+                        "Te xingar não te define.",
                         "Palavras podem doer, mas não precisam te derrubar.",
-                        "Ofensas dizem mais sobre quem ofende. Não se culpe."
+                        "Ofensas dizem mais sobre quem ofende."
                     ],
                     ameaca: [
-                        "Ameaças são sérias. Não ignore. Denuncie.",
-                        "Não enfrente ameaças sozinho. Peça ajuda.",
-                        "Ameaçar é errado. Proteja-se e conte a alguém."
+                        "Ameaças são sérias. Denuncie.",
+                        "Não enfrente sozinho.",
+                        "Ameaçar é errado."
                     ],
                     exclusao: [
                         "Ser deixado de fora dói, mas não é culpa sua.",
-                        "Você merece estar onde é bem-vindo, não excluído.",
-                        "Exclusão é bullying. Não se isole. Busque apoio."
+                        "Você merece estar onde é bem-vindo.",
+                        "Exclusão é bullying."
                     ],
                     redeSocial: [
-                        "Online também machuca. Cyberbullying é sério.",
+                        "Online também machuca.",
                         "Não responda ofensas. Bloqueie e denuncie.",
-                        "Cuide de você nas redes. Sua paz importa."
+                        "Cuide de você nas redes."
                     ],
                     ajuda: [
-                        "Pedir ajuda é força. Não tenha medo.",
-                        "Você não está sozinho. Há quem queira te apoiar.",
-                        "Se precisar, ligue 188. Você merece cuidado."
+                        "Pedir ajuda é força.",
+                        "Você não está sozinho.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim.",
+                        "Busque apoio."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie.",
+                        "Você merece segurança."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Denuncie.",
+                        "Problemas na escola são sérios.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te apoiam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te valoriza."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio.",
+                        "Seus sentimentos são válidos.",
+                        "Se precisar, ligue 188."
                     ]
                 }
             },
@@ -756,41 +950,89 @@
                 name: "Ken Kaneki",
                 anime: "Tokyo Ghoul",
                 image: "https://static.wikia.nocookie.net/tokyoghoul/images/9/94/Ken_Kaneki_Infobox.png",
-                responses: {
-                    default: [
-                        "A dor que você sente é real. Não ignore.",
-                        "Bullying não é brincadeira. É agressão.",
-                        "Você não precisa aguentar sozinho. Peça ajuda.",
-                        "Cyberbullying deixa marcas. Salve as provas.",
-                        "Não se culpe. A culpa é de quem agride.",
-                        "Converse com um adulto de confiança. Isso é sério.",
-                        "Se proteja: bloqueie, denuncie, se afaste.",
-                        "Você merece ser tratado com respeito. Sempre."
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
+                        "Bullying é agressão. Você merece respeito.",
+                        "Isso é sério. Denuncie.",
+                        "Bullying não é brincadeira."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying deixa marcas. Denuncie.",
+                        "Online também machuca.",
+                        "Salve provas e denuncie."
                     ],
                     xingamento: [
-                        "Ofensas não definem quem você é. Você é mais que isso.",
+                        "Ofensas não definem quem você é.",
                         "Palavras podem ferir, mas não precisam te destruir.",
-                        "Você merece respeito, não xingamentos."
+                        "Você merece respeito."
                     ],
                     ameaca: [
-                        "Ameaças são sérias. Não enfrente sozinho.",
-                        "Denuncie ameaças. Sua segurança importa.",
-                        "Ameaçar é errado. Proteja-se e peça ajuda."
+                        "Ameaças são sérias. Denuncie.",
+                        "Não enfrente sozinho.",
+                        "Ameaçar é errado."
                     ],
                     exclusao: [
                         "Ser excluído dói, mas não é seu defeito.",
-                        "Você merece pertencer, não ser excluído.",
-                        "Exclusão é violência. Não se culpe. Busque apoio."
+                        "Você merece pertencer.",
+                        "Exclusão é violência."
                     ],
                     redeSocial: [
-                        "Cyberbullying machuca de verdade. Não minimize.",
-                        "Bloqueie, denuncie, proteja sua paz online.",
-                        "Redes sociais não devem ser lugar de ódio."
+                        "Cyberbullying machuca de verdade.",
+                        "Bloqueie, denuncie, proteja sua paz.",
+                        "Redes não devem ser lugar de ódio."
                     ],
                     ajuda: [
-                        "Pedir ajuda é ato de coragem. Você está certo em buscar.",
-                        "Você não está sozinho. Há quem queira te ouvir.",
-                        "Se precisar, ligue 188. Você importa."
+                        "Pedir ajuda é coragem.",
+                        "Você não está sozinho.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim.",
+                        "Busque apoio."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie.",
+                        "Você merece segurança."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Denuncie.",
+                        "Problemas na escola são sérios.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te valorizam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te apoia."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio.",
+                        "Seus sentimentos são válidos.",
+                        "Se precisar, ligue 188."
                     ]
                 }
             },
@@ -798,40 +1040,88 @@
                 name: "Roronoa Zoro",
                 anime: "One Piece",
                 image: "https://static.wikia.nocookie.net/onepiece/images/1/12/Zoro_Post_Timeskip_Anime_Infobox.png",
-                responses: {
-                    default: [
-                        "Nada aconteceu. Mantenha o foco e siga em frente.",
-                        "Bullying é coisa de fraco. Você é mais forte que isso.",
-                        "Não deixe que te derrubem. Continue caminhando.",
-                        "Cyberbullying é covardia. Denuncie e se proteja.",
-                        "Você não está sozinho. Converse com alguém de confiança.",
-                        "Ofensas não definem seu caminho. Você define.",
-                        "Se proteja. Sua jornada é importante.",
-                        "Peça ajuda. Isso não te faz fraco."
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
+                        "Bullying é coisa de fraco. Você é mais forte.",
+                        "Isso é sério. Denuncie.",
+                        "Bullying não é normal."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying é covardia. Denuncie.",
+                        "Online também é vida real.",
+                        "Salve provas e denuncie."
                     ],
                     xingamento: [
                         "Xingamentos são como vento. Deixe passar.",
-                        "Palavras não te definem. Suas ações sim.",
-                        "Ofensas são ruído. Foque no que importa."
+                        "Palavras não te definem.",
+                        "Ofensas são ruído."
                     ],
                     ameaca: [
-                        "Ameaças são sérias. Não ignore.",
-                        "Denuncie. Proteja seu caminho.",
-                        "Ameaçar é covardia. Não enfrente sozinho."
+                        "Ameaças são sérias. Denuncie.",
+                        "Não enfrente sozinho.",
+                        "Ameaçar é covardia."
                     ],
                     exclusao: [
                         "Ser excluído não te diminui.",
                         "Você merece estar onde é valorizado.",
-                        "Exclusão é bullying. Não se culpe."
+                        "Exclusão é bullying."
                     ],
                     redeSocial: [
-                        "Online também é vida real. Cyberbullying é sério.",
+                        "Online também machuca.",
                         "Bloqueie, denuncie, siga em frente.",
-                        "Cuide de você. Sua paz importa."
+                        "Cuide de você."
                     ],
                     ajuda: [
-                        "Pedir ajuda é força. Não tenha medo.",
-                        "Você não está sozinho. Há apoio.",
+                        "Pedir ajuda é força.",
+                        "Você não está sozinho.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim.",
+                        "Busque apoio."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie.",
+                        "Você merece segurança."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Denuncie.",
+                        "Problemas na escola são sérios.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te valorizam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te apoia."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio.",
+                        "Seus sentimentos são válidos.",
                         "Se precisar, ligue 188."
                     ]
                 }
@@ -840,40 +1130,88 @@
                 name: "Sasuke Uchiha",
                 anime: "Naruto",
                 image: "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_II.png",
-                responses: {
-                    default: [
-                        "Às vezes, é preciso caminhar sozinho, mas você não precisa carregar tudo.",
-                        "Bullying é fraqueza disfarçada de força. Não se deixe abater.",
-                        "Não deixe que te definam. Você escolhe seu caminho.",
-                        "Cyberbullying é covardia. Denuncie e proteja-se.",
-                        "Você é mais forte do que imagina. Mas peça ajuda se precisar.",
-                        "Ofensas não apagam seu valor. Continue firme.",
-                        "Se proteja. Sua jornada importa.",
-                        "Não se isole. Converse com alguém."
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
+                        "Bullying é fraqueza. Você é mais forte.",
+                        "Isso é sério. Denuncie.",
+                        "Bullying não é normal."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying é covardia. Denuncie.",
+                        "Online também machuca.",
+                        "Salve provas e denuncie."
                     ],
                     xingamento: [
-                        "Palavras não te definem. Suas escolhas sim.",
+                        "Palavras não te definem.",
                         "Ofensas são sombras. Você é luz.",
                         "Xingamentos dizem mais sobre quem ofende."
                     ],
                     ameaca: [
-                        "Ameaças são sérias. Não ignore.",
-                        "Denuncie. Proteja seu caminho.",
-                        "Ameaçar é errado. Não enfrente sozinho."
+                        "Ameaças são sérias. Denuncie.",
+                        "Não enfrente sozinho.",
+                        "Ameaçar é errado."
                     ],
                     exclusao: [
                         "Ser excluído não te diminui.",
                         "Você merece estar onde é valorizado.",
-                        "Exclusão é bullying. Não se culpe."
+                        "Exclusão é bullying."
                     ],
                     redeSocial: [
-                        "Online também machuca. Cyberbullying é sério.",
+                        "Online também machuca.",
                         "Bloqueie, denuncie, proteja sua paz.",
-                        "Cuide de você. Sua jornada importa."
+                        "Cuide de você."
                     ],
                     ajuda: [
                         "Pedir ajuda não é fraqueza. É sabedoria.",
-                        "Você não está sozinho. Há quem queira te apoiar.",
+                        "Você não está sozinho.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim.",
+                        "Busque apoio."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie.",
+                        "Você merece segurança."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Denuncie.",
+                        "Problemas na escola são sérios.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te valorizam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te apoia."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio.",
+                        "Seus sentimentos são válidos.",
                         "Se precisar, ligue 188."
                     ]
                 }
@@ -882,40 +1220,88 @@
                 name: "Reze",
                 anime: "Chainsaw Man",
                 image: "https://static.wikia.nocookie.net/chainsaw-man/images/6/6f/Reze_Anime.png",
-                responses: {
-                    default: [
-                        "Mesmo em meio à escuridão, é possível encontrar luz.",
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?"],
+                    bullying: [
                         "Bullying tenta te apagar, mas você brilha.",
-                        "Não deixe que te transformem em algo que você não é.",
-                        "Cyberbullying é violência. Denuncie e se proteja.",
-                        "Você merece cuidado, respeito e apoio.",
-                        "Ofensas não definem quem você é.",
-                        "Se proteja. Sua vida importa.",
-                        "Peça ajuda. Você não está sozinho."
+                        "Isso é sério. Denuncie.",
+                        "Bullying não é normal."
+                    ],
+                    cyberbullying: [
+                        "Cyberbullying é violência. Denuncie.",
+                        "Online também machuca.",
+                        "Salve provas e denuncie."
                     ],
                     xingamento: [
                         "Palavras podem doer, mas não apagam seu brilho.",
-                        "Você é mais que ofensas. Não se deixe abater.",
-                        "Xingamentos são ruído. Foque em você."
+                        "Você é mais que ofensas.",
+                        "Xingamentos são ruído."
                     ],
                     ameaca: [
-                        "Ameaças são sérias. Não ignore.",
-                        "Denuncie. Proteja sua luz.",
-                        "Ameaçar é errado. Busque apoio."
+                        "Ameaças são sérias. Denuncie.",
+                        "Não enfrente sozinho.",
+                        "Ameaçar é errado."
                     ],
                     exclusao: [
                         "Ser excluído não te diminui.",
-                        "Você merece pertencer, não ser excluído.",
-                        "Exclusão é violência. Não se culpe."
+                        "Você merece pertencer.",
+                        "Exclusão é violência."
                     ],
                     redeSocial: [
-                        "Online também machuca. Cyberbullying é sério.",
+                        "Online também machuca.",
                         "Bloqueie, denuncie, proteja sua paz.",
-                        "Cuide de você. Sua luz importa."
+                        "Cuide de você."
                     ],
                     ajuda: [
-                        "Pedir ajuda é coragem. Você está certo.",
-                        "Você não está sozinho. Há quem queira te ouvir.",
+                        "Pedir ajuda é coragem.",
+                        "Você não está sozinho.",
+                        "Se precisar, ligue 188."
+                    ],
+                    triste: [
+                        "Sinto muito. Você merece cuidado.",
+                        "É válido se sentir assim.",
+                        "Busque apoio."
+                    ],
+                    medo: [
+                        "Medo é normal. Mas você não precisa enfrentar sozinho.",
+                        "Proteja-se. Denuncie.",
+                        "Você merece segurança."
+                    ],
+                    escola: [
+                        "Escola deve ser segura. Denuncie.",
+                        "Problemas na escola são sérios.",
+                        "Você merece estudar em paz."
+                    ],
+                    amigo: [
+                        "Amigos de verdade te valorizam.",
+                        "Se te machucam, não são amigos.",
+                        "Você merece quem te apoia."
+                    ],
+                    familia: [
+                        "Família deve ser porto seguro. Se não, busque outro adulto.",
+                        "Problemas em casa são difíceis. Há apoio.",
+                        "Você merece respeito."
+                    ],
+                    suicidio: [
+                        "Sinto muito. Você é importante.",
+                        "Isso é sério. Ligue 188.",
+                        "Por favor, busque ajuda."
+                    ],
+                    ansiedade: [
+                        "Ansiedade é real. Busque apoio.",
+                        "Você não precisa carregar sozinho.",
+                        "Um psicólogo pode ajudar."
+                    ],
+                    depressao: [
+                        "Depressão é doença. Busque ajuda.",
+                        "Há tratamento.",
+                        "Um profissional pode te ajudar."
+                    ],
+                    generico: [
+                        "Entendo. Isso é difícil. Já conversou com alguém?",
+                        "Sinto muito. Você merece respeito.",
+                        "Busque apoio.",
+                        "Seus sentimentos são válidos.",
                         "Se precisar, ligue 188."
                     ]
                 }
@@ -929,7 +1315,7 @@
             const card = document.createElement('div');
             card.className = 'char-card';
             card.onclick = () => {
-                currentChar = charactersData[char.id];
+                currentChar = chatResponses[char.id];
                 document.getElementById('charName').textContent = currentChar.name;
                 document.getElementById('charAnime').textContent = currentChar.anime;
                 document.getElementById('charImage').src = currentChar.image;
@@ -963,37 +1349,57 @@
             if (!currentChar) return "Selecione um personagem em 'Personagens' para conversar.";
 
             const text = userText.toLowerCase();
-            const responses = currentChar.responses;
+            const respostas = currentChar.respostas;
 
             // Detecta temas
+            if (text.includes('olá') || text.includes('oi') || text.includes('ola') || text.includes('hey') || text.includes('eai')) {
+                return getRandom(respostas.ola);
+            }
+            if (text.includes('bully') || text.includes('zoação') || text.includes('zoeira') || text.includes('humilha') || text.includes('agressão')) {
+                return getRandom(respostas.bullying);
+            }
+            if (text.includes('cyber') || text.includes('online') || text.includes('internet') || text.includes('rede social') || text.includes('instagram') || text.includes('whatsapp') || text.includes('facebook') || text.includes('tiktok')) {
+                return getRandom(respostas.cyberbullying);
+            }
             if (text.includes('xing') || text.includes('ofend') || text.includes('insult') || text.includes('palavra') || text.includes('chamou de')) {
-                return getRandom(responses.xingamento || responses.default);
+                return getRandom(respostas.xingamento);
             }
             if (text.includes('amea') || text.includes('matar') || text.includes('morte') || text.includes('agredir') || text.includes('bater')) {
-                return getRandom(responses.ameaca || responses.default);
+                return getRandom(respostas.ameaca);
             }
             if (text.includes('exclu') || text.includes('ignorar') || text.includes('deixar de fora') || text.includes('não me querem') || text.includes('sozinho')) {
-                return getRandom(responses.exclusao || responses.default);
-            }
-            if (text.includes('rede') || text.includes('instagram') || text.includes('whatsapp') || text.includes('facebook') || text.includes('tiktok') || text.includes('online') || text.includes('internet') || text.includes('cyber')) {
-                return getRandom(responses.redeSocial || responses.default);
+                return getRandom(respostas.exclusao);
             }
             if (text.includes('ajuda') || text.includes('apoio') || text.includes('conversar') || text.includes('ligar') || text.includes('188') || text.includes('psicólogo') || text.includes('psicologa')) {
-                return getRandom(responses.ajuda || responses.default);
+                return getRandom(respostas.ajuda);
+            }
+            if (text.includes('triste') || text.includes('chorar') || text.includes('infeliz') || text.includes('desanimado')) {
+                return getRandom(respostas.triste);
+            }
+            if (text.includes('medo') || text.includes('assustado') || text.includes('ameaçado')) {
+                return getRandom(respostas.medo);
+            }
+            if (text.includes('escola') || text.includes('aula') || text.includes('professor') || text.includes('colega')) {
+                return getRandom(respostas.escola);
+            }
+            if (text.includes('amigo') || text.includes('amizade') || text.includes('galera')) {
+                return getRandom(respostas.amigo);
+            }
+            if (text.includes('familia') || text.includes('família') || text.includes('pai') || text.includes('mãe') || text.includes('irmao') || text.includes('irmã')) {
+                return getRandom(respostas.familia);
+            }
+            if (text.includes('suicid') || text.includes('morrer') || text.includes('acabar com tudo') || text.includes('desistir de tudo')) {
+                return getRandom(respostas.suicidio);
+            }
+            if (text.includes('ansiedade') || text.includes('ansioso') || text.includes('nervoso') || text.includes('taquicardia')) {
+                return getRandom(respostas.ansiedade);
+            }
+            if (text.includes('depressao') || text.includes('depressão') || text.includes('deprimido') || text.includes('vazio')) {
+                return getRandom(respostas.depressao);
             }
 
-            // Respostas genéricas inteligentes
-            const genericas = [
-                "Entendo. Isso pode ser muito difícil. Você já conversou com alguém de confiança sobre isso?",
-                "Sinto muito que esteja passando por isso. Você merece respeito e cuidado.",
-                "Isso não é justo com você. Que tal buscar apoio de um adulto ou amigo?",
-                "Você não está sozinho(a). Há pessoas que querem te ajudar.",
-                "Isso é sério. Não ignore. Denuncie e se proteja.",
-                "Seus sentimentos são válidos. Cuide de você e busque apoio.",
-                "Bullying e cyberbullying são violências. Você não merece isso.",
-                "Se precisar, ligue 188. Há quem queira te ouvir."
-            ];
-            return getRandom(genericas);
+            // Resposta genérica
+            return getRandom(respostas.generico);
         }
 
         function getRandom(arr) {
