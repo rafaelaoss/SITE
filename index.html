@@ -9,2159 +9,470 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --bg: #0f0e1a;
-            --surface: #1a1730;
-            --surface2: #24203f;
-            --text: #f0eef8;
-            --muted: #a8a4c2;
-            --primary: #ff6b6b;
-            --secondary: #6c5ce7;
-            --accent: #00d2d3;
-            --warm: #fdcb6e;
-            --green: #00b894;
-            --shadow: 0 12px 30px rgba(0,0,0,0.5);
-            --radius: 28px;
-            --font: 'Quicksand', sans-serif;
+            --bg: #0f0e1a; --surface: #1a1730; --surface2: #24203f;
+            --text: #f0eef8; --muted: #a8a4c2; --primary: #ff6b6b;
+            --secondary: #6c5ce7; --accent: #00d2d3; --warm: #fdcb6e;
+            --green: #00b894; --shadow: 0 12px 30px rgba(0,0,0,0.5);
+            --radius: 28px; --font: 'Quicksand', sans-serif;
             --font-size-base: 16px;
         }
-
         body.high-contrast {
-            --bg: #000000;
-            --surface: #1a1a1a;
-            --surface2: #2a2a2a;
-            --text: #ffffff;
-            --muted: #e0e0e0;
-            --primary: #ff3333;
-            --secondary: #9933ff;
-            --accent: #00ffff;
-            --warm: #ffcc00;
+            --bg: #000000; --surface: #1a1a1a; --surface2: #2a2a2a;
+            --text: #ffffff; --muted: #e0e0e0; --primary: #ff3333;
+            --secondary: #9933ff; --accent: #00ffff; --warm: #ffcc00;
             --green: #00ff99;
         }
-
         body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font);
-            line-height: 1.6;
-            min-height: 100vh;
+            background: var(--bg); color: var(--text); font-family: var(--font);
+            line-height: 1.6; min-height: 100vh;
             font-size: var(--font-size-base);
-
-            background-image:
-                radial-gradient(
-                    circle at 10% 20%,
-                    rgba(108,92,231,0.08) 0%,
-                    transparent 50%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(255,107,107,0.06) 0%,
-                    transparent 50%
-                );
-
+            background-image: radial-gradient(circle at 10% 20%, rgba(108,92,231,0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 90% 80%, rgba(255,107,107,0.06) 0%, transparent 50%);
             transition: background 0.3s, color 0.3s;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .site-header {
-            background: rgba(15,14,26,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid var(--secondary);
-            position: sticky;
-            top: 0;
-            z-index: 60;
-            padding: 12px 0;
+            background: rgba(15,14,26,0.92); backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--secondary); position: sticky; top: 0; z-index: 60; padding: 12px 0;
         }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
+        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
         .brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            background: linear-gradient(
-                135deg,
-                var(--primary),
-                var(--secondary),
-                var(--accent)
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-weight: 700; font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; gap: 10px;
         }
-
-        .brand i {
-            -webkit-text-fill-color: initial;
-            color: var(--warm);
-            font-size: 1.8rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
+        .brand i { -webkit-text-fill-color: initial; color: var(--warm); font-size: 1.8rem; }
+        .nav-links { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
         .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 20px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
+            color: var(--muted); text-decoration: none; font-weight: 600;
+            padding: 6px 14px; border-radius: 20px; transition: 0.3s;
+            display: flex; align-items: center; gap: 6px; cursor: pointer;
         }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #fff;
-            background: rgba(108,92,231,0.3);
-        }
-
-        .page {
-            display: none;
-            padding: 50px 0;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        .hero {
-            padding: 80px 0 50px;
-            text-align: center;
-        }
-
+        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(108,92,231,0.3); }
+        .page { display: none; padding: 50px 0; }
+        .page.active { display: block; }
+        .hero { padding: 80px 0 50px; text-align: center; }
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
-            background: linear-gradient(
-                145deg,
-                var(--primary),
-                var(--secondary),
-                var(--accent)
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
+            background: linear-gradient(145deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;
         }
-
-        .hero p {
-            color: var(--muted);
-            max-width: 700px;
-            margin: 0 auto 24px;
-            font-size: 1.15rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-        }
-
+        .hero p { color: var(--muted); max-width: 700px; margin: 0 auto 24px; font-size: 1.15rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
         .btn {
-            border: none;
-            border-radius: 60px;
-            padding: 12px 26px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-family: var(--font);
-            font-size: 0.95rem;
+            border: none; border-radius: 60px; padding: 12px 26px; font-weight: 700;
+            cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
+            text-decoration: none; font-family: var(--font); font-size: 0.95rem;
         }
-
-        .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(108,92,231,0.3);
-        }
-
-        .btn-primary {
-            background: linear-gradient(145deg, var(--primary), #e17055);
-            color: #fff;
-        }
-
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--text);
-            border: 2px solid var(--secondary);
-        }
-
-        .btn-accent {
-            background: linear-gradient(145deg, var(--accent), #00a8a8);
-            color: #fff;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .section-sub {
-            color: var(--muted);
-            margin-bottom: 30px;
-        }
-
+        .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 30px rgba(108,92,231,0.3); }
+        .btn-primary { background: linear-gradient(145deg, var(--primary), #e17055); color: #fff; }
+        .btn-secondary { background: var(--surface); color: var(--text); border: 2px solid var(--secondary); }
+        .btn-accent { background: linear-gradient(145deg, var(--accent), #00a8a8); color: #fff; }
+        .section-title { font-size: 2rem; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .section-sub { color: var(--muted); margin-bottom: 30px; }
         .card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(108,92,231,0.15);
-            transition: 0.3s;
+            background: var(--surface); border-radius: var(--radius); padding: 24px;
+            box-shadow: var(--shadow); border: 1px solid rgba(108,92,231,0.15); transition: 0.3s;
         }
-
-        .card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-4px);
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
-        }
-
+        .card:hover { border-color: var(--secondary); transform: translateY(-4px); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
         .info-box {
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            border-left: 4px solid var(--accent);
-            background: var(--surface2);
+            padding: 20px; border-radius: 16px; margin-bottom: 16px;
+            border-left: 4px solid var(--accent); background: var(--surface2);
         }
-
-        .info-box h4 {
-            color: var(--accent);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        .info-box h4 { color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .char-card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 20px;
-            text-align: center;
-            border: 2px solid rgba(108,92,231,0.15);
-            transition: 0.3s;
-            cursor: pointer;
+            background: var(--surface); border-radius: var(--radius); padding: 20px;
+            text-align: center; border: 2px solid rgba(108,92,231,0.15);
+            transition: 0.3s; cursor: pointer;
         }
-
-        .char-card:hover {
-            border-color: var(--primary);
-            transform: scale(1.04) translateY(-4px);
-        }
-
+        .char-card:hover { border-color: var(--primary); transform: scale(1.04) translateY(-4px); }
         .char-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            background: var(--bg);
+            width: 100%; height: 220px; object-fit: cover;
+            border-radius: 16px; margin-bottom: 12px; background: var(--bg);
         }
-
-        .char-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-
-        .char-anime {
-            color: var(--muted);
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-        }
-
+        .char-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+        .char-anime { color: var(--muted); font-size: 0.85rem; margin-bottom: 8px; }
         .char-quote {
-            font-style: italic;
-            color: var(--accent);
-            font-size: 0.9rem;
-            padding: 10px;
-            background: var(--surface2);
-            border-radius: 12px;
+            font-style: italic; color: var(--accent); font-size: 0.9rem;
+            padding: 10px; background: var(--surface2); border-radius: 12px;
         }
-
         .chat-container {
-            background: var(--surface);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(108,92,231,0.15);
-            overflow: hidden;
+            background: var(--surface); border-radius: var(--radius);
+            box-shadow: var(--shadow); border: 1px solid rgba(108,92,231,0.15); overflow: hidden;
         }
-
         .chat-header {
-            padding: 20px;
-            background: var(--surface2);
-            display: flex;
-            align-items: center;
-            gap: 16px;
+            padding: 20px; background: var(--surface2);
+            display: flex; align-items: center; gap: 16px;
             border-bottom: 1px solid rgba(108,92,231,0.15);
         }
-
         .chat-header img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
+            width: 60px; height: 60px; border-radius: 50%;
+            object-fit: cover; border: 2px solid var(--accent);
         }
-
-        .chat-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 4px;
-        }
-
-        .chat-header p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
+        .chat-header h3 { font-size: 1.3rem; margin-bottom: 4px; }
+        .chat-header p { color: var(--muted); font-size: 0.9rem; }
         .chat-messages {
-            height: 400px;
-            overflow-y: auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            height: 400px; overflow-y: auto; padding: 20px;
+            display: flex; flex-direction: column; gap: 12px;
         }
-
         .message {
-            max-width: 80%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            animation: fadeIn 0.3s ease;
+            max-width: 80%; padding: 12px 16px; border-radius: 18px;
+            font-size: 0.95rem; line-height: 1.4; animation: fadeIn 0.3s ease;
         }
-
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .message.bot {
-            background: var(--surface2);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-
+        .message.bot { background: var(--surface2); align-self: flex-start; border-bottom-left-radius: 4px; }
         .message.user {
-            background: linear-gradient(
-                145deg,
-                var(--secondary),
-                var(--accent)
-            );
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
+            background: linear-gradient(145deg, var(--secondary), var(--accent));
+            align-self: flex-end; border-bottom-right-radius: 4px;
         }
-
         .chat-input-area {
-            padding: 16px;
-            background: var(--surface2);
-            border-top: 1px solid rgba(108,92,231,0.15);
-            display: flex;
-            gap: 10px;
+            padding: 16px; background: var(--surface2);
+            border-top: 1px solid rgba(108,92,231,0.15); display: flex; gap: 10px;
         }
-
         .chat-input {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 30px;
-            border: 2px solid rgba(108,92,231,0.3);
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font);
-            font-size: 0.95rem;
-            outline: none;
-            transition: 0.3s;
+            flex: 1; padding: 12px 16px; border-radius: 30px;
+            border: 2px solid rgba(108,92,231,0.3); background: var(--bg);
+            color: var(--text); font-family: var(--font); font-size: 0.95rem;
+            outline: none; transition: 0.3s;
         }
-
-        .chat-input:focus {
-            border-color: var(--accent);
-        }
-
+        .chat-input:focus { border-color: var(--accent); }
         .send-btn {
-            background: linear-gradient(
-                145deg,
-                var(--secondary),
-                var(--accent)
-            );
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 46px;
-            height: 46px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
+            background: linear-gradient(145deg, var(--secondary), var(--accent));
+            color: #fff; border: none; border-radius: 50%;
+            width: 46px; height: 46px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
-
-        .send-btn:hover {
-            transform: scale(1.1);
-        }
-
+        .send-btn:hover { transform: scale(1.1); }
         .quote-card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 40px;
-            text-align: center;
-            border: 1px solid rgba(108,92,231,0.15);
-            box-shadow: var(--shadow);
-            margin-bottom: 24px;
+            background: var(--surface); border-radius: var(--radius); padding: 40px;
+            text-align: center; border: 1px solid rgba(108,92,231,0.15);
+            box-shadow: var(--shadow); margin-bottom: 24px;
         }
-
-        .quote-emoji {
-            font-size: 3.5rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .quote-text {
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .quote-author {
-            color: var(--muted);
-            font-size: 1.1rem;
-        }
-
+        .quote-emoji { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+        .quote-text { font-size: 1.5rem; font-weight: 600; line-height: 1.5; margin-bottom: 16px; color: var(--text); }
+        .quote-author { color: var(--muted); font-size: 1.1rem; }
         .quiz-progress {
-            width: 100%;
-            height: 10px;
-            background: rgba(108,92,231,0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 24px;
+            width: 100%; height: 10px; background: rgba(108,92,231,0.15);
+            border-radius: 20px; overflow: hidden; margin-bottom: 24px;
         }
-
         .quiz-progress-fill {
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                var(--secondary),
-                var(--accent)
-            );
+            height: 100%; background: linear-gradient(90deg, var(--secondary), var(--accent));
             transition: width 0.5s ease;
         }
-
-        .quiz-question {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .quiz-options {
-            display: grid;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
+        .quiz-question { font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; }
+        .quiz-options { display: grid; gap: 12px; margin-bottom: 20px; }
         .quiz-option {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 20px;
-            border-radius: 30px;
-            border: 2px solid rgba(108,92,231,0.2);
-            background: var(--bg);
-            color: var(--text);
-            cursor: pointer;
-            transition: 0.3s;
-            font-weight: 600;
-            width: 100%;
-            text-align: left;
+            display: flex; align-items: center; gap: 12px; padding: 16px 20px;
+            border-radius: 30px; border: 2px solid rgba(108,92,231,0.2);
+            background: var(--bg); color: var(--text); cursor: pointer;
+            transition: 0.3s; font-weight: 600; width: 100%; text-align: left;
         }
-
-        .quiz-option:hover:not(:disabled) {
-            border-color: var(--secondary);
-            transform: translateX(6px);
-        }
-
+        .quiz-option:hover:not(:disabled) { border-color: var(--secondary); transform: translateX(6px); }
         .quiz-option .letter {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: linear-gradient(
-                145deg,
-                var(--secondary),
-                var(--accent)
-            );
-            color: #fff;
-            font-weight: 700;
-            flex-shrink: 0;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: linear-gradient(145deg, var(--secondary), var(--accent));
+            color: #fff; font-weight: 700; flex-shrink: 0;
         }
-
-        .quiz-option.correct {
-            border-color: var(--green);
-            background: rgba(0,184,148,0.15);
-        }
-
-        .quiz-option.wrong {
-            border-color: var(--primary);
-            background: rgba(255,107,107,0.15);
-        }
-
-        .quiz-option:disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-
+        .quiz-option.correct { border-color: var(--green); background: rgba(0,184,148,0.15); }
+        .quiz-option.wrong { border-color: var(--primary); background: rgba(255,107,107,0.15); }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.7; }
         .quiz-feedback {
-            display: none;
-            padding: 18px;
-            border-radius: 16px;
-            background: var(--bg);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--secondary);
+            display: none; padding: 18px; border-radius: 16px;
+            background: var(--bg); margin-bottom: 20px; border-left: 4px solid var(--secondary);
         }
-
-        .quiz-feedback.show {
-            display: block;
-        }
-
-        #quizResult {
-            display: none;
-            text-align: center;
-        }
-
-        #quizResult.show {
-            display: block;
-        }
-
-        .result-badge {
-            font-size: 5rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-
+        .quiz-feedback.show { display: block; }
+        #quizResult { display: none; text-align: center; }
+        #quizResult.show { display: block; }
+        .result-badge { font-size: 5rem; margin-bottom: 16px; display: block; }
         .result-box {
-            background: var(--bg);
-            padding: 20px;
-            border-radius: 16px;
-            margin: 20px 0;
-            border-left: 4px solid var(--accent);
+            background: var(--bg); padding: 20px; border-radius: 16px;
+            margin: 20px 0; border-left: 4px solid var(--accent);
         }
-
-        .ref-list {
-            list-style: none;
-        }
-
+        .ref-list { list-style: none; }
         .ref-list li {
-            padding: 16px 20px;
-            background: var(--bg);
-            border-radius: 16px;
-            margin-bottom: 12px;
-            border-left: 4px solid var(--secondary);
+            padding: 16px 20px; background: var(--bg);
+            border-radius: 16px; margin-bottom: 12px; border-left: 4px solid var(--secondary);
         }
-
-        .ref-list li a {
-            color: var(--accent);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-
-        .ref-list li a:hover {
-            text-decoration: underline;
-            color: var(--primary);
-        }
-
+        .ref-list li a { color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .ref-list li a:hover { text-decoration: underline; color: var(--primary); }
         .emergency-box {
-            background: linear-gradient(
-                145deg,
-                var(--primary),
-                #e17055
-            );
-            padding: 30px;
-            border-radius: var(--radius);
-            text-align: center;
-            margin-bottom: 30px;
+            background: linear-gradient(145deg, var(--primary), #e17055);
+            padding: 30px; border-radius: var(--radius); text-align: center; margin-bottom: 30px;
         }
-
-        .emergency-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 10px 0;
-            display: block;
-        }
-
+        .emergency-number { font-size: 4rem; font-weight: 700; color: #fff; margin: 10px 0; display: block; }
         .site-footer {
-            padding: 30px 0;
-            text-align: center;
-            color: var(--muted);
-            border-top: 1px solid rgba(108,92,231,0.15);
-            margin-top: 50px;
+            padding: 30px 0; text-align: center; color: var(--muted);
+            border-top: 1px solid rgba(108,92,231,0.15); margin-top: 50px;
         }
-
         .carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 40px auto;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
+            position: relative; max-width: 800px; margin: 40px auto;
+            border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
         }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-item {
-            min-width: 100%;
-            height: 400px;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        .carousel-inner { display: flex; transition: transform 0.5s ease; }
+        .carousel-item { min-width: 100%; height: 400px; }
+        .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
         .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: #fff;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5); color: #fff; border: none;
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+            font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
-
-        .carousel-btn:hover {
-            background: rgba(0,0,0,0.8);
-        }
-
-        .carousel-prev {
-            left: 20px;
-        }
-
-        .carousel-next {
-            right: 20px;
-        }
-
+        .carousel-btn:hover { background: rgba(0,0,0,0.8); }
+        .carousel-prev { left: 20px; }
+        .carousel-next { right: 20px; }
         .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 100;
+            position: fixed; bottom: 30px; right: 30px;
+            display: flex; flex-direction: column; gap: 12px; z-index: 100;
         }
-
         .float-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            background: linear-gradient(
-                145deg,
-                var(--secondary),
-                var(--accent)
-            );
-            color: #fff;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-            box-shadow: var(--shadow);
+            width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer;
+            background: linear-gradient(145deg, var(--secondary), var(--accent));
+            color: #fff; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.3s; box-shadow: var(--shadow);
         }
-
-        .float-btn:hover {
-            transform: scale(1.1);
-        }
-
+        .float-btn:hover { transform: scale(1.1); }
         @media (max-width: 768px) {
-            .hero {
-                padding: 50px 0 30px;
-            }
-
-            .page {
-                padding: 30px 0;
-            }
-
-            .grid-4 {
-                grid-template-columns: repeat(
-                    auto-fit,
-                    minmax(160px, 1fr)
-                );
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .chat-messages {
-                height: 300px;
-            }
-
-            .carousel-item {
-                height: 250px;
-            }
-
-            .nav-links {
-                gap: 5px;
-            }
-
-            .nav-links a {
-                padding: 5px 8px;
-                font-size: 0.85rem;
-            }
+            .hero { padding: 50px 0 30px; }
+            .page { padding: 30px 0; }
+            .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+            .grid-2 { grid-template-columns: 1fr; }
+            .chat-messages { height: 300px; }
+            .carousel-item { height: 250px; }
         }
     </style>
 </head>
-
 <body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <i class="fa-solid fa-shield-halved"></i>
+                Combate ao Bullying
+            </div>
+            <nav class="nav-links">
+                <a onclick="showPage('inicio')" class="active" id="nav-inicio"><i class="fa-solid fa-house"></i> Início</a>
+                <a onclick="showPage('personagens')" id="nav-personagens"><i class="fa-solid fa-users"></i> Personagens</a>
+                <a onclick="showPage('chat')" id="nav-chat"><i class="fa-solid fa-comments"></i> Chat</a>
+                <a onclick="showPage('frases')" id="nav-frases"><i class="fa-solid fa-quote-left"></i> Frases</a>
+                <a onclick="showPage('quiz')" id="nav-quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a>
+                <a onclick="showPage('referencias')" id="nav-referencias"><i class="fa-solid fa-book"></i> Referências</a>
+            </nav>
+        </div>
+    </header>
 
-<header class="site-header">
-    <div class="container header-inner">
+    <!-- PÁGINA INÍCIO -->
+    <div id="page-inicio" class="page active">
+        <section class="hero">
+            <div class="container">
+                <h1>🛡️ Juntos contra o Bullying & Cyberbullying</h1>
+                <p>Um portal de apoio para estudantes. Aprenda a identificar, prevenir e combater o bullying. Você não está sozinho nesta luta!</p>
+                <div class="hero-actions">
+                    <button onclick="showPage('personagens')" class="btn btn-primary"><i class="fa-solid fa-users"></i> Conhecer Personagens</button>
+                    <button onclick="showPage('quiz')" class="btn btn-accent"><i class="fa-solid fa-gamepad"></i> Fazer Quiz</button>
+                    <button onclick="showPage('referencias')" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Pedir Ajuda</button>
+                </div>
+            </div>
+        </section>
 
-        <div class="brand">
-            <i class="fa-solid fa-shield-halved"></i>
-            Combate ao Bullying
+        <div class="carousel">
+            <div class="carousel-inner" id="carouselInner">
+                <div class="carousel-item"><img src="https://images.unsplash.com/photo-1529390003868-6c01d73923f6?w=800" alt="União contra o bullying" /></div>
+                <div class="carousel-item"><img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800" alt="Apoio emocional" /></div>
+                <div class="carousel-item"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800" alt="Respeito e inclusão" /></div>
+            </div>
+            <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-next" onclick="moveCarousel(1)"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
 
-        <nav class="nav-links">
-            <a onclick="showPage('inicio')" class="active" id="nav-inicio">
-                <i class="fa-solid fa-house"></i> Início
-            </a>
-
-            <a onclick="showPage('personagens')" id="nav-personagens">
-                <i class="fa-solid fa-users"></i> Personagens
-            </a>
-
-            <a onclick="showPage('chat')" id="nav-chat">
-                <i class="fa-solid fa-comments"></i> Chat
-            </a>
-
-            <a onclick="showPage('frases')" id="nav-frases">
-                <i class="fa-solid fa-quote-left"></i> Frases
-            </a>
-
-            <a onclick="showPage('quiz')" id="nav-quiz">
-                <i class="fa-solid fa-gamepad"></i> Quiz
-            </a>
-
-            <a onclick="showPage('referencias')" id="nav-referencias">
-                <i class="fa-solid fa-book"></i> Referências
-            </a>
-        </nav>
-
-    </div>
-</header>
-
-
-<!-- INÍCIO -->
-<div id="page-inicio" class="page active">
-
-    <section class="hero">
-        <div class="container">
-
-            <h1>🛡️ Juntos contra o Bullying & Cyberbullying</h1>
-
-            <p>
-                Um portal de apoio para estudantes.
-                Aprenda a identificar, prevenir e combater o bullying.
-                Você não está sozinho nesta luta!
-            </p>
-
-            <div class="hero-actions">
-
-                <button onclick="showPage('personagens')" class="btn btn-primary">
-                    <i class="fa-solid fa-users"></i>
-                    Conhecer Personagens
-                </button>
-
-                <button onclick="showPage('quiz')" class="btn btn-accent">
-                    <i class="fa-solid fa-gamepad"></i>
-                    Fazer Quiz
-                </button>
-
-                <button onclick="showPage('referencias')" class="btn btn-secondary">
-                    <i class="fa-solid fa-phone"></i>
-                    Pedir Ajuda
-                </button>
-
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> O que você vai encontrar aqui?</h2>
+                <div class="grid-3">
+                    <div class="card"><h3 style="color: var(--primary); margin-bottom: 12px;"><i class="fa-solid fa-users"></i> Personagens</h3><p style="color: var(--muted);">Converse com heróis de animes, mangás e quadrinhos que vão te apoiar e motivar!</p></div>
+                    <div class="card"><h3 style="color: var(--warm); margin-bottom: 12px;"><i class="fa-solid fa-quote-left"></i> Frases Motivacionais</h3><p style="color: var(--muted);">Inspire-se com frases poderosas de personagens que superaram adversidades!</p></div>
+                    <div class="card"><h3 style="color: var(--secondary); margin-bottom: 12px;"><i class="fa-solid fa-gamepad"></i> Quiz Educativo</h3><p style="color: var(--muted);">Teste seus conhecimentos sobre bullying e cyberbullying de forma interativa!</p></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <div class="carousel">
-
-        <div class="carousel-inner" id="carouselInner">
-
-            <div class="carousel-item">
-                <img
-                    src="https://images.unsplash.com/photo-1529390003868-6c01d73923f6?w=800"
-                    alt="União contra o bullying"
-                >
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-triangle-exclamation" style="color: var(--primary);"></i> Entenda o Problema</h2>
+                <div class="grid-3">
+                    <div class="info-box"><h4><i class="fa-solid fa-bullseye"></i> O que é Bullying?</h4><p style="color: var(--muted);">Bullying são agressões físicas ou psicológicas repetidas e intencionais contra alguém, causando sofrimento e exclusão.</p></div>
+                    <div class="info-box"><h4><i class="fa-solid fa-laptop"></i> O que é Cyberbullying?</h4><p style="color: var(--muted);">Cyberbullying é o bullying praticado online através de redes sociais, mensagens ou jogos, onde o agressor humilha ou persegue a vítima virtualmente.</p></div>
+                    <div class="info-box"><h4><i class="fa-solid fa-hands-helping"></i> Como Combater?</h4><p style="color: var(--muted);">Denuncie, não compartilhe conteúdo ofensivo, apoie as vítimas e busque ajuda de adultos de confiança.</p></div>
+                </div>
             </div>
-
-            <div class="carousel-item">
-                <img
-                    src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800"
-                    alt="Apoio emocional"
-                >
-            </div>
-
-            <div class="carousel-item">
-                <img
-                    src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800"
-                    alt="Respeito e inclusão"
-                >
-            </div>
-
-        </div>
-
-        <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)">
-            <i class="fa-solid fa-chevron-left"></i>
-        </button>
-
-        <button class="carousel-btn carousel-next" onclick="moveCarousel(1)">
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
+        </section>
     </div>
 
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-circle-info" style="color: var(--accent);"></i>
-                O que você vai encontrar aqui?
-            </h2>
-
-            <div class="grid-3">
-
-                <div class="card">
-                    <h3 style="color: var(--primary); margin-bottom: 12px;">
-                        <i class="fa-solid fa-users"></i>
-                        Personagens
-                    </h3>
-
-                    <p style="color: var(--muted);">
-                        Converse com heróis de animes, mangás e quadrinhos
-                        que vão te apoiar e motivar!
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--warm); margin-bottom: 12px;">
-                        <i class="fa-solid fa-quote-left"></i>
-                        Frases Motivacionais
-                    </h3>
-
-                    <p style="color: var(--muted);">
-                        Inspire-se com frases poderosas de personagens
-                        que superaram adversidades!
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3 style="color: var(--secondary); margin-bottom: 12px;">
-                        <i class="fa-solid fa-gamepad"></i>
-                        Quiz Educativo
-                    </h3>
-
-                    <p style="color: var(--muted);">
-                        Teste seus conhecimentos sobre bullying e
-                        cyberbullying de forma interativa!
-                    </p>
-                </div>
-
+    <!-- PÁGINA PERSONAGENS -->
+    <div id="page-personagens" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-users" style="color: var(--accent);"></i> Personagens que Apoiam Você</h2>
+                <p class="section-sub">Heróis de animes, mangás e quadrinhos com mensagens de força e coragem!</p>
+                <div class="grid-4" id="charactersGrid"></div>
             </div>
-        </div>
-    </section>
-
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-triangle-exclamation" style="color: var(--primary);"></i>
-                Entenda o Problema
-            </h2>
-
-            <div class="grid-3">
-
-                <div class="info-box">
-                    <h4>
-                        <i class="fa-solid fa-bullseye"></i>
-                        O que é Bullying?
-                    </h4>
-
-                    <p style="color: var(--muted);">
-                        Bullying são agressões físicas ou psicológicas
-                        repetidas e intencionais contra alguém,
-                        causando sofrimento e exclusão.
-                    </p>
-                </div>
-
-                <div class="info-box">
-                    <h4>
-                        <i class="fa-solid fa-laptop"></i>
-                        O que é Cyberbullying?
-                    </h4>
-
-                    <p style="color: var(--muted);">
-                        Cyberbullying é o bullying praticado online através
-                        de redes sociais, mensagens ou jogos, onde o agressor
-                        humilha ou persegue a vítima virtualmente.
-                    </p>
-                </div>
-
-                <div class="info-box">
-                    <h4>
-                        <i class="fa-solid fa-hands-helping"></i>
-                        Como Combater?
-                    </h4>
-
-                    <p style="color: var(--muted);">
-                        Denuncie, não compartilhe conteúdo ofensivo,
-                        apoie as vítimas e busque ajuda de adultos
-                        de confiança.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-</div>
-
-
-<!-- PERSONAGENS -->
-<div id="page-personagens" class="page">
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-users" style="color: var(--accent);"></i>
-                Personagens que Apoiam Você
-            </h2>
-
-            <p class="section-sub">
-                Heróis de animes, mangás e quadrinhos com mensagens de força e coragem!
-            </p>
-
-            <div class="grid-4" id="charactersGrid"></div>
-
-        </div>
-    </section>
-
-</div>
-
-
-<!-- CHAT -->
-<div id="page-chat" class="page">
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-comments" style="color: var(--accent);"></i>
-                Chat com Personagem
-            </h2>
-
-            <div class="chat-container">
-
-                <div class="chat-header">
-
-                    <img
-                        id="charImage"
-                        src="https://via.placeholder.com/60"
-                        alt="Personagem"
-                    >
-
-                    <div>
-                        <h3 id="charName">
-                            Selecione um personagem
-                        </h3>
-
-                        <p id="charAnime">
-                            Vá em "Personagens" e clique em um deles para conversar.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="chat-messages" id="chatMessages">
-
-                    <div class="message bot">
-                        Olá! Selecione um personagem na página
-                        "Personagens" para começar a conversar.
-                    </div>
-
-                </div>
-
-
-                <div class="chat-input-area">
-
-                    <input
-                        type="text"
-                        class="chat-input"
-                        id="chatInput"
-                        placeholder="Digite sua mensagem..."
-                    >
-
-                    <button class="send-btn" id="sendBtn">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-</div>
-
-
-<!-- FRASES -->
-<div id="page-frases" class="page">
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-quote-left" style="color: var(--warm);"></i>
-                Frases de Força e Coragem
-            </h2>
-
-            <p class="section-sub">
-                Inspire-se com mensagens poderosas de personagens que venceram adversidades!
-            </p>
-
-            <div class="quote-card" id="mainQuote">
-
-                <span class="quote-emoji" id="quoteEmoji">⚡</span>
-
-                <p class="quote-text" id="quoteText">
-                    "A força não vem da capacidade física, mas de uma vontade indomável."
-                </p>
-
-                <p class="quote-author" id="quoteAuthor">
-                    — Saitama (One Punch Man)
-                </p>
-
-            </div>
-
-
-            <div style="text-align: center; margin-bottom: 40px;">
-
-                <button class="btn btn-secondary" id="newQuoteBtn">
-                    <i class="fa-solid fa-arrow-rotate-right"></i>
-                    Nova Frase
-                </button>
-
-            </div>
-
-
-            <h3 style="margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-                <i class="fa-solid fa-star" style="color: var(--warm);"></i>
-                Mais Frases Inspiradoras
-            </h3>
-
-            <div class="grid-2" id="quotesGrid"></div>
-
-        </div>
-    </section>
-
-</div>
-
-
-<!-- QUIZ -->
-<div id="page-quiz" class="page">
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i>
-                Quiz: Bullying & Cyberbullying
-            </h2>
-
-            <p class="section-sub">
-                Teste seus conhecimentos e aprenda como se proteger!
-            </p>
-
-
-            <div class="card" id="quizCard">
-
-                <div id="quizQuestion">
-
-                    <div class="quiz-progress">
-                        <div
-                            class="quiz-progress-fill"
-                            id="quizProgressFill"
-                            style="width: 0%;"
-                        ></div>
-                    </div>
-
-                    <p class="quiz-question" id="quizQuestionText">
-                        Carregando...
-                    </p>
-
-                    <div class="quiz-options" id="quizOptions"></div>
-
-                    <div class="quiz-feedback" id="quizFeedback"></div>
-
-                    <button
-                        class="btn btn-primary"
-                        id="nextBtn"
-                        style="display: none;"
-                    >
-                        <i class="fa-solid fa-arrow-right"></i>
-                        Próxima
-                    </button>
-
-                </div>
-
-
-                <div id="quizResult">
-
-                    <span class="result-badge">🛡️</span>
-
-                    <h3 style="margin-bottom: 16px;">
-                        Quiz Completado!
-                    </h3>
-
-                    <p
-                        id="quizScore"
-                        style="font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: var(--accent);"
-                    >
-                        0/5
-                    </p>
-
-                    <p
-                        id="quizMessage"
-                        style="color: var(--muted); margin-bottom: 20px;"
-                    ></p>
-
-                    <div class="result-box">
-
-                        <strong style="color: var(--accent);">
-                            💡 Lembre-se:
-                        </strong>
-
-                        <p style="margin: 10px 0 0 0; color: var(--muted);">
-                            Se você estiver sofrendo bullying, procure ajuda!
-                            Converse com um adulto de confiança ou professor.
-                            Você não está sozinho!
-                        </p>
-
-                    </div>
-
-                    <button class="btn btn-accent" id="restartBtn">
-                        <i class="fa-solid fa-rotate-right"></i>
-                        Tentar Novamente
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-</div>
-
-
-<!-- REFERÊNCIAS -->
-<div id="page-referencias" class="page">
-
-    <section class="section">
-        <div class="container">
-
-            <h2 class="section-title">
-                <i class="fa-solid fa-phone" style="color: var(--primary);"></i>
-                Precisa de Ajuda?
-            </h2>
-
-            <p class="section-sub">
-                Você não está sozinho. Existem pessoas e organizações prontas para ajudar!
-            </p>
-
-
-            <div class="emergency-box">
-
-                <i
-                    class="fa-solid fa-headset"
-                    style="font-size: 3rem; color: #fff;"
-                ></i>
-
-                <span class="emergency-number">188</span>
-
-                <p style="color: #fff; font-size: 1.2rem;">
-                    CVV - Centro de Valorização da Vida
-                </p>
-
-                <p style="color: rgba(255,255,255,0.8);">
-                    Ligue gratuitamente, 24 horas por dia
-                </p>
-
-            </div>
-
-
-            <div class="grid-2">
-
-                <div class="card">
-
-                    <h3 style="margin-bottom: 16px; color: var(--accent);">
-                        <i class="fa-solid fa-hands-helping"></i>
-                        Onde Buscar Ajuda
-                    </h3>
-
-                    <ul class="ref-list">
-
-                        <li>
-                            <a
-                                href="https://www.cvv.org.br/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-phone"></i>
-                                CVV - Centro de Valorização da Vida (188)
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.gov.br/saude/pt-br"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-hospital"></i>
-                                Ministério da Saúde - Saúde Mental
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.unicef.org/brazil/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-child"></i>
-                                UNICEF Brasil - Proteção Infantil
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2015/lei/l13185.htm"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-scale-balanced"></i>
-                                Lei 13.185/2015 - Combate ao Bullying
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <div class="card">
-
-                    <h3 style="margin-bottom: 16px; color: var(--warm);">
-                        <i class="fa-solid fa-circle-info"></i>
-                        Referências da Pesquisa
-                    </h3>
-
-                    <ul class="ref-list">
-
-                        <li>
-                            <a
-                                href="https://www.gov.br/mdh/pt-br"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-building-columns"></i>
-                                Ministério dos Direitos Humanos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.fiocruz.br/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-flask"></i>
-                                Fiocruz - Saúde Mental e Juventude
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.usp.br/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-graduation-cap"></i>
-                                USP - Estudos sobre Violência Escolar
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.scielo.br/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-book-open"></i>
-                                SciELO - Artigos Científicos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="https://www.abpbrasil.org.br/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <i class="fa-solid fa-brain"></i>
-                                Associação Brasileira de Psiquiatria
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-</div>
-
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <p>
-            &copy; 2026 Combate ao Bullying & Cyberbullying -
-            Portal de Apoio ao Estudante
-        </p>
-
-        <p style="margin-top: 10px; font-size: 0.9rem;">
-            Se precisar de ajuda, ligue para o CVV:
-            <strong style="color: var(--accent);">188</strong>
-        </p>
-
+        </section>
     </div>
 
-</footer>
-
-
-<div class="floating-buttons">
-
-    <button
-        class="float-btn"
-        onclick="scrollToTop()"
-        title="Voltar ao topo"
-    >
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <button
-        class="float-btn"
-        onclick="toggleContrast()"
-        title="Alto contraste"
-    >
-        <i class="fa-solid fa-circle-half-stroke"></i>
-    </button>
-
-    <button
-        class="float-btn"
-        onclick="increaseFont()"
-        title="Aumentar fonte"
-    >
-        <i class="fa-solid fa-font"></i>
-    </button>
-
-</div>
-
-
-<script>
-
-    /* ================================
-       NAVEGAÇÃO
-    ================================= */
-
-    function showPage(pageId) {
-
-        document.querySelectorAll('.page').forEach(function(page) {
-            page.classList.remove('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-            link.classList.remove('active');
-        });
-
-        const pageEl = document.getElementById('page-' + pageId);
-        const navEl = document.getElementById('nav-' + pageId);
-
-        if (pageEl) {
-            pageEl.classList.add('active');
-        }
-
-        if (navEl) {
-            navEl.classList.add('active');
-        }
-
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-
-    /* ================================
-       CARROSSEL
-    ================================= */
-
-    let carouselIndex = 0;
-
-    const carouselInner = document.getElementById('carouselInner');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-
-    function moveCarousel(direction) {
-
-        if (!carouselInner || carouselItems.length === 0) {
-            return;
-        }
-
-        carouselIndex += direction;
-
-        if (carouselIndex >= carouselItems.length) {
-            carouselIndex = 0;
-        }
-
-        if (carouselIndex < 0) {
-            carouselIndex = carouselItems.length - 1;
-        }
-
-        carouselInner.style.transform =
-            'translateX(-' + (carouselIndex * 100) + '%)';
-    }
-
-
-    /* CARROSSEL AUTOMÁTICO */
-
-    setInterval(function() {
-        moveCarousel(1);
-    }, 5000);
-
-
-    /* ================================
-       PERSONAGENS
-    ================================= */
-
-    const characters = [
-
-        {
-            name: "Naruto Uzumaki",
-            anime: "Naruto",
-            image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500",
-            quote: "Nunca desista dos seus sonhos.",
-            response: "Eu sei que às vezes parece difícil, mas não deixe que as palavras de outras pessoas definam quem você é. Procure alguém de confiança e conte o que está acontecendo."
-        },
-
-        {
-            name: "Goku",
-            anime: "Dragon Ball",
-            image: "https://images.unsplash.com/photo-1608889825103-eb5ed706fc64?w=500",
-            quote: "Sempre existe uma maneira de ficar mais forte.",
-            response: "Ser forte também significa saber quando pedir ajuda. Você não precisa enfrentar uma situação difícil sozinho."
-        },
-
-        {
-            name: "Luffy",
-            anime: "One Piece",
-            image: "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=500",
-            quote: "A liberdade é poder ser você mesmo.",
-            response: "Você tem o direito de ser você mesmo. Se alguém estiver tentando te humilhar ou excluir, procure ajuda."
-        },
-
-        {
-            name: "Tanjiro Kamado",
-            anime: "Demon Slayer",
-            image: "https://images.unsplash.com/photo-1607604276583-eefb37a6a0c7?w=500",
-            quote: "A gentileza também é uma forma de força.",
-            response: "Trate os outros com respeito e tente apoiar quem estiver passando por uma situação difícil."
-        },
-
-        {
-            name: "Deku",
-            anime: "My Hero Academia",
-            image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500",
-            quote: "Ser um herói começa ajudando quem precisa.",
-            response: "Se você perceber bullying acontecendo, não participe e procure um adulto de confiança para ajudar."
-        },
-
-        {
-            name: "Saitama",
-            anime: "One Punch Man",
-            image: "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=500",
-            quote: "Continue seguindo em frente.",
-            response: "Mesmo quando algo parece muito complicado, você pode dar um passo de cada vez e procurar apoio."
-        },
-
-        {
-            name: "Homem-Aranha",
-            anime: "Marvel",
-            image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500",
-            quote: "Com grandes poderes vêm grandes responsabilidades.",
-            response: "Se você pode ajudar alguém que está sofrendo bullying, faça isso de maneira segura e procure um adulto."
-        },
-
-        {
-            name: "Batman",
-            anime: "DC Comics",
-            image: "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?w=500",
-            quote: "A coragem aparece quando escolhemos fazer o certo.",
-            response: "Não tenha vergonha de procurar ajuda. Contar para alguém de confiança pode ser um passo importante."
-        }
-
-    ];
-
-
-    function loadCharacters() {
-
-        const grid = document.getElementById('charactersGrid');
-
-        if (!grid) {
-            return;
-        }
-
-        grid.innerHTML = '';
-
-        characters.forEach(function(character, index) {
-
-            const card = document.createElement('div');
-
-            card.className = 'char-card';
-
-            card.innerHTML = `
-                <img
-                    src="${character.image}"
-                    alt="${character.name}"
-                    onerror="this.src='https://via.placeholder.com/500x300?text=${encodeURIComponent(character.name)}'"
-                >
-
-                <div class="char-name">
-                    ${character.name}
+    <!-- PÁGINA CHAT -->
+    <div id="page-chat" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-comments" style="color: var(--accent);"></i> Chat com Personagem</h2>
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <img id="charImage" src="https://via.placeholder.com/60" alt="Personagem" />
+                        <div>
+                            <h3 id="charName">Selecione um personagem</h3>
+                            <p id="charAnime">Vá em "Personagens" e clique em um deles para conversar.</p>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot">Olá! Selecione um personagem na página "Personagens" para começar a conversar.</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua mensagem..." />
+                        <button class="send-btn" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
                 </div>
-
-                <div class="char-anime">
-                    ${character.anime}
-                </div>
-
-                <div class="char-quote">
-                    "${character.quote}"
-                </div>
-            `;
-
-            card.addEventListener('click', function() {
-                selectCharacter(index);
-            });
-
-            grid.appendChild(card);
-
-        });
-    }
-
-
-    function selectCharacter(index) {
-
-        const character = characters[index];
-
-        if (!character) {
-            return;
-        }
-
-        document.getElementById('charImage').src = character.image;
-        document.getElementById('charName').textContent = character.name;
-        document.getElementById('charAnime').textContent = character.anime;
-
-        const messages = document.getElementById('chatMessages');
-
-        messages.innerHTML = `
-            <div class="message bot">
-                Olá! Eu sou ${character.name}.
-                Estou aqui para conversar com você.
             </div>
+        </section>
+    </div>
 
-            <div class="message bot">
-                ${character.response}
-            </div>
-        `;
-
-        showPage('chat');
-    }
-
-
-    /* ================================
-       CHAT
-    ================================= */
-
-    const sendBtn = document.getElementById('sendBtn');
-    const chatInput = document.getElementById('chatInput');
-
-    function sendMessage() {
-
-        const text = chatInput.value.trim();
-
-        if (!text) {
-            return;
-        }
-
-        const messages = document.getElementById('chatMessages');
-
-        const userMessage = document.createElement('div');
-
-        userMessage.className = 'message user';
-        userMessage.textContent = text;
-
-        messages.appendChild(userMessage);
-
-        chatInput.value = '';
-
-        messages.scrollTop = messages.scrollHeight;
-
-        setTimeout(function() {
-
-            const botMessage = document.createElement('div');
-
-            botMessage.className = 'message bot';
-
-            botMessage.textContent =
-                'Entendo. Se isso estiver acontecendo com você, converse com um adulto de confiança, professor ou responsável. Você merece ser tratado com respeito.';
-
-            messages.appendChild(botMessage);
-
-            messages.scrollTop = messages.scrollHeight;
-
-        }, 700);
-    }
-
-
-    if (sendBtn) {
-        sendBtn.addEventListener('click', sendMessage);
-    }
-
-
-    if (chatInput) {
-        chatInput.addEventListener('keydown', function(event) {
-
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-
-        });
-    }
-
-
-    /* ================================
-       FRASES
-    ================================= */
-
-    const quotes = [
-
-        {
-            emoji: "⚡",
-            text: "A força não vem da capacidade física, mas de uma vontade indomável.",
-            author: "— Saitama (One Punch Man)"
-        },
-
-        {
-            emoji: "🍥",
-            text: "Aqueles que quebram as regras são lixo, mas aqueles que abandonam seus amigos são piores que lixo.",
-            author: "— Kakashi (Naruto)"
-        },
-
-        {
-            emoji: "🔥",
-            text: "Não importa o quão difícil seja, continue avançando.",
-            author: "— Personagem inspirador"
-        },
-
-        {
-            emoji: "🛡️",
-            text: "Coragem não significa não ter medo. Significa continuar mesmo com medo.",
-            author: "— Mensagem de inspiração"
-        },
-
-        {
-            emoji: "⭐",
-            text: "Você não precisa enfrentar tudo sozinho.",
-            author: "— Mensagem de apoio"
-        },
-
-        {
-            emoji: "💙",
-            text: "Ser diferente não é um problema. Respeitar as diferenças é essencial.",
-            author: "— Mensagem de respeito"
-        }
-
-    ];
-
-
-    let currentQuote = 0;
-
-
-    function showQuote(index) {
-
-        const quote = quotes[index];
-
-        document.getElementById('quoteEmoji').textContent = quote.emoji;
-        document.getElementById('quoteText').textContent =
-            '"' + quote.text + '"';
-        document.getElementById('quoteAuthor').textContent =
-            quote.author;
-    }
-
-
-    function randomQuote() {
-
-        let newIndex;
-
-        do {
-            newIndex = Math.floor(Math.random() * quotes.length);
-        } while (
-            quotes.length > 1 &&
-            newIndex === currentQuote
-        );
-
-        currentQuote = newIndex;
-
-        showQuote(currentQuote);
-    }
-
-
-    function loadQuotes() {
-
-        const grid = document.getElementById('quotesGrid');
-
-        if (!grid) {
-            return;
-        }
-
-        grid.innerHTML = '';
-
-        quotes.forEach(function(quote) {
-
-            const card = document.createElement('div');
-
-            card.className = 'card';
-
-            card.innerHTML = `
-                <div style="font-size: 2rem; margin-bottom: 10px;">
-                    ${quote.emoji}
+    <!-- PÁGINA FRASES -->
+    <div id="page-frases" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-quote-left" style="color: var(--warm);"></i> Frases de Força e Coragem</h2>
+                <p class="section-sub">Inspire-se com mensagens poderosas de personagens que venceram adversidades!</p>
+                <div class="quote-card" id="mainQuote">
+                    <span class="quote-emoji" id="quoteEmoji">⚡</span>
+                    <p class="quote-text" id="quoteText">"A força não vem da capacidade física, mas de uma vontade indomável."</p>
+                    <p class="quote-author" id="quoteAuthor">— Saitama (One Punch Man)</p>
                 </div>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <button class="btn btn-secondary" id="newQuoteBtn"><i class="fa-solid fa-arrow-rotate-right"></i> Nova Frase</button>
+                </div>
+                <h3 style="margin-bottom: 24px; display: flex; align-items: center; gap: 10px;"><i class="fa-solid fa-star" style="color: var(--warm);"></i> Mais Frases Inspiradoras</h3>
+                <div class="grid-2" id="quotesGrid"></div>
+            </div>
+        </section>
+    </div>
 
-                <p style="font-weight: 600; margin-bottom: 10px;">
-                    "${quote.text}"
-                </p>
+    <!-- PÁGINA QUIZ -->
+    <div id="page-quiz" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> Quiz: Bullying & Cyberbullying</h2>
+                <p class="section-sub">Teste seus conhecimentos e aprenda como se proteger!</p>
+                <div class="card" id="quizCard">
+                    <div id="quizQuestion">
+                        <div class="quiz-progress"><div class="quiz-progress-fill" id="quizProgressFill" style="width: 0%;"></div></div>
+                        <p class="quiz-question" id="quizQuestionText">Carregando...</p>
+                        <div class="quiz-options" id="quizOptions"></div>
+                        <div class="quiz-feedback" id="quizFeedback"></div>
+                        <button class="btn btn-primary" id="nextBtn" style="display: none;"><i class="fa-solid fa-arrow-right"></i> Próxima</button>
+                    </div>
+                    <div id="quizResult">
+                        <span class="result-badge">🛡️</span>
+                        <h3 style="margin-bottom: 16px;">Quiz Completado!</h3>
+                        <p id="quizScore" style="font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: var(--accent);">0/5</p>
+                        <p id="quizMessage" style="color: var(--muted); margin-bottom: 20px;"></p>
+                        <div class="result-box">
+                            <strong style="color: var(--accent);">💡 Lembre-se:</strong>
+                            <p style="margin: 10px 0 0 0; color: var(--muted);">Se você estiver sofrendo bullying, procure ajuda! Converse com um adulto de confiança, professor, ou ligue para o <strong>CVV (188)</strong>. Você não está sozinho!</p>
+                        </div>
+                        <button class="btn btn-accent" id="restartBtn"><i class="fa-solid fa-rotate-right"></i> Tentar Novamente</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-                <p style="color: var(--muted);">
-                    ${quote.author}
-                </p>
-            `;
+    <!-- PÁGINA REFERÊNCIAS -->
+    <div id="page-referencias" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Precisa de Ajuda?</h2>
+                <p class="section-sub">Você não está sozinho. Existem pessoas e organizações prontas para ajudar!</p>
+                <div class="emergency-box">
+                    <i class="fa-solid fa-headset" style="font-size: 3rem; color: #fff;"></i>
+                    <span class="emergency-number">188</span>
+                    <p style="color: #fff; font-size: 1.2rem;">CVV - Centro de Valorização da Vida</p>
+                    <p style="color: rgba(255,255,255,0.8);">Ligue gratuitamente, 24 horas por dia</p>
+                </div>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 style="margin-bottom: 16px; color: var(--accent);"><i class="fa-solid fa-hands-helping"></i> Onde Buscar Ajuda</h3>
+                        <ul class="ref-list">
+                            <li><a href="https://www.cvv.org.br/" target="_blank"><i class="fa-solid fa-phone"></i> CVV - Centro de Valorização da Vida (188)</a></li>
+                            <li><a href="https://www.gov.br/saude/pt-br" target="_blank"><i class="fa-solid fa-hospital"></i> Ministério da Saúde - Saúde Mental</a></li>
+                            <li><a href="https://www.unicef.org/brazil/" target="_blank"><i class="fa-solid fa-child"></i> UNICEF Brasil - Proteção Infantil</a></li>
+                            <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2015/lei/l13185.htm" target="_blank"><i class="fa-solid fa-scale-balanced"></i> Lei 13.185/2015 - Combate ao Bullying</a></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 style="margin-bottom: 16px; color: var(--warm);"><i class="fa-solid fa-circle-info"></i> Referências da Pesquisa</h3>
+                        <ul class="ref-list">
+                            <li><a href="https://www.gov.br/mdh/pt-br" target="_blank"><i class="fa-solid fa-building-columns"></i> Ministério dos Direitos Humanos</a></li>
+                            <li><a href="https://www.fiocruz.br/" target="_blank"><i class="fa-solid fa-flask"></i> Fiocruz - Saúde Mental e Juventude</a></li>
+                            <li><a href="https://www.usp.br/" target="_blank"><i class="fa-solid fa-graduation-cap"></i> USP - Estudos sobre Violência Escolar</a></li>
+                            <li><a href="https://www.scielo.br/" target="_blank"><i class="fa-solid fa-book-open"></i> SciELO - Artigos Científicos</a></li>
+                            <li><a href="https://www.abpbrasil.org.br/" target="_blank"><i class="fa-solid fa-brain"></i> Associação Brasileira de Psiquiatria</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-            grid.appendChild(card);
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Combate ao Bullying & Cyberbullying - Portal de Apoio ao Estudante</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Se precisar de ajuda, ligue para o CVV: <strong style="color: var(--accent);">188</strong></p>
+        </div>
+    </footer>
 
-        });
-    }
+    <div class="floating-buttons">
+        <button class="float-btn" onclick="scrollToTop()" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+        <button class="float-btn" onclick="toggleContrast()" title="Alto contraste"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <button class="float-btn" onclick="increaseFont()" title="Aumentar fonte"><i class="fa-solid fa-font"></i></button>
+    </div>
 
-
-    document.getElementById('newQuoteBtn')
-        .addEventListener('click', randomQuote);
-
-
-    /* ================================
-       QUIZ
-    ================================= */
-
-    const quizQuestions = [
-
-        {
-            question: "O que caracteriza o bullying?",
-            options: [
-                "Uma brincadeira entre amigos",
-                "Agressões repetidas e intencionais",
-                "Uma conversa normal",
-                "Uma atividade escolar"
-            ],
-            answer: 1,
-            feedback: "Correto! O bullying envolve comportamentos agressivos repetidos e intencionais."
-        },
-
-        {
-            question: "O que é cyberbullying?",
-            options: [
-                "Bullying praticado somente na escola",
-                "Uma competição online",
-                "Bullying praticado por meios digitais",
-                "Um jogo educativo"
-            ],
-            answer: 2,
-            feedback: "Correto! Cyberbullying acontece por meio de redes sociais, mensagens, jogos e outras plataformas digitais."
-        },
-
-        {
-            question: "O que fazer ao presenciar bullying?",
-            options: [
-                "Participar da situação",
-                "Compartilhar nas redes sociais",
-                "Ignorar sempre",
-                "Procurar ajuda de um adulto de confiança"
-            ],
-            answer: 3,
-            feedback: "Correto! Procurar um adulto de confiança é uma atitude segura e responsável."
-        },
-
-        {
-            question: "O que fazer ao receber mensagens ofensivas online?",
-            options: [
-                "Responder com mais ofensas",
-                "Compartilhar com outras pessoas",
-                "Guardar evidências e procurar ajuda",
-                "Continuar conversando com o agressor"
-            ],
-            answer: 2,
-            feedback: "Correto! Guardar evidências e procurar ajuda são atitudes importantes."
-        },
-
-        {
-            question: "Qual atitude ajuda a combater o bullying?",
-            options: [
-                "Respeitar as diferenças",
-                "Excluir colegas",
-                "Espalhar rumores",
-                "Fazer piadas com alguém"
-            ],
-            answer: 0,
-            feedback: "Correto! Respeitar as diferenças contribui para um ambiente mais seguro e acolhedor."
+    <script>
+        // ============ NAVEGAÇÃO ============
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            const pageEl = document.getElementById('page-' + pageId);
+            const navEl = document.getElementById('nav-' + pageId);
+            if (pageEl) pageEl.classList.add('active');
+            if (navEl) navEl.classList.add('active');
+            window.scrollTo(0, 0);
         }
 
-    ];
-
-
-    let quizIndex = 0;
-    let quizScore = 0;
-
-
-    function loadQuizQuestion() {
-
-        const question = quizQuestions[quizIndex];
-
-        if (!question) {
-            finishQuiz();
-            return;
+        // ============ CARROSSEL ============
+        let carouselIndex = 0;
+        function moveCarousel(direction) {
+            const items = document.querySelectorAll('.carousel-item');
+            const totalItems = items.length;
+            carouselIndex = (carouselIndex + direction + totalItems) % totalItems;
+            document.getElementById('carouselInner').style.transform = `translateX(-${carouselIndex * 100}%)`;
         }
+        setInterval(() => moveCarousel(1), 5000);
 
-        document.getElementById('quizProgressFill').style.width =
-            ((quizIndex / quizQuestions.length) * 100) + '%';
-
-        document.getElementById('quizQuestionText').textContent =
-            (quizIndex + 1) + '. ' + question.question;
-
-        const optionsContainer =
-            document.getElementById('quizOptions');
-
-        optionsContainer.innerHTML = '';
-
-        document.getElementById('quizFeedback')
-            .classList.remove('show');
-
-        document.getElementById('quizFeedback').textContent = '';
-
-        document.getElementById('nextBtn').style.display = 'none';
-
-
-        question.options.forEach(function(option, index) {
-
-            const button = document.createElement('button');
-
-            button.className = 'quiz-option';
-
-            button.innerHTML = `
-                <span class="letter">
-                    ${String.fromCharCode(65 + index)}
-                </span>
-
-                <span>
-                    ${option}
-                </span>
-            `;
-
-            button.addEventListener('click', function() {
-                answerQuiz(index);
-            });
-
-            optionsContainer.appendChild(button);
-
-        });
-    }
-
-
-    function answerQuiz(selectedIndex) {
-
-        const question = quizQuestions[quizIndex];
-
-        const buttons =
-            document.querySelectorAll('.quiz-option');
-
-        buttons.forEach(function(button) {
-            button.disabled = true;
-        });
-
-
-        if (selectedIndex === question.answer) {
-
-            buttons[selectedIndex]
-                .classList.add('correct');
-
-            quizScore++;
-
-        } else {
-
-            buttons[selectedIndex]
-                .classList.add('wrong');
-
-            buttons[question.answer]
-                .classList.add('correct');
-        }
-
-
-        const feedback =
-            document.getElementById('quizFeedback');
-
-        feedback.textContent =
-            question.feedback;
-
-        feedback.classList.add('show');
-
-        document.getElementById('nextBtn')
-            .style.display = 'inline-flex';
-    }
-
-
-    document.getElementById('nextBtn')
-        .addEventListener('click', function() {
-
-            quizIndex++;
-
-            if (quizIndex >= quizQuestions.length) {
-                finishQuiz();
-            } else {
-                loadQuizQuestion();
-            }
-
-        });
-
-
-    function finishQuiz() {
-
-        document.getElementById('quizQuestion')
-            .style.display = 'none';
-
-        document.getElementById('quizResult')
-            .classList.add('show');
-
-        document.getElementById('quizScore')
-            .textContent =
-            quizScore + '/' + quizQuestions.length;
-
-
-        let message = '';
-
-        if (quizScore === quizQuestions.length) {
-
-            message =
-                'Excelente! Você demonstrou que conhece boas atitudes para combater o bullying.';
-
-        } else if (quizScore >= 3) {
-
-            message =
-                'Muito bem! Você já conhece várias formas de combater o bullying.';
-
-        } else {
-
-            message =
-                'Continue aprendendo! Conhecimento e respeito ajudam a construir um ambiente melhor.';
-
-        }
-
-        document.getElementById('quizMessage')
-            .textContent = message;
-    }
-
-
-    document.getElementById('restartBtn')
-        .addEventListener('click', function() {
-
-            quizIndex = 0;
-            quizScore = 0;
-
-            document.getElementById('quizQuestion')
-                .style.display = 'block';
-
-            document.getElementById('quizResult')
-                .classList.remove('show');
-
-            loadQuizQuestion();
-        });
-
-
-    /* ================================
-       ACESSIBILIDADE
-    ================================= */
-
-    function toggleContrast() {
-
-        document.body.classList.toggle('high-contrast');
-
-        localStorage.setItem(
-            'highContrast',
-            document.body.classList.contains('high-contrast')
-        );
-    }
-
-
-    function increaseFont() {
-
-        let currentSize =
-            parseFloat(
-                getComputedStyle(document.body)
-                    .getPropertyValue('--font-size-base')
-            );
-
-        if (currentSize < 24) {
-            currentSize += 1;
-        } else {
-            currentSize = 16;
-        }
-
-        document.documentElement.style
-            .setProperty(
-                '--font-size-base',
-                currentSize + 'px'
-            );
-    }
-
-
-    function scrollToTop() {
-
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-
-    /* ================================
-       INICIALIZAÇÃO
-    ================================= */
-
-    document.addEventListener('DOMContentLoaded', function() {
-
-        loadCharacters();
-
-        loadQuotes();
-
-        loadQuizQuestion();
-
-        if (localStorage.getItem('highContrast') === 'true') {
-            document.body.classList.add('high-contrast');
-        }
-
-    });
-
-</script>
-
-</body>
-</html> 
+        // ============ BOTÕ
