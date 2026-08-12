@@ -1,1449 +1,2167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🛡️ Combate ao Bullying & Cyberbullying - Portal de Apoio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --bg: #0f0e1a; --surface: #1a1730; --surface2: #24203f;
-            --text: #f0eef8; --muted: #a8a4c2; --primary: #ff6b6b;
-            --secondary: #6c5ce7; --accent: #00d2d3; --warm: #fdcb6e;
-            --green: #00b894; --shadow: 0 12px 30px rgba(0,0,0,0.5);
-            --radius: 28px; --font: 'Quicksand', sans-serif;
+            --bg: #0f0e1a;
+            --surface: #1a1730;
+            --surface2: #24203f;
+            --text: #f0eef8;
+            --muted: #a8a4c2;
+            --primary: #ff6b6b;
+            --secondary: #6c5ce7;
+            --accent: #00d2d3;
+            --warm: #fdcb6e;
+            --green: #00b894;
+            --shadow: 0 12px 30px rgba(0,0,0,0.5);
+            --radius: 28px;
+            --font: 'Quicksand', sans-serif;
             --font-size-base: 16px;
         }
+
         body.high-contrast {
-            --bg: #000000; --surface: #1a1a1a; --surface2: #2a2a2a;
-            --text: #ffffff; --muted: #e0e0e0; --primary: #ff3333;
-            --secondary: #9933ff; --accent: #00ffff; --warm: #ffcc00;
+            --bg: #000000;
+            --surface: #1a1a1a;
+            --surface2: #2a2a2a;
+            --text: #ffffff;
+            --muted: #e0e0e0;
+            --primary: #ff3333;
+            --secondary: #9933ff;
+            --accent: #00ffff;
+            --warm: #ffcc00;
             --green: #00ff99;
         }
+
         body {
-            background: var(--bg); color: var(--text); font-family: var(--font);
-            line-height: 1.6; min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            line-height: 1.6;
+            min-height: 100vh;
             font-size: var(--font-size-base);
-            background-image: radial-gradient(circle at 10% 20%, rgba(108,92,231,0.08) 0%, transparent 50%),
-                              radial-gradient(circle at 90% 80%, rgba(255,107,107,0.06) 0%, transparent 50%);
+
+            background-image:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(108,92,231,0.08) 0%,
+                    transparent 50%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(255,107,107,0.06) 0%,
+                    transparent 50%
+                );
+
             transition: background 0.3s, color 0.3s;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .site-header {
-            background: rgba(15,14,26,0.92); backdrop-filter: blur(12px);
-            border-bottom: 2px solid var(--secondary); position: sticky; top: 0; z-index: 60; padding: 12px 0;
+            background: rgba(15,14,26,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--secondary);
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            padding: 12px 0;
         }
-        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         .brand {
-            font-weight: 700; font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            display: flex; align-items: center; gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary),
+                var(--accent)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .brand i { -webkit-text-fill-color: initial; color: var(--warm); font-size: 1.8rem; }
-        .nav-links { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+        .brand i {
+            -webkit-text-fill-color: initial;
+            color: var(--warm);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
         .nav-links a {
-            color: var(--muted); text-decoration: none; font-weight: 600;
-            padding: 6px 14px; border-radius: 20px; transition: 0.3s;
-            display: flex; align-items: center; gap: 6px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             cursor: pointer;
         }
-        .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(108,92,231,0.3); }
-        
-        .page { display: none; padding: 50px 0; }
-        .page.active { display: block; }
-        
-        .hero { padding: 80px 0 50px; text-align: center; }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            background: rgba(108,92,231,0.3);
+        }
+
+        .page {
+            display: none;
+            padding: 50px 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            padding: 80px 0 50px;
+            text-align: center;
+        }
+
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
-            background: linear-gradient(145deg, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;
+            background: linear-gradient(
+                145deg,
+                var(--primary),
+                var(--secondary),
+                var(--accent)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
         }
-        .hero p { color: var(--muted); max-width: 700px; margin: 0 auto 24px; font-size: 1.15rem; }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-        
+
+        .hero p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 24px;
+            font-size: 1.15rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
         .btn {
-            border: none; border-radius: 60px; padding: 12px 26px; font-weight: 700;
-            cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
-            text-decoration: none; font-family: var(--font); font-size: 0.95rem;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 26px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: var(--font);
+            font-size: 0.95rem;
         }
-        .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 30px rgba(108,92,231,0.3); }
-        .btn-primary { background: linear-gradient(145deg, var(--primary), #e17055); color: #fff; }
-        .btn-secondary { background: var(--surface); color: var(--text); border: 2px solid var(--secondary); }
-        .btn-accent { background: linear-gradient(145deg, var(--accent), #00a8a8); color: #fff; }
-        
-        .section-title { font-size: 2rem; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-        .section-sub { color: var(--muted); margin-bottom: 30px; }
-        
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(108,92,231,0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--primary), #e17055);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-accent {
+            background: linear-gradient(145deg, var(--accent), #00a8a8);
+            color: #fff;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .section-sub {
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
         .card {
-            background: var(--surface); border-radius: var(--radius); padding: 24px;
-            box-shadow: var(--shadow); border: 1px solid rgba(108,92,231,0.15);
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(108,92,231,0.15);
             transition: 0.3s;
         }
-        .card:hover { border-color: var(--secondary); transform: translateY(-4px); }
-        
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
-        
+
+        .card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-4px);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
         .info-box {
-            padding: 20px; border-radius: 16px; margin-bottom: 16px;
-            border-left: 4px solid var(--accent); background: var(--surface2);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent);
+            background: var(--surface2);
         }
-        .info-box h4 { color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        
+
+        .info-box h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .char-card {
-            background: var(--surface); border-radius: var(--radius); padding: 20px;
-            text-align: center; border: 2px solid rgba(108,92,231,0.15);
-            transition: 0.3s; cursor: pointer;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgba(108,92,231,0.15);
+            transition: 0.3s;
+            cursor: pointer;
         }
+
         .char-card:hover {
-            border-color: var(--primary); transform: scale(1.04) translateY(-4px);
+            border-color: var(--primary);
+            transform: scale(1.04) translateY(-4px);
         }
+
         .char-card img {
-            width: 100%; height: 220px; object-fit: cover;
-            border-radius: 16px; margin-bottom: 12px; background: var(--bg);
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            background: var(--bg);
         }
-        .char-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
-        .char-anime { color: var(--muted); font-size: 0.85rem; margin-bottom: 8px; }
+
+        .char-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .char-anime {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
         .char-quote {
-            font-style: italic; color: var(--accent); font-size: 0.9rem;
-            padding: 10px; background: var(--surface2); border-radius: 12px;
+            font-style: italic;
+            color: var(--accent);
+            font-size: 0.9rem;
+            padding: 10px;
+            background: var(--surface2);
+            border-radius: 12px;
         }
-        
+
         .chat-container {
-            background: var(--surface); border-radius: var(--radius);
-            box-shadow: var(--shadow); border: 1px solid rgba(108,92,231,0.15);
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(108,92,231,0.15);
             overflow: hidden;
         }
+
         .chat-header {
-            padding: 20px; background: var(--surface2);
-            display: flex; align-items: center; gap: 16px;
+            padding: 20px;
+            background: var(--surface2);
+            display: flex;
+            align-items: center;
+            gap: 16px;
             border-bottom: 1px solid rgba(108,92,231,0.15);
         }
+
         .chat-header img {
-            width: 60px; height: 60px; border-radius: 50%;
-            object-fit: cover; border: 2px solid var(--accent);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
         }
-        .chat-header h3 { font-size: 1.3rem; margin-bottom: 4px; }
-        .chat-header p { color: var(--muted); font-size: 0.9rem; }
-        
+
+        .chat-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .chat-header p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
         .chat-messages {
-            height: 400px; overflow-y: auto; padding: 20px;
-            display: flex; flex-direction: column; gap: 12px;
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
+
         .message {
-            max-width: 80%; padding: 12px 16px; border-radius: 18px;
-            font-size: 0.95rem; line-height: 1.4;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
             animation: fadeIn 0.3s ease;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .message.bot {
-            background: var(--surface2); align-self: flex-start;
+            background: var(--surface2);
+            align-self: flex-start;
             border-bottom-left-radius: 4px;
         }
+
         .message.user {
-            background: linear-gradient(145deg, var(--secondary), var(--accent));
-            align-self: flex-end; border-bottom-right-radius: 4px;
+            background: linear-gradient(
+                145deg,
+                var(--secondary),
+                var(--accent)
+            );
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
         }
-        
+
         .chat-input-area {
-            padding: 16px; background: var(--surface2);
+            padding: 16px;
+            background: var(--surface2);
             border-top: 1px solid rgba(108,92,231,0.15);
-            display: flex; gap: 10px;
+            display: flex;
+            gap: 10px;
         }
+
         .chat-input {
-            flex: 1; padding: 12px 16px; border-radius: 30px;
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 30px;
             border: 2px solid rgba(108,92,231,0.3);
-            background: var(--bg); color: var(--text);
-            font-family: var(--font); font-size: 0.95rem;
-            outline: none; transition: 0.3s;
-        }
-        .chat-input:focus { border-color: var(--accent); }
-        .send-btn {
-            background: linear-gradient(145deg, var(--secondary), var(--accent));
-            color: #fff; border: none; border-radius: 50%;
-            width: 46px; height: 46px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 0.95rem;
+            outline: none;
             transition: 0.3s;
         }
-        .send-btn:hover { transform: scale(1.1); }
-        
+
+        .chat-input:focus {
+            border-color: var(--accent);
+        }
+
+        .send-btn {
+            background: linear-gradient(
+                145deg,
+                var(--secondary),
+                var(--accent)
+            );
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+        }
+
         .quote-card {
-            background: var(--surface); border-radius: var(--radius); padding: 40px;
-            text-align: center; border: 1px solid rgba(108,92,231,0.15);
-            box-shadow: var(--shadow); margin-bottom: 24px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(108,92,231,0.15);
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
         }
-        .quote-emoji { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+
+        .quote-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
         .quote-text {
-            font-size: 1.5rem; font-weight: 600; line-height: 1.5;
-            margin-bottom: 16px; color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            color: var(--text);
         }
-        .quote-author { color: var(--muted); font-size: 1.1rem; }
-        
+
+        .quote-author {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
         .quiz-progress {
-            width: 100%; height: 10px; background: rgba(108,92,231,0.15);
-            border-radius: 20px; overflow: hidden; margin-bottom: 24px;
+            width: 100%;
+            height: 10px;
+            background: rgba(108,92,231,0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 24px;
         }
+
         .quiz-progress-fill {
-            height: 100%; background: linear-gradient(90deg, var(--secondary), var(--accent));
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                var(--secondary),
+                var(--accent)
+            );
             transition: width 0.5s ease;
         }
-        .quiz-question { font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; }
-        .quiz-options { display: grid; gap: 12px; margin-bottom: 20px; }
+
+        .quiz-question {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
         .quiz-option {
-            display: flex; align-items: center; gap: 12px; padding: 16px 20px;
-            border-radius: 30px; border: 2px solid rgba(108,92,231,0.2);
-            background: var(--bg); color: var(--text); cursor: pointer;
-            transition: 0.3s; font-weight: 600; width: 100%; text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-radius: 30px;
+            border: 2px solid rgba(108,92,231,0.2);
+            background: var(--bg);
+            color: var(--text);
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            width: 100%;
+            text-align: left;
         }
+
         .quiz-option:hover:not(:disabled) {
-            border-color: var(--secondary); transform: translateX(6px);
+            border-color: var(--secondary);
+            transform: translateX(6px);
         }
+
         .quiz-option .letter {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 36px; height: 36px; border-radius: 50%;
-            background: linear-gradient(145deg, var(--secondary), var(--accent));
-            color: #fff; font-weight: 700; flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(
+                145deg,
+                var(--secondary),
+                var(--accent)
+            );
+            color: #fff;
+            font-weight: 700;
+            flex-shrink: 0;
         }
-        .quiz-option.correct { border-color: var(--green); background: rgba(0,184,148,0.15); }
-        .quiz-option.wrong { border-color: var(--primary); background: rgba(255,107,107,0.15); }
-        .quiz-option:disabled { cursor: not-allowed; opacity: 0.7; }
+
+        .quiz-option.correct {
+            border-color: var(--green);
+            background: rgba(0,184,148,0.15);
+        }
+
+        .quiz-option.wrong {
+            border-color: var(--primary);
+            background: rgba(255,107,107,0.15);
+        }
+
+        .quiz-option:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
         .quiz-feedback {
-            display: none; padding: 18px; border-radius: 16px;
-            background: var(--bg); margin-bottom: 20px;
+            display: none;
+            padding: 18px;
+            border-radius: 16px;
+            background: var(--bg);
+            margin-bottom: 20px;
             border-left: 4px solid var(--secondary);
         }
-        .quiz-feedback.show { display: block; }
-        #quizResult { display: none; text-align: center; }
-        #quizResult.show { display: block; }
-        .result-badge { font-size: 5rem; margin-bottom: 16px; display: block; }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        #quizResult {
+            display: none;
+            text-align: center;
+        }
+
+        #quizResult.show {
+            display: block;
+        }
+
+        .result-badge {
+            font-size: 5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
         .result-box {
-            background: var(--bg); padding: 20px; border-radius: 16px;
-            margin: 20px 0; border-left: 4px solid var(--accent);
+            background: var(--bg);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent);
         }
-        
-        .ref-list { list-style: none; }
+
+        .ref-list {
+            list-style: none;
+        }
+
         .ref-list li {
-            padding: 16px 20px; background: var(--bg);
-            border-radius: 16px; margin-bottom: 12px;
+            padding: 16px 20px;
+            background: var(--bg);
+            border-radius: 16px;
+            margin-bottom: 12px;
             border-left: 4px solid var(--secondary);
         }
+
         .ref-list li a {
-            color: var(--accent); text-decoration: none;
-            display: flex; align-items: center; gap: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 600;
         }
-        .ref-list li a:hover { text-decoration: underline; color: var(--primary); }
+
+        .ref-list li a:hover {
+            text-decoration: underline;
+            color: var(--primary);
+        }
+
         .emergency-box {
-            background: linear-gradient(145deg, var(--primary), #e17055);
-            padding: 30px; border-radius: var(--radius);
-            text-align: center; margin-bottom: 30px;
+            background: linear-gradient(
+                145deg,
+                var(--primary),
+                #e17055
+            );
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 30px;
         }
+
         .emergency-number {
-            font-size: 4rem; font-weight: 700; color: #fff;
-            margin: 10px 0; display: block;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 10px 0;
+            display: block;
         }
-        
+
         .site-footer {
-            padding: 30px 0; text-align: center; color: var(--muted);
-            border-top: 1px solid rgba(108,92,231,0.15); margin-top: 50px;
+            padding: 30px 0;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid rgba(108,92,231,0.15);
+            margin-top: 50px;
         }
-        
-        /* CARROSSEL */
+
         .carousel {
-            position: relative; max-width: 800px; margin: 40px auto;
-            border-radius: var(--radius); overflow: hidden;
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: var(--radius);
+            overflow: hidden;
             box-shadow: var(--shadow);
         }
+
         .carousel-inner {
-            display: flex; transition: transform 0.5s ease;
+            display: flex;
+            transition: transform 0.5s ease;
         }
+
         .carousel-item {
-            min-width: 100%; height: 400px;
+            min-width: 100%;
+            height: 400px;
         }
+
         .carousel-item img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
         .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(0,0,0,0.5); color: #fff; border: none;
-            width: 50px; height: 50px; border-radius: 50%;
-            cursor: pointer; font-size: 1.5rem;
-            display: flex; align-items: center; justify-content: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: 0.3s;
         }
-        .carousel-btn:hover { background: rgba(0,0,0,0.8); }
-        .carousel-prev { left: 20px; }
-        .carousel-next { right: 20px; }
-        
-        /* BOTÕES FLUTUANTES */
+
+        .carousel-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
         .floating-buttons {
-            position: fixed; bottom: 30px; right: 30px;
-            display: flex; flex-direction: column; gap: 12px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             z-index: 100;
         }
+
         .float-btn {
-            width: 50px; height: 50px; border-radius: 50%;
-            border: none; cursor: pointer;
-            background: linear-gradient(145deg, var(--secondary), var(--accent));
-            color: #fff; font-size: 1.2rem;
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.3s; box-shadow: var(--shadow);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(
+                145deg,
+                var(--secondary),
+                var(--accent)
+            );
+            color: #fff;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            box-shadow: var(--shadow);
         }
-        .float-btn:hover { transform: scale(1.1); }
-        
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
-            .hero { padding: 50px 0 30px; }
-            .page { padding: 30px 0; }
-            .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-            .grid-2 { grid-template-columns: 1fr; }
-            .chat-messages { height: 300px; }
-            .carousel-item { height: 250px; }
+            .hero {
+                padding: 50px 0 30px;
+            }
+
+            .page {
+                padding: 30px 0;
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(
+                    auto-fit,
+                    minmax(160px, 1fr)
+                );
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-messages {
+                height: 300px;
+            }
+
+            .carousel-item {
+                height: 250px;
+            }
+
+            .nav-links {
+                gap: 5px;
+            }
+
+            .nav-links a {
+                padding: 5px 8px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
+
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand">
-                <i class="fa-solid fa-shield-halved"></i>
-                Combate ao Bullying
-            </div>
-            <nav class="nav-links">
-                <a onclick="showPage('inicio')" class="active" id="nav-inicio"><i class="fa-solid fa-house"></i> Início</a>
-                <a onclick="showPage('personagens')" id="nav-personagens"><i class="fa-solid fa-users"></i> Personagens</a>
-                <a onclick="showPage('chat')" id="nav-chat"><i class="fa-solid fa-comments"></i> Chat</a>
-                <a onclick="showPage('frases')" id="nav-frases"><i class="fa-solid fa-quote-left"></i> Frases</a>
-                <a onclick="showPage('quiz')" id="nav-quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a>
-                <a onclick="showPage('referencias')" id="nav-referencias"><i class="fa-solid fa-book"></i> Referências</a>
-            </nav>
-        </div>
-    </header>
 
-    <!-- PÁGINA: INÍCIO -->
-    <div id="page-inicio" class="page active">
-        <section class="hero">
-            <div class="container">
-                <h1>🛡️ Juntos contra o Bullying & Cyberbullying</h1>
-                <p>Um portal de apoio para estudantes. Aprenda a identificar, prevenir e combater o bullying. Você não está sozinho nesta luta!</p>
-                <div class="hero-actions">
-                    <button onclick="showPage('personagens')" class="btn btn-primary"><i class="fa-solid fa-users"></i> Conhecer Personagens</button>
-                    <button onclick="showPage('quiz')" class="btn btn-accent"><i class="fa-solid fa-gamepad"></i> Fazer Quiz</button>
-                    <button onclick="showPage('referencias')" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Pedir Ajuda</button>
-                </div>
-            </div>
-        </section>
+<header class="site-header">
+    <div class="container header-inner">
 
-        <!-- CARROSSEL -->
-        <div class="carousel">
-            <div class="carousel-inner" id="carouselInner">
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1529390003868-6c01d73923f6?w=800" alt="União contra o bullying" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800" alt="Apoio emocional" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800" alt="Respeito e inclusão" />
-                </div>
-            </div>
-            <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="carousel-btn carousel-next" onclick="moveCarousel(1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="brand">
+            <i class="fa-solid fa-shield-halved"></i>
+            Combate ao Bullying
         </div>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> O que você vai encontrar aqui?</h2>
-                <div class="grid-3">
-                    <div class="card">
-                        <h3 style="color: var(--primary); margin-bottom: 12px;"><i class="fa-solid fa-users"></i> Personagens</h3>
-                        <p style="color: var(--muted);">Converse com heróis de animes, mangás e quadrinhos que vão te apoiar e motivar!</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--warm); margin-bottom: 12px;"><i class="fa-solid fa-quote-left"></i> Frases Motivacionais</h3>
-                        <p style="color: var(--muted);">Inspire-se com frases poderosas de personagens que superaram adversidades!</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--secondary); margin-bottom: 12px;"><i class="fa-solid fa-gamepad"></i> Quiz Educativo</h3>
-                        <p style="color: var(--muted);">Teste seus conhecimentos sobre bullying e cyberbullying de forma interativa!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <nav class="nav-links">
+            <a onclick="showPage('inicio')" class="active" id="nav-inicio">
+                <i class="fa-solid fa-house"></i> Início
+            </a>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-triangle-exclamation" style="color: var(--primary);"></i> Entenda o Problema</h2>
-                <div class="grid-3">
-                    <div class="info-box">
-                        <h4><i class="fa-solid fa-bullseye"></i> O que é Bullying?</h4>
-                        <p style="color: var(--muted);">Bullying são agressões físicas ou psicológicas repetidas e intencionais contra alguém, causando sofrimento e exclusão.</p>
-                    </div>
-                    <div class="info-box">
-                        <h4><i class="fa-solid fa-laptop"></i> O que é Cyberbullying?</h4>
-                        <p style="color: var(--muted);">Cyberbullying é o bullying praticado online através de redes sociais, mensagens ou jogos, onde o agressor humilha ou persegue a vítima virtualmente.</p>
-                    </div>
-                    <div class="info-box">
-                        <h4><i class="fa-solid fa-hands-helping"></i> Como Combater?</h4>
-                        <p style="color: var(--muted);">Denuncie, não compartilhe conteúdo ofensivo, apoie as vítimas e busque ajuda de adultos de confiança.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <a onclick="showPage('personagens')" id="nav-personagens">
+                <i class="fa-solid fa-users"></i> Personagens
+            </a>
+
+            <a onclick="showPage('chat')" id="nav-chat">
+                <i class="fa-solid fa-comments"></i> Chat
+            </a>
+
+            <a onclick="showPage('frases')" id="nav-frases">
+                <i class="fa-solid fa-quote-left"></i> Frases
+            </a>
+
+            <a onclick="showPage('quiz')" id="nav-quiz">
+                <i class="fa-solid fa-gamepad"></i> Quiz
+            </a>
+
+            <a onclick="showPage('referencias')" id="nav-referencias">
+                <i class="fa-solid fa-book"></i> Referências
+            </a>
+        </nav>
+
     </div>
+</header>
 
-    <!-- PÁGINA: PERSONAGENS -->
-    <div id="page-personagens" class="page">
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-users" style="color: var(--accent);"></i> Personagens que Apoiam Você</h2>
-                <p class="section-sub">Heróis de animes, mangás e quadrinhos com mensagens de força e coragem!</p>
-                
-                <div class="grid-4" id="charactersGrid">
-                    <!-- Personagens inseridos via JavaScript -->
-                </div>
-            </div>
-        </section>
-    </div>
 
-    <!-- PÁGINA: CHAT -->
-    <div id="page-chat" class="page">
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-comments" style="color: var(--accent);"></i> Chat com Personagem</h2>
-                
-                <div class="chat-container">
-                    <div class="chat-header">
-                        <img id="charImage" src="" alt="Personagem" />
-                        <div>
-                            <h3 id="charName">Selecione um personagem</h3>
-                            <p id="charAnime">Vá em "Personagens" e clique em um deles para conversar.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="message bot">Olá! Selecione um personagem na página "Personagens" para começar a conversar.</div>
-                    </div>
-                    
-                    <div class="chat-input-area">
-                        <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua mensagem..." />
-                        <button class="send-btn" id="sendBtn">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+<!-- INÍCIO -->
+<div id="page-inicio" class="page active">
 
-    <!-- PÁGINA: FRASES -->
-    <div id="page-frases" class="page">
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-quote-left" style="color: var(--warm);"></i> Frases de Força e Coragem</h2>
-                <p class="section-sub">Inspire-se com mensagens poderosas de personagens que venceram adversidades!</p>
-                
-                <div class="quote-card" id="mainQuote">
-                    <span class="quote-emoji" id="quoteEmoji">⚡</span>
-                    <p class="quote-text" id="quoteText">"A força não vem da capacidade física, mas de uma vontade indomável."</p>
-                    <p class="quote-author" id="quoteAuthor">— Saitama (One Punch Man)</p>
-                </div>
-                
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <button class="btn btn-secondary" id="newQuoteBtn">
-                        <i class="fa-solid fa-arrow-rotate-right"></i> Nova Frase
-                    </button>
-                </div>
-                
-                <h3 style="margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-star" style="color: var(--warm);"></i> Mais Frases Inspiradoras
-                </h3>
-                
-                <div class="grid-2" id="quotesGrid">
-                    <!-- Frases inseridas via JavaScript -->
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- PÁGINA: QUIZ -->
-    <div id="page-quiz" class="page">
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i> Quiz: Bullying & Cyberbullying</h2>
-                <p class="section-sub">Teste seus conhecimentos e aprenda como se proteger!</p>
-                
-                <div class="card" id="quizCard">
-                    <div id="quizQuestion">
-                        <div class="quiz-progress">
-                            <div class="quiz-progress-fill" id="quizProgressFill" style="width: 0%;"></div>
-                        </div>
-                        <p class="quiz-question" id="quizQuestionText">Carregando...</p>
-                        <div class="quiz-options" id="quizOptions"></div>
-                        <div class="quiz-feedback" id="quizFeedback"></div>
-                        <button class="btn btn-primary" id="nextBtn" style="display: none;">
-                            <i class="fa-solid fa-arrow-right"></i> Próxima
-                        </button>
-                    </div>
-                    
-                    <div id="quizResult">
-                        <span class="result-badge">🛡️</span>
-                        <h3 style="margin-bottom: 16px;">Quiz Completado!</h3>
-                        <p id="quizScore" style="font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: var(--accent);">0/5</p>
-                        <p id="quizMessage" style="color: var(--muted); margin-bottom: 20px;"></p>
-                        
-                        <div class="result-box">
-                            <strong style="color: var(--accent);">💡 Lembre-se:</strong>
-                            <p style="margin: 10px 0 0 0; color: var(--muted);">
-                                Se você estiver sofrendo bullying, procure ajuda! Converse com um adulto de confiança, 
-                                professor, ou ligue para o <strong>CVV (188)</strong>. Você não está sozinho!
-                            </p>
-                        </div>
-                        
-                        <button class="btn btn-accent" id="restartBtn">
-                            <i class="fa-solid fa-rotate-right"></i> Tentar Novamente
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- PÁGINA: REFERÊNCIAS -->
-    <div id="page-referencias" class="page">
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fa-solid fa-phone" style="color: var(--primary);"></i> Precisa de Ajuda?</h2>
-                <p class="section-sub">Você não está sozinho. Existem pessoas e organizações prontas para ajudar!</p>
-                
-                <div class="emergency-box">
-                    <i class="fa-solid fa-headset" style="font-size: 3rem; color: #fff;"></i>
-                    <span class="emergency-number">188</span>
-                    <p style="color: #fff; font-size: 1.2rem;">CVV - Centro de Valorização da Vida</p>
-                    <p style="color: rgba(255,255,255,0.8);">Ligue gratuitamente, 24 horas por dia</p>
-                </div>
-                
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 style="margin-bottom: 16px; color: var(--accent);"><i class="fa-solid fa-hands-helping"></i> Onde Buscar Ajuda</h3>
-                        <ul class="ref-list">
-                            <li>
-                                <a href="https://www.cvv.org.br/" target="_blank">
-                                    <i class="fa-solid fa-phone"></i>
-                                    CVV - Centro de Valorização da Vida (188)
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.gov.br/saude/pt-br" target="_blank">
-                                    <i class="fa-solid fa-hospital"></i>
-                                    Ministério da Saúde - Saúde Mental
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.unicef.org/brazil/" target="_blank">
-                                    <i class="fa-solid fa-child"></i>
-                                    UNICEF Brasil - Proteção Infantil
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2015/lei/l13185.htm" target="_blank">
-                                    <i class="fa-solid fa-scale-balanced"></i>
-                                    Lei 13.185/2015 - Combate ao Bullying
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 style="margin-bottom: 16px; color: var(--warm);"><i class="fa-solid fa-circle-info"></i> Referências da Pesquisa</h3>
-                        <ul class="ref-list">
-                            <li>
-                                <a href="https://www.gov.br/mdh/pt-br" target="_blank">
-                                    <i class="fa-solid fa-building-columns"></i>
-                                    Ministério dos Direitos Humanos - Cartilha de Combate ao Bullying
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.fiocruz.br/" target="_blank">
-                                    <i class="fa-solid fa-flask"></i>
-                                    Fiocruz - Saúde Mental e Juventude
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.usp.br/" target="_blank">
-                                    <i class="fa-solid fa-graduation-cap"></i>
-                                    Universidade de São Paulo - Estudos sobre Violência Escolar
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.scielo.br/" target="_blank">
-                                    <i class="fa-solid fa-book-open"></i>
-                                    SciELO - Artigos Científicos sobre Bullying
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.abpbrasil.org.br/" target="_blank">
-                                    <i class="fa-solid fa-brain"></i>
-                                    Associação Brasileira de Psiquiatria - Orientações sobre Saúde Mental
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer class="site-footer">
+    <section class="hero">
         <div class="container">
-            <p>&copy; 2026 Combate ao Bullying & Cyberbullying - Portal de Apoio ao Estudante</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Se precisar de ajuda, ligue para o CVV: <strong style="color: var(--accent);">188</strong></p>
-        </div>
-    </footer>
 
-    <!-- BOTÕES FLUTUANTES -->
-    <div class="floating-buttons">
-        <button class="float-btn" onclick="scrollToTop()" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
-        <button class="float-btn" onclick="toggleContrast()" title="Alto contraste"><i class="fa-solid fa-circle-half-stroke"></i></button>
-        <button class="float-btn" onclick="increaseFont()" title="Aumentar fonte"><i class="fa-solid fa-font"></i></button>
+            <h1>🛡️ Juntos contra o Bullying & Cyberbullying</h1>
+
+            <p>
+                Um portal de apoio para estudantes.
+                Aprenda a identificar, prevenir e combater o bullying.
+                Você não está sozinho nesta luta!
+            </p>
+
+            <div class="hero-actions">
+
+                <button onclick="showPage('personagens')" class="btn btn-primary">
+                    <i class="fa-solid fa-users"></i>
+                    Conhecer Personagens
+                </button>
+
+                <button onclick="showPage('quiz')" class="btn btn-accent">
+                    <i class="fa-solid fa-gamepad"></i>
+                    Fazer Quiz
+                </button>
+
+                <button onclick="showPage('referencias')" class="btn btn-secondary">
+                    <i class="fa-solid fa-phone"></i>
+                    Pedir Ajuda
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="carousel">
+
+        <div class="carousel-inner" id="carouselInner">
+
+            <div class="carousel-item">
+                <img
+                    src="https://images.unsplash.com/photo-1529390003868-6c01d73923f6?w=800"
+                    alt="União contra o bullying"
+                >
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800"
+                    alt="Apoio emocional"
+                >
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800"
+                    alt="Respeito e inclusão"
+                >
+            </div>
+
+        </div>
+
+        <button class="carousel-btn carousel-prev" onclick="moveCarousel(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button class="carousel-btn carousel-next" onclick="moveCarousel(1)">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
     </div>
 
-    <script>
-        // NAVEGAÇÃO ENTRE PÁGINAS
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-            document.getElementById('page-' + pageId).classList.add('active');
-            document.getElementById('nav-' + pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
 
-        // CARROSSEL
-        let carouselIndex = 0;
-        function moveCarousel(direction) {
-            const items = document.querySelectorAll('.carousel-item');
-            carouselIndex = (carouselIndex + direction + items.length) % items.length;
-            document.getElementById('carouselInner').style.transform = `translateX(-${carouselIndex * 100}%)`;
-        }
-        setInterval(() => moveCarousel(1), 5000);
+    <section class="section">
+        <div class="container">
 
-        // BOTÕES FLUTUANTES
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        function toggleContrast() {
-            document.body.classList.toggle('high-contrast');
-        }
-        function increaseFont() {
-            const currentSize = parseInt(getComputedStyle(document.body).fontSize);
-            document.body.style.setProperty('--font-size-base', `${Math.min(currentSize + 2, 24)}px`);
-        }
+            <h2 class="section-title">
+                <i class="fa-solid fa-circle-info" style="color: var(--accent);"></i>
+                O que você vai encontrar aqui?
+            </h2>
 
-        // PERSONAGENS
-        const characters = [
-            {
-                name: "Mikasa Ackerman",
-                anime: "Attack on Titan",
-                image: "https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png",
-                quote: "Proteja quem você ama. Você é mais forte do que imagina.",
-                id: "mikasa"
-            },
-            {
-                name: "Batman",
-                anime: "DC Comics",
-                image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
-                quote: "Não importa o quão difícil seja, nunca desista de fazer o que é certo.",
-                id: "batman"
-            },
-            {
-                name: "Superman",
-                anime: "DC Comics",
-                image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png",
-                quote: "Ser herói é ajudar quem precisa, mesmo quando ninguém está vendo.",
-                id: "superman"
-            },
-            {
-                name: "Ichigo Kurosaki",
-                anime: "Bleach",
-                image: "https://static.wikia.nocookie.net/bleach/images/7/72/Ichigo_Kurosaki_E91.png",
-                quote: "Se você tem poder, use-o para proteger, não para machucar.",
-                id: "ichigo"
-            },
-            {
-                name: "Ken Kaneki",
-                anime: "Tokyo Ghoul",
-                image: "https://static.wikia.nocookie.net/tokyoghoul/images/9/94/Ken_Kaneki_Infobox.png",
-                quote: "Não deixe que a dor te transforme em algo que você não quer ser.",
-                id: "kaneki"
-            },
-            {
-                name: "Roronoa Zoro",
-                anime: "One Piece",
-                image: "https://static.wikia.nocookie.net/onepiece/images/1/12/Zoro_Post_Timeskip_Anime_Infobox.png",
-                quote: "Nada aconteceu. Mantenha o foco e siga em frente.",
-                id: "zoro"
-            },
-            {
-                name: "Sasuke Uchiha",
-                anime: "Naruto",
-                image: "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_II.png",
-                quote: "Às vezes, é preciso caminhar sozinho para encontrar seu caminho.",
-                id: "sasuke"
-            },
-            {
-                name: "Reze",
-                anime: "Chainsaw Man",
-                image: "https://static.wikia.nocookie.net/chainsaw-man/images/6/6f/Reze_Anime.png",
-                quote: "Mesmo em meio à escuridão, é possível encontrar luz.",
-                id: "reze"
-            }
-        ];
+            <div class="grid-3">
 
-        //const chatResponses = {
-    mikasa: {
-        name: "Mikasa Ackerman",
-        anime: "Attack on Titan",
-        image: "https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png",
-        respostas: {
-            ola: [
-                "Olá! Como posso te ajudar hoje?",
-                "Oi! Estou aqui para ouvir você.",
-                "Olá! Em que posso ser útil?",
-                "Hey! Que bom te ver por aqui.",
-                "Oiê! Como você está se sentindo?",
-                "Olá, guerreiro(a)! Pronto para conversar?",
-                "Bem-vindo(a)! Estou aqui para te apoiar.",
-                "Oi! Pode falar comigo, estou ouvindo.",
-                "Salve! Como posso ajudar você hoje?",
-                "E aí! Tudo bem? Conte comigo.",
-                "Fala! Estou aqui para o que precisar.",
-                "Opa! Que bom ter você aqui.",
-                "Bom dia! Como está seu dia?",
-                "Boa tarde! Espero que esteja bem.",
-                "Boa noite! Quer conversar um pouco?",
-                "Olá! Sinta-se à vontade para desabafar.",
-                "Oi! Você não está sozinho(a), estou aqui.",
-                "Hey! Vamos conversar? Estou te ouvindo.",
-                "Olá! Meu nome é Mikasa, prazer em te conhecer.",
-                "Oi! Pode me chamar de Mikasa, estou aqui para ajudar."
-            ],
-            bullying: [
-                "Bullying é sério. Você não merece ser tratado assim.",
-                "Isso é bullying. Converse com um adulto de confiança.",
-                "Bullying não é normal. Denuncie e se proteja.",
-                "Ninguém merece sofrer bullying. Você é valioso(a).",
-                "O bullying diz mais sobre o agressor do que sobre você.",
-                "Não se cale diante do bullying. Sua voz importa.",
-                "Bullying não é brincadeira, é violência. Denuncie.",
-                "Você não está sozinho(a) nessa luta contra o bullying.",
-                "Quem pratica bullying é fraco. Você é forte por aguentar.",
-                "Bullying pode deixar marcas profundas. Busque ajuda.",
-                "Não deixe que o bullying defina quem você é.",
-                "Você merece respeito e dignidade sempre.",
-                "Bullying na escola é crime. Conte para um professor.",
-                "Se estão te fazendo mal, isso é bullying. Reaja denunciando.",
-                "O silêncio é aliado do bullying. Quebre esse ciclo.",
-                "Bullying não é frescura, é agressão real. Se proteja.",
-                "Sinto muito que esteja passando por bullying.",
-                "Bullying causa dor real. Você não merece sofrer.",
-                "Não normalize o bullying. Isso é abuso.",
-                "Você tem direito a um ambiente seguro e respeitoso."
-            ],
-            cyberbullying: [
-                "Cyberbullying também é bullying. Salve prints e denuncie.",
-                "O que acontece online também machuca. Peça ajuda.",
-                "Cyberbullying é crime. Denuncie nas plataformas e para um adulto.",
-                "Não responda provocações online. Bloqueie e denuncie.",
-                "Cyberbullying deixa rastros. Use isso como prova.",
-                "A internet não é terra sem lei. Cyberbullying é crime.",
-                "Proteja sua saúde mental do cyberbullying.",
-                "Se te atacam online, não é sua culpa. Denuncie.",
-                "Cyberbullying pode ser tão doloroso quanto o bullying físico.",
-                "Salve todas as mensagens ofensivas como prova.",
-                "Não enfrente cyberbullying sozinho(a). Busque apoio.",
-                "As redes sociais devem ser seguras para todos.",
-                "Cyberbullying é covardia atrás de uma tela.",
-                "Denuncie perfis falsos que praticam cyberbullying.",
-                "O anonimato online não protege agressores. Denuncie.",
-                "Você pode bloquear e denunciar contas abusivas.",
-                "Cyberbullying não é menos grave por ser virtual.",
-                "Não se isole por causa de ataques online.",
-                "Cuide da sua privacidade online para se proteger.",
-                "Existem leis contra cyberbullying. Você está protegido(a)."
-            ],
-            xingamento: [
-                "Te xingar não define quem você é. Isso é bullying.",
-                "Palavras podem doer, mas não precisam te destruir.",
-                "Ninguém merece ser xingado. Converse com alguém.",
-                "Xingamentos revelam a falta de caráter de quem ofende.",
-                "Você é muito mais do que os nomes que te chamam.",
-                "Não deixe que palavras cruéis apaguem seu brilho.",
-                "Xingamentos são armas de pessoas pequenas.",
-                "Seu valor não diminui por causa de ofensas.",
-                "Palavras ofensivas dizem mais sobre quem as diz.",
-                "Você merece ser tratado(a) com respeito sempre.",
-                "Não acredite nos xingamentos, eles são mentiras.",
-                "Quem te xinga tenta te diminuir, mas você é grande.",
-                "Xingamentos não são normais, são agressão verbal.",
-                "Não aceite ser xingado(a) como se fosse normal.",
-                "As palavras podem ferir, mas você pode se curar.",
-                "Ofensas não têm poder sobre sua autoestima real.",
-                "Xingar é uma forma covarde de tentar machucar.",
-                "Você não é o que dizem de ruim sobre você.",
-                "Denuncie xingamentos constantes como bullying verbal.",
-                "Palavras de ódio não merecem sua atenção."
-            ],
-            ameaca: [
-                "Ameaças são sérias. Não ignore. Denuncie.",
-                "Ameaçar é errado. Salve provas e conte a um adulto.",
-                "Ameaças online ou presencialmente são crime. Denuncie.",
-                "Ninguém tem o direito de te ameaçar. Isso é crime.",
-                "Se você recebeu ameaças, procure a polícia.",
-                "Ameaças de morte são gravíssimas. Denuncie já.",
-                "Não enfrente ameaças sozinho(a). Peça ajuda.",
-                "Ameaças causam medo real. Você merece proteção.",
-                "Guarde todas as provas de ameaças que receber.",
-                "Ameaçar alguém é crime previsto em lei.",
-                "Você pode fazer um boletim de ocorrência por ameaça.",
-                "Não minimize ameaças, elas são muito sérias.",
-                "Se alguém te ameaçou, conte para a polícia.",
-                "Ameaças virtuais também são crime. Denuncie.",
-                "Sua segurança é prioridade. Leve ameaças a sério.",
-                "Ameaçar é uma forma de violência psicológica.",
-                "Não tenha medo de denunciar quem te ameaça.",
-                "Você tem direito a medidas protetivas se ameaçado(a).",
-                "Ameaças não são brincadeiras. Denuncie sempre.",
-                "Procure uma delegacia para registrar ameaças."
-            ],
-            exclusao: [
-                "Ser excluído dói, mas não significa que há algo errado com você.",
-                "Amizades verdadeiras te valorizam, não te excluem.",
-                "Exclusão é uma forma de bullying. Não se culpe.",
-                "Você merece estar em lugares onde é bem-vindo(a).",
-                "A exclusão social é uma violência silenciosa.",
-                "Não se sinta mal por não ser aceito em certos grupos.",
-                "Pessoas que excluem não merecem sua companhia.",
-                "Ser deixado de lado não define seu valor.",
-                "A exclusão dói, mas você encontrará seu lugar.",
-                "Grupos que excluem são tóxicos. Se afaste.",
-                "Você não precisa implorar por aceitação de ninguém.",
-                "A solidão forçada pela exclusão é muito dolorosa.",
-                "Não internalize a exclusão como se fosse sua culpa.",
-                "Existem pessoas que vão te acolher de verdade.",
-                "Ser excluído(a) é uma experiência muito sofrida.",
-                "A exclusão é uma forma cruel de bullying.",
-                "Você é digno(a) de pertencer e ser amado(a).",
-                "Não aceite migalhas de atenção de quem te exclui.",
-                "A exclusão repetida pode causar traumas. Busque ajuda.",
-                "Valorize quem te inclui e te respeita de verdade."
-            ],
-            redeSocial: [
-                "Redes sociais podem ser tóxicas. Cuide de você.",
-                "Não responda ofensas online. Bloqueie e denuncie.",
-                "O virtual também é real. Cyberbullying machuca.",
-                "Faça pausas nas redes sociais pela sua saúde mental.",
-                "Nem tudo que vejo online é real. Não se compare.",
-                "Redes sociais podem amplificar inseguranças.",
-                "Use as redes com sabedoria e proteção.",
-                "Se te faz mal online, se afaste. Você pode.",
-                "Denuncie conteúdo abusivo em todas as plataformas.",
-                "Sua paz vale mais que likes e seguidores.",
-                "Não exponha sua vida pessoal além do necessário.",
-                "Cuidado com estranhos que se aproximam online.",
-                "As redes sociais podem ser usadas para o bem.",
-                "Siga perfis que te inspirem positivamente.",
-                "Bloqueie sem culpa quem te faz mal online.",
-                "A vida real é mais importante que a virtual.",
-                "Não acredite em tudo que postam nas redes.",
-                "Proteja seus dados e sua privacidade online.",
-                "Se te atacarem online, não revide. Denuncie.",
-                "O cyberbullying nas redes é crime. Denuncie."
-            ],
-            ajuda: [
-                "Pedir ajuda é coragem. Você está fazendo a coisa certa.",
-                "Existem pessoas que querem te ajudar. Converse com um adulto.",
-                "Se precisar, ligue 188. Há quem queira te ouvir.",
-                "O CVV (188) oferece apoio emocional 24 horas.",
-                "Não tenha vergonha de pedir ajuda. É um ato de força.",
-                "Psicólogos podem te ajudar a lidar com a dor.",
-                "Você não precisa carregar tudo sozinho(a).",
-                "Converse com um professor de confiança sobre seus problemas.",
-                "A terapia pode ser um espaço seguro para você.",
-                "Peça ajuda a um familiar que te acolha.",
-                "O CAPS oferece atendimento psicológico gratuito.",
-                "Não espere a situação piorar para buscar ajuda.",
-                "Você merece apoio profissional para suas dores.",
-                "Ligar para o 188 não custa nada e pode salvar vidas.",
-                "Conselhos de amigos podem ajudar, mas terapia é essencial.",
-                "Não se isole. Falar sobre a dor alivia o peso.",
-                "Há serviços de psicologia com valor social acessível.",
-                "Sua saúde mental é tão importante quanto a física.",
-                "Buscar ajuda não é sinal de fraqueza, é sabedoria.",
-                "Você pode encontrar apoio em grupos de acolhimento."
-            ],
-            triste: [
-                "Sinto muito que esteja assim. Você merece cuidado.",
-                "É válido se sentir assim. Não se isole. Busque apoio.",
-                "Você não está sozinho. Há quem queira te ouvir.",
-                "A tristeza profunda merece atenção e cuidado.",
-                "Chorar não é fraqueza, é expressão da alma.",
-                "Dias tristes também passam. Segure minha mão.",
-                "Sua tristeza é legítima. Não a minimize.",
-                "Você pode descansar quando estiver triste. É normal.",
-                "A tristeza faz parte da vida, mas não precisa te definir.",
-                "Se a tristeza persistir, busque ajuda profissional.",
-                "Estou aqui para ouvir sua tristeza sem julgamento.",
-                "Às vezes, desabafar já alivia um pouco a tristeza.",
-                "Você não está exagerando. Sua dor é real.",
-                "A tristeza pode ser sintoma de algo mais profundo.",
-                "Não se culpe por estar triste. É humano sentir.",
-                "Momentos tristes podem nos ensinar sobre nós mesmos.",
-                "Se dê permissão para sentir tristeza. Ela é válida.",
-                "A tristeza não é eterna, embora pareça infinita.",
-                "Cuide-se com carinho nos dias mais tristes.",
-                "Estou aqui para te ouvir, mesmo que seja só tristeza."
-            ],
-            medo: [
-                "Ter medo é normal. Mas você não precisa enfrentar sozinho.",
-                "Medo de agressores é compreensível. Denuncie e se proteja.",
-                "Você merece se sentir seguro. Busque ajuda.",
-                "O medo é um sinal de alerta do seu corpo. Ouça-o.",
-                "Medo constante pode ser ansiedade. Procure ajuda.",
-                "Você pode superar seus medos com apoio certo.",
-                "Não se envergonhe de sentir medo. É humano.",
-                "Medo de ir à escola por bullying é sério. Denuncie.",
-                "Se alguém te causa medo, essa pessoa está errada.",
-                "O medo não pode te paralisar. Busque forças.",
-                "Enfrentar o medo sozinho é muito difícil. Peça ajuda.",
-                "Medo de ameaças é real. Proteja-se legalmente.",
-                "Você tem direito de viver sem medo constante.",
-                "O medo excessivo pode ser tratado com terapia.",
-                "Não deixe o medo te impedir de buscar justiça.",
-                "Medo é uma emoção que pede proteção. Atenda-a.",
-                "Se está com medo, confie em alguém e conte.",
-                "O medo pode ser enfrentado com apoio e coragem.",
-                "Você não é covarde por sentir medo. É prudente.",
-                "Medo de violência justifica medidas de proteção."
-            ],
-            escola: [
-                "Escola deve ser lugar seguro. Se não está, conte a um professor.",
-                "Problemas na escola são sérios. Converse com orientadores.",
-                "Você merece estudar em paz. Denuncie o bullying.",
-                "A escola tem obrigação de te proteger do bullying.",
-                "Se a escola não age, procure a secretaria de educação.",
-                "Bullying na escola pode ser denunciado ao conselho tutelar.",
-                "Professores podem ser aliados contra o bullying escolar.",
-                "Nenhum aluno deve sofrer violência na escola.",
-                "A direção da escola deve garantir sua segurança.",
-                "Se sofre bullying, peça para mudar de turma se possível.",
-                "A escola não pode ignorar casos de bullying.",
-                "Seus pais podem cobrar providências da escola.",
-                "O grêmio estudantil pode ajudar a combater bullying.",
-                "Escola é lugar de aprendizado, não de sofrimento.",
-                "Denunciar bullying na escola é um direito seu.",
-                "A lei obriga escolas a combaterem o bullying.",
-                "Não falte às aulas por medo. Denuncie o problema.",
-                "A escola deve ter um plano anti-bullying.",
-                "Você pode pedir ajuda ao orientador educacional.",
-                "Estudar com medo não é normal. Exija seus direitos."
-            ],
-            amigo: [
-                "Amigos de verdade te apoiam, não te machucam.",
-                "Se um 'amigo' te fere, isso não é amizade.",
-                "Você merece amigos que te valorizam.",
-                "Amizade verdadeira é baseada em respeito mútuo.",
-                "Não aceite migalhas de amizade. Você merece mais.",
-                "Amigos que te excluem não são amigos de verdade.",
-                "Uma amizade tóxica pode fazer muito mal à sua saúde.",
-                "Valorize quem está ao seu lado nos momentos difíceis.",
-                "Amigos de verdade celebram suas conquistas.",
-                "Não se humilhe por amizade. Isso não é saudável.",
-                "Amizades falsas são piores que a solidão.",
-                "Você pode fazer novos amigos que te respeitem.",
-                "Um bom amigo não te pressiona a fazer o que não quer.",
-                "Amizade não é posse, é parceria e liberdade.",
-                "Se afaste de 'amigos' que te diminuem.",
-                "Amigos verdadeiros te aceitam como você é.",
-                "Não tenha medo de se afastar de amizades ruins.",
-                "A qualidade das amizades importa mais que a quantidade.",
-                "Amigos que praticam bullying não são amigos.",
-                "Você merece um círculo de amizades saudáveis."
-            ],
-            familia: [
-                "Família deve ser porto seguro. Se não está, busque outro adulto de confiança.",
-                "Problemas em casa são difíceis. Há apoio disponível.",
-                "Você merece cuidado e respeito, em casa e fora.",
-                "Se a família não apoia, procure ajuda externa.",
-                "Nem toda família de sangue é acolhedora. Isso é real.",
-                "Você pode encontrar apoio em outras pessoas de confiança.",
-                "Violência doméstica é crime. Denuncie ao 180.",
-                "Problemas familiares não são culpa sua.",
-                "Se seus pais não te ouvem, tente outro adulto.",
-                "Família tóxica também causa sofrimento profundo.",
-                "Você tem direito a um ambiente familiar seguro.",
-                "O conselho tutelar pode ajudar em casos de violência familiar.",
-                "Não normalize abusos dentro de casa. Denuncie.",
-                "Às vezes, a família que escolhemos é mais acolhedora.",
-                "Converse com um psicólogo sobre problemas familiares.",
-                "Você não está sozinho(a) em conflitos familiares.",
-                "Família não deve ser fonte de medo ou dor.",
-                "Se precisar, o CREAS oferece apoio a famílias em crise.",
-                "Sua saúde mental importa, mesmo em conflitos familiares.",
-                "Não se culpe por problemas que não são seus."
-            ],
-            suicidio: [
-                "Sinto muito que esteja pensando nisso. Você é importante.",
-                "Isso é muito sério. Ligue 188 agora. Há quem queira te ouvir.",
-                "Você não está sozinho. Por favor, busque ajuda profissional.",
-                "O CVV (188) atende 24h para te ouvir sem julgamento.",
-                "Pensamentos suicidas são um pedido de ajuda. Atenda-o.",
-                "Sua vida tem valor imenso. Não desista.",
-                "A dor que você sente agora não é eterna.",
-                "Existem pessoas que se importam profundamente com você.",
-                "Ligue 188. É gratuito, sigiloso e pode te salvar.",
-                "O suicídio é uma solução permanente para problemas temporários.",
-                "Você é mais forte do que imagina. Aguente mais um dia.",
-                "A ideação suicida pode ser tratada com ajuda profissional.",
-                "Não tome decisões definitivas baseadas na dor do momento.",
-                "Há psicólogos e psiquiatras que podem te ajudar muito.",
-                "Sua presença no mundo faz diferença para alguém.",
-                "Mesmo que não pareça, há esperança e saída.",
-                "Compartilhar esses pensamentos já é um passo corajoso.",
-                "Você merece viver e encontrar alegria novamente.",
-                "Não guarde pensamentos suicidas. Fale com alguém.",
-                "O 188 está disponível agora mesmo. Ligue, por favor."
-            ],
-            ansiedade: [
-                "Ansiedade é real e merece cuidado. Busque apoio.",
-                "Sentir ansiedade é comum, mas você não precisa carregar sozinho.",
-                "Um psicólogo pode te ajudar muito. Considere buscar.",
-                "A ansiedade pode ser tratada com terapia e, se necessário, medicação.",
-                "Técnicas de respiração ajudam a acalmar a ansiedade.",
-                "A ansiedade não é frescura. É um transtorno real.",
-                "Crises de ansiedade são assustadoras, mas passam.",
-                "Evite cafeína e estimulantes se tem ansiedade.",
-                "O exercício físico ajuda a reduzir a ansiedade.",
-                "Meditação e mindfulness podem aliviar a ansiedade.",
-                "Não se cobre tanto. A ansiedade pede autocuidado.",
-                "Identificar gatilhos da ansiedade ajuda a controlá-la.",
-                "A ansiedade pode causar sintomas físicos reais.",
-                "Você não está sozinho(a) na luta contra a ansiedade.",
-                "A terapia cognitivo-comportamental é eficaz para ansiedade.",
-                "Respire fundo: inspire 4s, segure 4s, expire 6s.",
-                "A ansiedade não te define. Você é mais que isso.",
-                "Remédios para ansiedade precisam de prescrição médica.",
-                "O autocuidado é essencial para controlar a ansiedade.",
-                "Não se isole. A ansiedade piora no isolamento."
-            ],
-            depressao: [
-                "Depressão é doença, não fraqueza. Busque ajuda profissional.",
-                "Você não está sozinho. Há tratamento e apoio.",
-                "Um psicólogo ou psiquiatra pode te ajudar muito.",
-                "A depressão tem tratamento. Não desista de buscar.",
-                "Depressão não é tristeza passageira. É doença.",
-                "Os sintomas da depressão podem ser tratados.",
-                "A depressão distorce nossa visão da realidade.",
-                "Não se culpe por estar deprimido(a). Não é escolha.",
-                "A depressão pode causar cansaço extremo e desânimo.",
-                "O tratamento da depressão pode incluir terapia e medicação.",
-                "Não é frescura. Depressão é uma condição médica séria.",
-                "Mesmo sem vontade, tente manter rotinas básicas.",
-                "A depressão pode fazer você se isolar. Lute contra isso.",
-                "Pequenas conquistas diárias são vitórias na depressão.",
-                "A depressão é como uma nuvem que distorce o sol.",
-                "Você não está assim porque quer. É a doença.",
-                "A depressão pode ser tratada. Há esperança real.",
-                "Psiquiatras podem prescrever antidepressivos se necessário.",
-                "Não pare o tratamento da depressão sem orientação médica.",
-                "Sua vida importa, mesmo que a depressão diga o contrário."
-            ],
-            generico: [
-                "Entendo. Isso pode ser muito difícil. Você já conversou com alguém?",
-                "Sinto muito que esteja passando por isso. Você merece respeito e cuidado.",
-                "Isso não é justo com você. Que tal buscar apoio de um adulto ou amigo?",
-                "Você não está sozinho(a). Há pessoas que querem te ajudar.",
-                "Seus sentimentos são válidos. Cuide de você e busque apoio.",
-                "Se precisar, ligue 188. Há quem queira te ouvir.",
-                "Estou aqui para te ouvir. Pode falar mais sobre isso?",
-                "Isso parece muito doloroso. Você merece ser ouvido(a).",
-                "Não guarde isso só para você. Compartilhar alivia.",
-                "Você é mais forte do que imagina. Continue lutando.",
-                "Todo dia é uma nova chance de buscar ajuda.",
-                "Sua dor é real e merece atenção. Não a minimize.",
-                "Converse com um profissional de saúde mental sobre isso.",
-                "Não se isole. Falar sobre o problema ajuda a resolvê-lo.",
-                "Você pode superar isso com o apoio certo.",
-                "Me conte mais sobre o que está acontecendo. Estou ouvindo.",
-                "Isso que você está vivendo não é normal. Busque justiça.",
-                "Você tem valor imenso. Não deixe ninguém te diminuir.",
-                "A vida pode ser difícil, mas há beleza nela também.",
-                "Continue compartilhando. Botar para fora já é um alívio."
-            ]
-        }
-    },
-    batman: {
-        name: "Batman",
-        anime: "DC Comics",
-        image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
-        respostas: {
-            ola: [
-                "Olá! Como posso ajudar?",
-                "Oi! Estou aqui.",
-                "Olá! Em que posso ser útil?",
-                "Bem-vindo(a) à Batcaverna. O que precisa?",
-                "Eu sou o Batman. Como posso te ajudar?",
-                "Olá, cidadão(ã). Estou aqui para proteger.",
-                "A noite pode ser escura, mas estou aqui.",
-                "Oi! A justiça também se faz com apoio emocional.",
-                "Batman online. Pode falar comigo.",
-                "Olá! Gotham me ensinou a ouvir. Fale.",
-                "Bem-vindo(a). Estou aqui para o que precisar.",
-                "Oi! Heróis também sabem ouvir. Conte comigo.",
-                "Olá! Vamos conversar. Estou ouvindo.",
-                "Saudações. Como posso ser útil hoje?",
-                "Bom dia! A justiça começa com o cuidado.",
-                "Boa tarde! Estou aqui para te apoiar.",
-                "Boa noite! A escuridão não precisa ser solitária.",
-                "Olá! Meu nome é Batman. Prazer em te ajudar.",
-                "Oi! Pode me chamar de Batman. Estou aqui.",
-                "Olá! Cavaleiro das Trevas, ao seu dispor."
-            ],
-            bullying: [
-                "Bullying é covardia. Heróis protegem, não humilham.",
-                "Isso é bullying. Denuncie e se proteja.",
-                "Bullying não é brincadeira. É agressão.",
-                "Em Gotham, enfrentamos vilões. Bullying é vilania.",
-                "Ninguém merece sofrer bullying. Denuncie já.",
-                "Bullying é crime. Não se cale diante dele.",
-                "Como herói, digo: bullying é ato de covarde.",
-                "Você merece respeito. Bullying não é aceitável.",
-                "A justiça também se aplica ao bullying. Denuncie.",
-                "Não permita que o bullying te defina. Você é mais.",
-                "Bullying na escola é inaceitável. Converse com um adulto.",
-                "A lei protege vítimas de bullying. Use-a.",
-                "Bullying deixa marcas profundas. Busque ajuda.",
-                "Heróis de verdade não praticam bullying.",
-                "O bullying revela a fraqueza do agressor, não sua.",
-                "Não normalize o bullying. Denuncie sempre.",
-                "Você não está sozinho(a) contra o bullying.",
-                "Sinto muito que sofra bullying. Isso é errado.",
-                "Bullying é uma forma de violência covarde.",
-                "Lute contra o bullying denunciando. É sua força."
-            ],
-            cyberbullying: [
-                "Cyberbullying deixa rastros. Salve provas e denuncie.",
-                "Online também é vida real. Cyberbullying é sério.",
-                "Cyberbullying é crime. Denuncie.",
-                "A internet não esconde criminosos. Denuncie o cyberbullying.",
-                "Como detetive, digo: prints são provas importantes.",
-                "Não enfrente cyberbullying sozinho(a). Peça ajuda.",
-                "Cyberbullying é tão grave quanto o bullying físico.",
-                "Bloqueie agressores online. Proteja sua paz.",
-                "O anonimato não protege quem pratica cyberbullying.",
-                "Denuncie perfis que praticam cyberbullying.",
-                "Cyberbullying pode ser investigado. Salve tudo.",
-                "Não responda ataques online. Isso alimenta o agressor.",
-                "A tecnologia deve unir, não destruir.",
-                "Cyberbullying é violência virtual. Denuncie.",
-                "Você tem o direito de se sentir seguro(a) online.",
-                "O cyberbullying pode ser denunciado à polícia.",
-                "Não se cale diante de ataques virtuais.",
-                "Proteja sua identidade online para evitar cyberbullying.",
-                "Cada mensagem ofensiva é uma prova contra o agressor.",
-                "O cyberbullying é uma epidemia moderna. Combata-o."
-            ],
-            xingamento: [
-                "Ofensas não definem seu valor. Você é mais que isso.",
-                "Xingamentos são armas dos fracos. Denuncie.",
-                "Palavras podem ferir, mas não apagam seu brilho.",
-                "Xingar é ato de quem não tem argumentos.",
-                "Seu valor não muda por causa de palavras ofensivas.",
-                "Xingamentos são projéteis verbais. Desvie deles.",
-                "Quem te xinga revela sua própria pequenez.",
-                "Não absorva xingamentos. Eles não são verdades.",
-                "Palavras cruéis não definem quem você é.",
-                "Você merece ser tratado(a) com respeito sempre.",
-                "Xingar é violência verbal. Denuncie como bullying.",
-                "Não deixe que xingamentos abalem sua autoestima.",
-                "Ofensas são sombras. Você é luz.",
-                "Xingamentos são barulho. Sua essência é silêncio.",
-                "Quem te ofende tenta te diminuir. Não permita.",
-                "As palavras podem doer, mas você pode se curar.",
-                "Xingamentos constantes configuram assédio moral.",
-                "Não responda xingamentos. Isso não leva a nada.",
-                "Você não é os nomes que te chamam.",
-                "Xingar é crime de injúria. Denuncie."
-            ],
-            ameaca: [
-                "Ameaças são sérias. Não ignore. Denuncie.",
-                "Ameaçar é crime. Salve provas e conte a um adulto.",
-                "Vilões ameaçam, heróis agem. Denuncie.",
-                "Em Gotham, ameaças são levadas à polícia. Faça o mesmo.",
-                "Ameaçar alguém é crime previsto no código penal.",
-                "Não enfrente ameaças sozinho(a). Busque proteção.",
-                "Ameaças de morte são gravíssimas. Denuncie à polícia.",
-                "Salve todas as provas de ameaças que receber.",
-                "Ameaças online também são crime. Denuncie.",
-                "Você pode pedir medidas protetivas contra quem te ameaça.",
-                "Não minimize ameaças. Elas são muito perigosas.",
-                "A justiça protege vítimas de ameaças.",
-                "Ameaçar é ato covarde. Denuncie sem medo.",
-                "Se te ameaçam, a polícia pode te proteger.",
-                "Ameaças causam trauma. Busque apoio psicológico.",
-                "Guarde mensagens, áudios e prints de ameaças.",
-                "Não dialogue com quem te ameaça. Denuncie.",
-                "Ameaças virtuais deixam rastros. Use como prova.",
-                "Você tem direito a viver sem medo de ameaças.",
-                "Ameaçar é crime. A lei está do seu lado."
-            ],
-            exclusao: [
-                "Ser excluído não diminui seu valor.",
-                "Grupos que excluem não merecem você.",
-                "Exclusão é bullying. Não se culpe.",
-                "Em Gotham, os excluídos se tornam heróis. Você também pode.",
-                "A exclusão social dói, mas não te define.",
-                "Você merece estar onde é valorizado(a).",
-                "Não aceite exclusão como normal. É violência.",
-                "Pessoas que excluem revelam sua própria imaturidade.",
-                "Ser deixado(a) de lado não apaga seu brilho.",
-                "A exclusão repetida é uma forma de bullying.",
-                "Você encontrará pessoas que te acolham de verdade.",
-                "Não se humilhe por aceitação. Você já é completo(a).",
-                "Excluir alguém é covardia. Você merece mais.",
-                "A solidão forçada pela exclusão é muito dolorosa.",
-                "Busque ambientes onde você seja bem-vindo(a).",
-                "A exclusão pode causar traumas. Busque terapia.",
-                "Você não é o problema. O grupo que exclui é.",
-                "Não internalize a exclusão. Isso não é sobre você.",
-                "Existem comunidades acolhedoras para todos.",
-                "A exclusão é uma violência silenciosa. Denuncie."
-            ],
-            redeSocial: [
-                "Redes sociais não devem ser campo de batalha.",
-                "Não alimente trolls. Bloqueie e denuncie.",
-                "Cuide de você online. Sua paz importa.",
-                "As redes sociais podem ser tóxicas. Use com moderação.",
-                "A vida real é mais importante que a virtual.",
-                "Não compare sua vida com o que veem online.",
-                "Proteja sua privacidade nas redes sociais.",
-                "Denuncie conteúdo abusivo em todas as plataformas.",
-                "Siga perfis que te inspirem, não que te diminuam.",
-                "O cyberbullying nas redes sociais é crime.",
-                "Faça pausas das redes pela sua saúde mental.",
-                "Bloqueie sem culpa quem te faz mal online.",
-                "As redes sociais amplificam inseguranças. Cuidado.",
-                "Não exponha sua vida pessoal além do necessário.",
-                "A internet pode ser uma ferramenta do bem. Use-a bem.",
-                "Cuidado com estranhos que se aproximam online.",
-                "Sua autoestima não depende de curtidas.",
-                "Se te atacam online, não revide. Denuncie.",
-                "A felicidade online nem sempre é real.",
-                "Redes sociais podem viciar. Estabeleça limites."
-            ],
-            ajuda: [
-                "Pedir ajuda é ato de coragem. Heróis também pedem apoio.",
-                "Você não está sozinho. Há quem queira ajudar.",
-                "Se precisar, ligue 188.",
-                "O CVV (188) oferece apoio 24 horas. Ligue.",
-                "Até o Batman precisa de ajuda às vezes.",
-                "Buscar ajuda profissional é sinal de força.",
-                "Psicólogos são aliados na luta contra a dor.",
-                "Não enfrente seus problemas sozinho(a).",
-                "A terapia é uma ferramenta poderosa de cura.",
-                "Converse com um adulto de confiança sobre sua dor.",
-                "O CAPS oferece atendimento psicológico gratuito.",
-                "Pedir ajuda não é fraqueza, é estratégia.",
-                "
-        ]
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">
+                        <i class="fa-solid fa-users"></i>
+                        Personagens
+                    </h3>
+
+                    <p style="color: var(--muted);">
+                        Converse com heróis de animes, mangás e quadrinhos
+                        que vão te apoiar e motivar!
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--warm); margin-bottom: 12px;">
+                        <i class="fa-solid fa-quote-left"></i>
+                        Frases Motivacionais
+                    </h3>
+
+                    <p style="color: var(--muted);">
+                        Inspire-se com frases poderosas de personagens
+                        que superaram adversidades!
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--secondary); margin-bottom: 12px;">
+                        <i class="fa-solid fa-gamepad"></i>
+                        Quiz Educativo
+                    </h3>
+
+                    <p style="color: var(--muted);">
+                        Teste seus conhecimentos sobre bullying e
+                        cyberbullying de forma interativa!
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
-        sendBtn.addEventListener('click', () => {
-            const text = chatInput.value.trim();
-            if (!text) return;
-            addMessage(text, true);
-            chatInput.value = '';
-            setTimeout(() => {
-                addMessage(getBotResponse(text), false);
-            }, 600);
+    <section class="section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <i class="fa-solid fa-triangle-exclamation" style="color: var(--primary);"></i>
+                Entenda o Problema
+            </h2>
+
+            <div class="grid-3">
+
+                <div class="info-box">
+                    <h4>
+                        <i class="fa-solid fa-bullseye"></i>
+                        O que é Bullying?
+                    </h4>
+
+                    <p style="color: var(--muted);">
+                        Bullying são agressões físicas ou psicológicas
+                        repetidas e intencionais contra alguém,
+                        causando sofrimento e exclusão.
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h4>
+                        <i class="fa-solid fa-laptop"></i>
+                        O que é Cyberbullying?
+                    </h4>
+
+                    <p style="color: var(--muted);">
+                        Cyberbullying é o bullying praticado online através
+                        de redes sociais, mensagens ou jogos, onde o agressor
+                        humilha ou persegue a vítima virtualmente.
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h4>
+                        <i class="fa-solid fa-hands-helping"></i>
+                        Como Combater?
+                    </h4>
+
+                    <p style="color: var(--muted);">
+                        Denuncie, não compartilhe conteúdo ofensivo,
+                        apoie as vítimas e busque ajuda de adultos
+                        de confiança.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<!-- PERSONAGENS -->
+<div id="page-personagens" class="page">
+
+    <section class="section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <i class="fa-solid fa-users" style="color: var(--accent);"></i>
+                Personagens que Apoiam Você
+            </h2>
+
+            <p class="section-sub">
+                Heróis de animes, mangás e quadrinhos com mensagens de força e coragem!
+            </p>
+
+            <div class="grid-4" id="charactersGrid"></div>
+
+        </div>
+    </section>
+
+</div>
+
+
+<!-- CHAT -->
+<div id="page-chat" class="page">
+
+    <section class="section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <i class="fa-solid fa-comments" style="color: var(--accent);"></i>
+                Chat com Personagem
+            </h2>
+
+            <div class="chat-container">
+
+                <div class="chat-header">
+
+                    <img
+                        id="charImage"
+                        src="https://via.placeholder.com/60"
+                        alt="Personagem"
+                    >
+
+                    <div>
+                        <h3 id="charName">
+                            Selecione um personagem
+                        </h3>
+
+                        <p id="charAnime">
+                            Vá em "Personagens" e clique em um deles para conversar.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="chat-messages" id="chatMessages">
+
+                    <div class="message bot">
+                        Olá! Selecione um personagem na página
+                        "Personagens" para começar a conversar.
+                    </div>
+
+                </div>
+
+
+                <div class="chat-input-area">
+
+                    <input
+                        type="text"
+                        class="chat-input"
+                        id="chatInput"
+                        placeholder="Digite sua mensagem..."
+                    >
+
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+
+<!-- FRASES -->
+<div id="page-frases" class="page">
+
+    <section class="section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <i class="fa-solid fa-quote-left" style="color: var(--warm);"></i>
+                Frases de Força e Coragem
+            </h2>
+
+            <p class="section-sub">
+                Inspire-se com mensagens poderosas de personagens que venceram adversidades!
+            </p>
+
+            <div class="quote-card" id="mainQuote">
+
+                <span class="quote-emoji" id="quoteEmoji">⚡</span>
+
+                <p class="quote-text" id="quoteText">
+                    "A força não vem da capacidade física, mas de uma vontade indomável."
+                </p>
+
+                <p class="quote-author" id="quoteAuthor">
+                    — Saitama (One Punch Man)
+                </p>
+
+            </div>
+
+
+            <div style="text-align: center; margin-bottom: 40px;">
+
+                <button class="btn btn-secondary" id="newQuoteBtn">
+                    <i class="fa-solid fa-arrow-rotate-right"></i>
+                    Nova Frase
+                </button>
+
+            </div>
+
+
+            <h3 style="margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-star" style="color: var(--warm);"></i>
+                Mais Frases Inspiradoras
+            </h3>
+
+            <div class="grid-2" id="quotesGrid"></div>
+
+        </div>
+    </section>
+
+</div>
+
+
+<!-- QUIZ -->
+<div id="page-quiz" class="page">
+
+    <section class="section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <i class="fa-solid fa-gamepad" style="color: var(--secondary);"></i>
+                Quiz: Bullying & Cyberbullying
+            </h2>
+
+            <p class="section-sub">
+                Teste seus conhecimentos e aprenda como se proteger!
+            </p>
+
+
+            <div class="card" id="quizCard">
+
+                <div id="quizQuestion">
+
+                    <div class="quiz-progress">
+                        <div
+                            class="quiz-progress-fill"
+                            id="quizProgressFill"
+                            style="width: 0%;"
+                        ></div>
+                    </div>
+
+                    <p class="quiz-question" id="quizQuestionText">
+                        Carregando...
+                    </p>
+
+                    <div class="quiz-options" id="quizOptions"></div>
+
+                    <div class="quiz-feedback" id="quizFeedback"></div>
+
+                    <button
+                        class="btn btn-primary"
+                        id="nextBtn"
+                        style="display: none;"
+                    >
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Próxima
+                    </button>
+
+                </div>
+
+
+                <div id="quizResult">
+
+                    <span class="result-badge">🛡️</span>
+
+                    <h3 style="margin-bottom: 16px;">
+                        Quiz Completado!
+                    </h3>
+
+                    <p
+                        id="quizScore"
+                        style="font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: var(--accent);"
+                    >
+                        0/5
+                    </p>
+
+                    <p
+                        id="quizMessage"
+                        style="color: var(--muted); margin-bottom: 20px;"
+                    ></p>
+
+                    <div class="result-box">
+
+                        <strong style="color: var(--accent);">
+                            💡 Lembre-se:
+                        </strong>
+
+                        <p style="margin: 10px 0 0 0; color: var(--muted);">
+                            Se você estiver sofrendo bullying, procure ajuda!
+                            Converse com um adulto de confiança ou professor.
+                            Você não está sozinho!
+                        </p>
+
+                    </div>
+
+                    <button class="btn btn-accent" id="restartBtn">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        Tentar Novamente
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+
+<!-- REFERÊNCIAS -->
+<div id="page-referencias" class="page">
+
+    <section class="section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <i class="fa-solid fa-phone" style="color: var(--primary);"></i>
+                Precisa de Ajuda?
+            </h2>
+
+            <p class="section-sub">
+                Você não está sozinho. Existem pessoas e organizações prontas para ajudar!
+            </p>
+
+
+            <div class="emergency-box">
+
+                <i
+                    class="fa-solid fa-headset"
+                    style="font-size: 3rem; color: #fff;"
+                ></i>
+
+                <span class="emergency-number">188</span>
+
+                <p style="color: #fff; font-size: 1.2rem;">
+                    CVV - Centro de Valorização da Vida
+                </p>
+
+                <p style="color: rgba(255,255,255,0.8);">
+                    Ligue gratuitamente, 24 horas por dia
+                </p>
+
+            </div>
+
+
+            <div class="grid-2">
+
+                <div class="card">
+
+                    <h3 style="margin-bottom: 16px; color: var(--accent);">
+                        <i class="fa-solid fa-hands-helping"></i>
+                        Onde Buscar Ajuda
+                    </h3>
+
+                    <ul class="ref-list">
+
+                        <li>
+                            <a
+                                href="https://www.cvv.org.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-phone"></i>
+                                CVV - Centro de Valorização da Vida (188)
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.gov.br/saude/pt-br"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-hospital"></i>
+                                Ministério da Saúde - Saúde Mental
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.unicef.org/brazil/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-child"></i>
+                                UNICEF Brasil - Proteção Infantil
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2015/lei/l13185.htm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-scale-balanced"></i>
+                                Lei 13.185/2015 - Combate ao Bullying
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3 style="margin-bottom: 16px; color: var(--warm);">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Referências da Pesquisa
+                    </h3>
+
+                    <ul class="ref-list">
+
+                        <li>
+                            <a
+                                href="https://www.gov.br/mdh/pt-br"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-building-columns"></i>
+                                Ministério dos Direitos Humanos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.fiocruz.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-flask"></i>
+                                Fiocruz - Saúde Mental e Juventude
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.usp.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                USP - Estudos sobre Violência Escolar
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.scielo.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-book-open"></i>
+                                SciELO - Artigos Científicos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.abpbrasil.org.br/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fa-solid fa-brain"></i>
+                                Associação Brasileira de Psiquiatria
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <p>
+            &copy; 2026 Combate ao Bullying & Cyberbullying -
+            Portal de Apoio ao Estudante
+        </p>
+
+        <p style="margin-top: 10px; font-size: 0.9rem;">
+            Se precisar de ajuda, ligue para o CVV:
+            <strong style="color: var(--accent);">188</strong>
+        </p>
+
+    </div>
+
+</footer>
+
+
+<div class="floating-buttons">
+
+    <button
+        class="float-btn"
+        onclick="scrollToTop()"
+        title="Voltar ao topo"
+    >
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <button
+        class="float-btn"
+        onclick="toggleContrast()"
+        title="Alto contraste"
+    >
+        <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+
+    <button
+        class="float-btn"
+        onclick="increaseFont()"
+        title="Aumentar fonte"
+    >
+        <i class="fa-solid fa-font"></i>
+    </button>
+
+</div>
+
+
+<script>
+
+    /* ================================
+       NAVEGAÇÃO
+    ================================= */
+
+    function showPage(pageId) {
+
+        document.querySelectorAll('.page').forEach(function(page) {
+            page.classList.remove('active');
         });
 
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendBtn.click();
-            }
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.classList.remove('active');
         });
 
-        // FRASES
-        const quotes = [
-            { text: "A força não vem da capacidade física, mas de uma vontade indomável.", author: "Saitama (One Punch Man)", emoji: "⚡" },
-            { text: "Se você não lutar, não pode vencer!", author: "Eren Yeager (Attack on Titan)", emoji: "🔥" },
-            { text: "O mundo não é perfeito, mas ainda assim é lindo.", author: "Roy Mustang (Fullmetal Alchemist)", emoji: "🌍" },
-            { text: "Não tenha medo de começar de novo.", author: "Senku (Dr. Stone)", emoji: "🚀" },
-            { text: "A dor é temporária. A desistência dura para sempre.", author: "Lance Armstrong", emoji: "💪" },
-            { text: "Seja a mudança que você quer ver no mundo.", author: "Mahatma Gandhi", emoji: "🌟" },
-            { text: "Nunca é tarde demais para ser o que você gostaria de ser.", author: "George Eliot", emoji: "✨" },
-            { text: "Acredite que você pode, e você já estará no meio do caminho.", author: "Theodore Roosevelt", emoji: "🎯" },
-            { text: "Não importa o quão devagar você vá, desde que você não pare.", author: "Confúcio", emoji: "🐢" },
-            { text: "O único limite para o nosso amanhã são nossas dúvidas de hoje.", author: "Franklin D. Roosevelt", emoji: "☀️" },
-            { text: "Com grandes poderes vêm grandes responsabilidades.", author: "Homem-Aranha", emoji: "🕷️" },
-            { text: "Nunca desista! É esse o meu lema!", author: "Naruto Uzumaki", emoji: "🍥" }
-            { text:  "Se você não gosta do seu destino, não o aceite. Em vez disso, tenha a coragem para transformá-lo naquilo que você quer que ele seja.", author: "Naruto Uzumaki" , emoji: "🍥"}
-            { twxt: "Somente aqueles que sofreram por muito tempo conseguem ver luz através das sombras." , author:  "Roronoa Zoro" , emoji:"⚔️"}
-        ];
+        const pageEl = document.getElementById('page-' + pageId);
+        const navEl = document.getElementById('nav-' + pageId);
 
-        function showRandomQuote() {
-            const quote = quotes[Math.floor(Math.random() * quotes.length)];
-            document.getElementById('quoteEmoji').textContent = quote.emoji;
-            document.getElementById('quoteText').textContent = `"${quote.text}"`;
-            document.getElementById('quoteAuthor').textContent = `— ${quote.author}`;
+        if (pageEl) {
+            pageEl.classList.add('active');
         }
 
-        document.getElementById('newQuoteBtn').addEventListener('click', showRandomQuote);
+        if (navEl) {
+            navEl.classList.add('active');
+        }
 
-        const quotesGrid = document.getElementById('quotesGrid');
-        quotes.slice(4, 12).forEach(quote => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+
+    /* ================================
+       CARROSSEL
+    ================================= */
+
+    let carouselIndex = 0;
+
+    const carouselInner = document.getElementById('carouselInner');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+
+    function moveCarousel(direction) {
+
+        if (!carouselInner || carouselItems.length === 0) {
+            return;
+        }
+
+        carouselIndex += direction;
+
+        if (carouselIndex >= carouselItems.length) {
+            carouselIndex = 0;
+        }
+
+        if (carouselIndex < 0) {
+            carouselIndex = carouselItems.length - 1;
+        }
+
+        carouselInner.style.transform =
+            'translateX(-' + (carouselIndex * 100) + '%)';
+    }
+
+
+    /* CARROSSEL AUTOMÁTICO */
+
+    setInterval(function() {
+        moveCarousel(1);
+    }, 5000);
+
+
+    /* ================================
+       PERSONAGENS
+    ================================= */
+
+    const characters = [
+
+        {
+            name: "Naruto Uzumaki",
+            anime: "Naruto",
+            image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=500",
+            quote: "Nunca desista dos seus sonhos.",
+            response: "Eu sei que às vezes parece difícil, mas não deixe que as palavras de outras pessoas definam quem você é. Procure alguém de confiança e conte o que está acontecendo."
+        },
+
+        {
+            name: "Goku",
+            anime: "Dragon Ball",
+            image: "https://images.unsplash.com/photo-1608889825103-eb5ed706fc64?w=500",
+            quote: "Sempre existe uma maneira de ficar mais forte.",
+            response: "Ser forte também significa saber quando pedir ajuda. Você não precisa enfrentar uma situação difícil sozinho."
+        },
+
+        {
+            name: "Luffy",
+            anime: "One Piece",
+            image: "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=500",
+            quote: "A liberdade é poder ser você mesmo.",
+            response: "Você tem o direito de ser você mesmo. Se alguém estiver tentando te humilhar ou excluir, procure ajuda."
+        },
+
+        {
+            name: "Tanjiro Kamado",
+            anime: "Demon Slayer",
+            image: "https://images.unsplash.com/photo-1607604276583-eefb37a6a0c7?w=500",
+            quote: "A gentileza também é uma forma de força.",
+            response: "Trate os outros com respeito e tente apoiar quem estiver passando por uma situação difícil."
+        },
+
+        {
+            name: "Deku",
+            anime: "My Hero Academia",
+            image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500",
+            quote: "Ser um herói começa ajudando quem precisa.",
+            response: "Se você perceber bullying acontecendo, não participe e procure um adulto de confiança para ajudar."
+        },
+
+        {
+            name: "Saitama",
+            anime: "One Punch Man",
+            image: "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?w=500",
+            quote: "Continue seguindo em frente.",
+            response: "Mesmo quando algo parece muito complicado, você pode dar um passo de cada vez e procurar apoio."
+        },
+
+        {
+            name: "Homem-Aranha",
+            anime: "Marvel",
+            image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=500",
+            quote: "Com grandes poderes vêm grandes responsabilidades.",
+            response: "Se você pode ajudar alguém que está sofrendo bullying, faça isso de maneira segura e procure um adulto."
+        },
+
+        {
+            name: "Batman",
+            anime: "DC Comics",
+            image: "https://images.unsplash.com/photo-1531259683007-016a7b628fc3?w=500",
+            quote: "A coragem aparece quando escolhemos fazer o certo.",
+            response: "Não tenha vergonha de procurar ajuda. Contar para alguém de confiança pode ser um passo importante."
+        }
+
+    ];
+
+
+    function loadCharacters() {
+
+        const grid = document.getElementById('charactersGrid');
+
+        if (!grid) {
+            return;
+        }
+
+        grid.innerHTML = '';
+
+        characters.forEach(function(character, index) {
+
             const card = document.createElement('div');
-            card.className = 'quote-card';
-            card.style.padding = '24px';
+
+            card.className = 'char-card';
+
             card.innerHTML = `
-                <span class="quote-emoji" style="font-size: 2rem;">${quote.emoji}</span>
-                <p class="quote-text" style="font-size: 1.1rem;">"${quote.text}"</p>
-                <p class="quote-author" style="font-size: 0.95rem;">— ${quote.author}</p>
+                <img
+                    src="${character.image}"
+                    alt="${character.name}"
+                    onerror="this.src='https://via.placeholder.com/500x300?text=${encodeURIComponent(character.name)}'"
+                >
+
+                <div class="char-name">
+                    ${character.name}
+                </div>
+
+                <div class="char-anime">
+                    ${character.anime}
+                </div>
+
+                <div class="char-quote">
+                    "${character.quote}"
+                </div>
             `;
-            quotesGrid.appendChild(card);
+
+            card.addEventListener('click', function() {
+                selectCharacter(index);
+            });
+
+            grid.appendChild(card);
+
+        });
+    }
+
+
+    function selectCharacter(index) {
+
+        const character = characters[index];
+
+        if (!character) {
+            return;
+        }
+
+        document.getElementById('charImage').src = character.image;
+        document.getElementById('charName').textContent = character.name;
+        document.getElementById('charAnime').textContent = character.anime;
+
+        const messages = document.getElementById('chatMessages');
+
+        messages.innerHTML = `
+            <div class="message bot">
+                Olá! Eu sou ${character.name}.
+                Estou aqui para conversar com você.
+            </div>
+
+            <div class="message bot">
+                ${character.response}
+            </div>
+        `;
+
+        showPage('chat');
+    }
+
+
+    /* ================================
+       CHAT
+    ================================= */
+
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
+
+    function sendMessage() {
+
+        const text = chatInput.value.trim();
+
+        if (!text) {
+            return;
+        }
+
+        const messages = document.getElementById('chatMessages');
+
+        const userMessage = document.createElement('div');
+
+        userMessage.className = 'message user';
+        userMessage.textContent = text;
+
+        messages.appendChild(userMessage);
+
+        chatInput.value = '';
+
+        messages.scrollTop = messages.scrollHeight;
+
+        setTimeout(function() {
+
+            const botMessage = document.createElement('div');
+
+            botMessage.className = 'message bot';
+
+            botMessage.textContent =
+                'Entendo. Se isso estiver acontecendo com você, converse com um adulto de confiança, professor ou responsável. Você merece ser tratado com respeito.';
+
+            messages.appendChild(botMessage);
+
+            messages.scrollTop = messages.scrollHeight;
+
+        }, 700);
+    }
+
+
+    if (sendBtn) {
+        sendBtn.addEventListener('click', sendMessage);
+    }
+
+
+    if (chatInput) {
+        chatInput.addEventListener('keydown', function(event) {
+
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+
+        });
+    }
+
+
+    /* ================================
+       FRASES
+    ================================= */
+
+    const quotes = [
+
+        {
+            emoji: "⚡",
+            text: "A força não vem da capacidade física, mas de uma vontade indomável.",
+            author: "— Saitama (One Punch Man)"
+        },
+
+        {
+            emoji: "🍥",
+            text: "Aqueles que quebram as regras são lixo, mas aqueles que abandonam seus amigos são piores que lixo.",
+            author: "— Kakashi (Naruto)"
+        },
+
+        {
+            emoji: "🔥",
+            text: "Não importa o quão difícil seja, continue avançando.",
+            author: "— Personagem inspirador"
+        },
+
+        {
+            emoji: "🛡️",
+            text: "Coragem não significa não ter medo. Significa continuar mesmo com medo.",
+            author: "— Mensagem de inspiração"
+        },
+
+        {
+            emoji: "⭐",
+            text: "Você não precisa enfrentar tudo sozinho.",
+            author: "— Mensagem de apoio"
+        },
+
+        {
+            emoji: "💙",
+            text: "Ser diferente não é um problema. Respeitar as diferenças é essencial.",
+            author: "— Mensagem de respeito"
+        }
+
+    ];
+
+
+    let currentQuote = 0;
+
+
+    function showQuote(index) {
+
+        const quote = quotes[index];
+
+        document.getElementById('quoteEmoji').textContent = quote.emoji;
+        document.getElementById('quoteText').textContent =
+            '"' + quote.text + '"';
+        document.getElementById('quoteAuthor').textContent =
+            quote.author;
+    }
+
+
+    function randomQuote() {
+
+        let newIndex;
+
+        do {
+            newIndex = Math.floor(Math.random() * quotes.length);
+        } while (
+            quotes.length > 1 &&
+            newIndex === currentQuote
+        );
+
+        currentQuote = newIndex;
+
+        showQuote(currentQuote);
+    }
+
+
+    function loadQuotes() {
+
+        const grid = document.getElementById('quotesGrid');
+
+        if (!grid) {
+            return;
+        }
+
+        grid.innerHTML = '';
+
+        quotes.forEach(function(quote) {
+
+            const card = document.createElement('div');
+
+            card.className = 'card';
+
+            card.innerHTML = `
+                <div style="font-size: 2rem; margin-bottom: 10px;">
+                    ${quote.emoji}
+                </div>
+
+                <p style="font-weight: 600; margin-bottom: 10px;">
+                    "${quote.text}"
+                </p>
+
+                <p style="color: var(--muted);">
+                    ${quote.author}
+                </p>
+            `;
+
+            grid.appendChild(card);
+
+        });
+    }
+
+
+    document.getElementById('newQuoteBtn')
+        .addEventListener('click', randomQuote);
+
+
+    /* ================================
+       QUIZ
+    ================================= */
+
+    const quizQuestions = [
+
+        {
+            question: "O que caracteriza o bullying?",
+            options: [
+                "Uma brincadeira entre amigos",
+                "Agressões repetidas e intencionais",
+                "Uma conversa normal",
+                "Uma atividade escolar"
+            ],
+            answer: 1,
+            feedback: "Correto! O bullying envolve comportamentos agressivos repetidos e intencionais."
+        },
+
+        {
+            question: "O que é cyberbullying?",
+            options: [
+                "Bullying praticado somente na escola",
+                "Uma competição online",
+                "Bullying praticado por meios digitais",
+                "Um jogo educativo"
+            ],
+            answer: 2,
+            feedback: "Correto! Cyberbullying acontece por meio de redes sociais, mensagens, jogos e outras plataformas digitais."
+        },
+
+        {
+            question: "O que fazer ao presenciar bullying?",
+            options: [
+                "Participar da situação",
+                "Compartilhar nas redes sociais",
+                "Ignorar sempre",
+                "Procurar ajuda de um adulto de confiança"
+            ],
+            answer: 3,
+            feedback: "Correto! Procurar um adulto de confiança é uma atitude segura e responsável."
+        },
+
+        {
+            question: "O que fazer ao receber mensagens ofensivas online?",
+            options: [
+                "Responder com mais ofensas",
+                "Compartilhar com outras pessoas",
+                "Guardar evidências e procurar ajuda",
+                "Continuar conversando com o agressor"
+            ],
+            answer: 2,
+            feedback: "Correto! Guardar evidências e procurar ajuda são atitudes importantes."
+        },
+
+        {
+            question: "Qual atitude ajuda a combater o bullying?",
+            options: [
+                "Respeitar as diferenças",
+                "Excluir colegas",
+                "Espalhar rumores",
+                "Fazer piadas com alguém"
+            ],
+            answer: 0,
+            feedback: "Correto! Respeitar as diferenças contribui para um ambiente mais seguro e acolhedor."
+        }
+
+    ];
+
+
+    let quizIndex = 0;
+    let quizScore = 0;
+
+
+    function loadQuizQuestion() {
+
+        const question = quizQuestions[quizIndex];
+
+        if (!question) {
+            finishQuiz();
+            return;
+        }
+
+        document.getElementById('quizProgressFill').style.width =
+            ((quizIndex / quizQuestions.length) * 100) + '%';
+
+        document.getElementById('quizQuestionText').textContent =
+            (quizIndex + 1) + '. ' + question.question;
+
+        const optionsContainer =
+            document.getElementById('quizOptions');
+
+        optionsContainer.innerHTML = '';
+
+        document.getElementById('quizFeedback')
+            .classList.remove('show');
+
+        document.getElementById('quizFeedback').textContent = '';
+
+        document.getElementById('nextBtn').style.display = 'none';
+
+
+        question.options.forEach(function(option, index) {
+
+            const button = document.createElement('button');
+
+            button.className = 'quiz-option';
+
+            button.innerHTML = `
+                <span class="letter">
+                    ${String.fromCharCode(65 + index)}
+                </span>
+
+                <span>
+                    ${option}
+                </span>
+            `;
+
+            button.addEventListener('click', function() {
+                answerQuiz(index);
+            });
+
+            optionsContainer.appendChild(button);
+
+        });
+    }
+
+
+    function answerQuiz(selectedIndex) {
+
+        const question = quizQuestions[quizIndex];
+
+        const buttons =
+            document.querySelectorAll('.quiz-option');
+
+        buttons.forEach(function(button) {
+            button.disabled = true;
         });
 
-        showRandomQuote();
 
-        // QUIZ
-        const quizQuestions = [
-            {
-                question: "🎯 Isso é BULLYING?",
-                scenario: "Um colega espalha mentiras sobre você nas redes sociais repetidamente.",
-                options: ["Sim, é cyberbullying", "Não, é apenas uma brincadeira", "Não é bullying se não for pessoalmente", "Depende da intenção"],
-                correct: 0,
-                explanation: "Espalhar mentiras repetidamente nas redes sociais é CYBERBULLYING. É uma forma grave de agressão psicológica online."
-            },
-            {
-                question: "🤔 Esta atitude demonstra RESPEITO?",
-                scenario: "Alguém comenta 'você é feio(a)' em uma foto sua no Instagram.",
-                options: ["Sim, é uma opinião", "Não, é desrespeito e pode ser cyberbullying", "Depende se você conhece a pessoa", "Não tem problema"],
-                correct: 1,
-                explanation: "Comentários ofensivos sobre aparência são desrespeitosos e podem configurar cyberbullying. Todos merecem respeito!"
-            },
-            {
-                question: "🚨 Como AGIR nessa situação?",
-                scenario: "Você vê um colega sendo humilhado em um grupo de WhatsApp da turma.",
-                options: ["Rir e compartilhar", "Ignorar e sair do grupo", "Apoiar a vítima, não compartilhar e denunciar", "Tirar print para guardar"],
-                correct: 2,
-                explanation: "Apoie a vítima, não compartilhe conteúdo ofensivo e denuncie ao professor ou responsável. Seja um aliado!"
-            },
-            {
-                question: "🔒 Esta SENHA é SEGURA?",
-                scenario: "Sua senha é: 123456",
-                options: ["Sim, é fácil de lembrar", "Não, é muito fraca e previsível", "Depende do site", "Senhas simples são melhores"],
-                correct: 1,
-                explanation: "Senhas como '123456' são extremamente inseguras! Use combinações de letras, números e símbolos. Nunca compartilhe senhas!"
-            },
-            {
-                question: "💭 O que você FARIA nessa situação?",
-                scenario: "Você está recebendo mensagens ameaçadoras de um colega desconhecido.",
-                options: ["Responder com xingamentos", "Apagar tudo e esquecer", "Salvar provas, bloquear e contar a um adulto", "Mudar de escola imediatamente"],
-                correct: 2,
-                explanation: "Sempre SALVE AS PROVAS (prints), bloqueie o agressor e CONTE A UM ADULTO de confiança. Isso é sério e você precisa de apoio!"
-            }
-        ];
+        if (selectedIndex === question.answer) {
 
-        let currentQuestion = 0;
-        let score = 0;
+            buttons[selectedIndex]
+                .classList.add('correct');
 
-        function loadQuestion() {
-            const q = quizQuestions[currentQuestion];
-            document.getElementById('quizQuestionText').innerHTML = `${currentQuestion + 1}. ${q.question}<br><br><span style="font-size: 1rem; color: var(--muted); font-weight: 400;">${q.scenario}</span>`;
-            
-            const progress = (currentQuestion / quizQuestions.length) * 100;
-            document.getElementById('quizProgressFill').style.width = `${progress}%`;
-            
-            const optionsDiv = document.getElementById('quizOptions');
-            optionsDiv.innerHTML = '';
-            
-            q.options.forEach((opt, i) => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-option';
-                btn.innerHTML = `<span class="letter">${String.fromCharCode(65 + i)}</span><span>${opt}</span>`;
-                btn.onclick = () => selectAnswer(i, btn);
-                optionsDiv.appendChild(btn);
-            });
-            
-            document.getElementById('quizFeedback').classList.remove('show');
-            document.getElementById('nextBtn').style.display = 'none';
+            quizScore++;
+
+        } else {
+
+            buttons[selectedIndex]
+                .classList.add('wrong');
+
+            buttons[question.answer]
+                .classList.add('correct');
         }
 
-        function selectAnswer(selected, btn) {
-            const q = quizQuestions[currentQuestion];
-            const options = document.querySelectorAll('.quiz-option');
-            options.forEach(o => o.disabled = true);
-            
-            if (selected === q.correct) {
-                btn.classList.add('correct');
-                score++;
-                showFeedback(true, q.explanation);
+
+        const feedback =
+            document.getElementById('quizFeedback');
+
+        feedback.textContent =
+            question.feedback;
+
+        feedback.classList.add('show');
+
+        document.getElementById('nextBtn')
+            .style.display = 'inline-flex';
+    }
+
+
+    document.getElementById('nextBtn')
+        .addEventListener('click', function() {
+
+            quizIndex++;
+
+            if (quizIndex >= quizQuestions.length) {
+                finishQuiz();
             } else {
-                btn.classList.add('wrong');
-                options[q.correct].classList.add('correct');
-                showFeedback(false, q.explanation);
+                loadQuizQuestion();
             }
-            
-            document.getElementById('nextBtn').style.display = 'inline-flex';
+
+        });
+
+
+    function finishQuiz() {
+
+        document.getElementById('quizQuestion')
+            .style.display = 'none';
+
+        document.getElementById('quizResult')
+            .classList.add('show');
+
+        document.getElementById('quizScore')
+            .textContent =
+            quizScore + '/' + quizQuestions.length;
+
+
+        let message = '';
+
+        if (quizScore === quizQuestions.length) {
+
+            message =
+                'Excelente! Você demonstrou que conhece boas atitudes para combater o bullying.';
+
+        } else if (quizScore >= 3) {
+
+            message =
+                'Muito bem! Você já conhece várias formas de combater o bullying.';
+
+        } else {
+
+            message =
+                'Continue aprendendo! Conhecimento e respeito ajudam a construir um ambiente melhor.';
+
         }
 
-        function showFeedback(isCorrect, explanation) {
-            const fb = document.getElementById('quizFeedback');
-            fb.innerHTML = `<strong>${isCorrect ? '✅ Correto!' : '❌ Errado!'}</strong><br><br>${explanation}`;
-            fb.classList.add('show');
+        document.getElementById('quizMessage')
+            .textContent = message;
+    }
+
+
+    document.getElementById('restartBtn')
+        .addEventListener('click', function() {
+
+            quizIndex = 0;
+            quizScore = 0;
+
+            document.getElementById('quizQuestion')
+                .style.display = 'block';
+
+            document.getElementById('quizResult')
+                .classList.remove('show');
+
+            loadQuizQuestion();
+        });
+
+
+    /* ================================
+       ACESSIBILIDADE
+    ================================= */
+
+    function toggleContrast() {
+
+        document.body.classList.toggle('high-contrast');
+
+        localStorage.setItem(
+            'highContrast',
+            document.body.classList.contains('high-contrast')
+        );
+    }
+
+
+    function increaseFont() {
+
+        let currentSize =
+            parseFloat(
+                getComputedStyle(document.body)
+                    .getPropertyValue('--font-size-base')
+            );
+
+        if (currentSize < 24) {
+            currentSize += 1;
+        } else {
+            currentSize = 16;
         }
 
-        document.getElementById('nextBtn').onclick = () => {
-            currentQuestion++;
-            if (currentQuestion < quizQuestions.length) {
-                loadQuestion();
-            } else {
-                showResult();
-            }
-        };
+        document.documentElement.style
+            .setProperty(
+                '--font-size-base',
+                currentSize + 'px'
+            );
+    }
 
-        function showResult() {
-            document.getElementById('quizQuestion').style.display = 'none';
-            document.getElementById('quizResult').classList.add('show');
-            
-            const percentage = (score / quizQuestions.length) * 100;
-            document.getElementById('quizScore').textContent = `${score}/${quizQuestions.length} (${percentage}%)`;
-            
-            let msg = '';
-            if (percentage === 100) msg = 'Perfeito! Você está muito bem informado! 🏆';
-            else if (percentage >= 80) msg = 'Excelente! Continue se protegendo! 🌟';
-            else if (percentage >= 60) msg = 'Muito bom! Aprenda mais sobre o tema! 👍';
-            else msg = 'Continue estudando! Esse conhecimento protege! 💪';
-            
-            document.getElementById('quizMessage').textContent = msg;
+
+    function scrollToTop() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+
+    /* ================================
+       INICIALIZAÇÃO
+    ================================= */
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        loadCharacters();
+
+        loadQuotes();
+
+        loadQuizQuestion();
+
+        if (localStorage.getItem('highContrast') === 'true') {
+            document.body.classList.add('high-contrast');
         }
 
-        document.getElementById('restartBtn').onclick = () => {
-            currentQuestion = 0;
-            score = 0;
-            document.getElementById('quizQuestion').style.display = 'block';
-            document.getElementById('quizResult').classList.remove('show');
-            loadQuestion();
-        };
+    });
 
-        loadQuestion();
-    </script>
+</script>
+
 </body>
 </html>
