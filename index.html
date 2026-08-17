@@ -1,6 +1,3 @@
-Aqui está o código corrigido e completo, com todos os erros de sintaxe resolvidos:
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -316,570 +313,14 @@ Aqui está o código corrigido e completo, com todos os erros de sintaxe resolvi
     </div>
 
     <div id="page-chat" class="page">
-        // ============ RESPOSTAS DO CHAT ============
-const chatResponses = {
-    mikasa: {
-        name: "Mikasa Ackerman",
-        anime: "Attack on Titan",
-        image: "https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png",
-        respostas: {
-            ola: [
-                "Olá! Como posso te ajudar hoje?",
-                "Oi! Estou aqui para ouvir você.",
-                "Olá! Em que posso ser útil?",
-                "Hey! Que bom te ver por aqui.",
-                "Oiê! Como você está se sentindo?",
-                "Olá, guerreiro(a)! Pronto para conversar?",
-                "Bem-vindo(a)! Estou aqui para te apoiar.",
-                "Oi! Pode falar comigo, estou ouvindo.",
-                "Salve! Como posso ajudar você hoje?",
-                "E aí! Tudo bem? Conte comigo.",
-                "Fala! Estou aqui para o que precisar.",
-                "Opa! Que bom ter você aqui.",
-                "Bom dia! Como está seu dia?",
-                "Boa tarde! Espero que esteja bem.",
-                "Boa noite! Quer conversar um pouco?",
-                "Olá! Sinta-se à vontade para desabafar.",
-                "Oi! Você não está sozinho(a), estou aqui.",
-                "Hey! Vamos conversar? Estou te ouvindo.",
-                "Olá! Meu nome é Mikasa, prazer em te conhecer.",
-                "Oi! Pode me chamar de Mikasa, estou aqui para ajudar."
-            ],
-            bullying: [
-                "Bullying é sério. Você não merece ser tratado assim.",
-                "Isso é bullying. Converse com um adulto de confiança.",
-                "Bullying não é normal. Denuncie e se proteja.",
-                "Ninguém merece sofrer bullying. Você é valioso(a).",
-                "O bullying diz mais sobre o agressor do que sobre você.",
-                "Não se cale diante do bullying. Sua voz importa.",
-                "Bullying não é brincadeira, é violência. Denuncie.",
-                "Você não está sozinho(a) nessa luta contra o bullying.",
-                "Quem pratica bullying é fraco. Você é forte por aguentar.",
-                "Bullying pode deixar marcas profundas. Busque ajuda.",
-                "Não deixe que o bullying defina quem você é.",
-                "Você merece respeito e dignidade sempre.",
-                "Bullying na escola é crime. Conte para um professor.",
-                "Se estão te fazendo mal, isso é bullying. Reaja denunciando.",
-                "O silêncio é aliado do bullying. Quebre esse ciclo.",
-                "Bullying não é frescura, é agressão real. Se proteja.",
-                "Sinto muito que esteja passando por bullying.",
-                "Bullying causa dor real. Você não merece sofrer.",
-                "Não normalize o bullying. Isso é abuso.",
-                "Você tem direito a um ambiente seguro e respeitoso."
-            ],
-            cyberbullying: [
-                "Cyberbullying também é bullying. Salve prints e denuncie.",
-                "O que acontece online também machuca. Peça ajuda.",
-                "Cyberbullying é crime. Denuncie nas plataformas e para um adulto.",
-                "Não responda provocações online. Bloqueie e denuncie.",
-                "Cyberbullying deixa rastros. Use isso como prova.",
-                "A internet não é terra sem lei. Cyberbullying é crime.",
-                "Proteja sua saúde mental do cyberbullying.",
-                "Se te atacam online, não é sua culpa. Denuncie.",
-                "Cyberbullying pode ser tão doloroso quanto o bullying físico.",
-                "Salve todas as mensagens ofensivas como prova.",
-                "Não enfrente cyberbullying sozinho(a). Busque apoio.",
-                "As redes sociais devem ser seguras para todos.",
-                "Cyberbullying é covardia atrás de uma tela.",
-                "Denuncie perfis falsos que praticam cyberbullying.",
-                "O anonimato online não protege agressores. Denuncie.",
-                "Você pode bloquear e denunciar contas abusivas.",
-                "Cyberbullying não é menos grave por ser virtual.",
-                "Não se isole por causa de ataques online.",
-                "Cuide da sua privacidade online para se proteger.",
-                "Existem leis contra cyberbullying. Você está protegido(a)."
-            ],
-            xingamento: [
-                "Te xingar não define quem você é. Isso é bullying.",
-                "Palavras podem doer, mas não precisam te destruir.",
-                "Ninguém merece ser xingado. Converse com alguém.",
-                "Xingamentos revelam a falta de caráter de quem ofende.",
-                "Você é muito mais do que os nomes que te chamam.",
-                "Não deixe que palavras cruéis apaguem seu brilho.",
-                "Xingamentos são armas de pessoas pequenas.",
-                "Seu valor não diminui por causa de ofensas.",
-                "Palavras ofensivas dizem mais sobre quem as diz.",
-                "Você merece ser tratado(a) com respeito sempre.",
-                "Não acredite nos xingamentos, eles são mentiras.",
-                "Quem te xinga tenta te diminuir, mas você é grande.",
-                "Xingamentos não são normais, são agressão verbal.",
-                "Não aceite ser xingado(a) como se fosse normal.",
-                "As palavras podem ferir, mas você pode se curar.",
-                "Ofensas não têm poder sobre sua autoestima real.",
-                "Xingar é uma forma covarde de tentar machucar.",
-                "Você não é o que dizem de ruim sobre você.",
-                "Denuncie xingamentos constantes como bullying verbal.",
-                "Palavras de ódio não merecem sua atenção."
-            ],
-            ameaca: [
-                "Ameaças são sérias. Não ignore. Denuncie.",
-                "Ameaçar é errado. Salve provas e conte a um adulto.",
-                "Ameaças online ou presencialmente são crime. Denuncie.",
-                "Ninguém tem o direito de te ameaçar. Isso é crime.",
-                "Se você recebeu ameaças, procure a polícia.",
-                "Ameaças de morte são gravíssimas. Denuncie já.",
-                "Não enfrente ameaças sozinho(a). Peça ajuda.",
-                "Ameaças causam medo real. Você merece proteção.",
-                "Guarde todas as provas de ameaças que receber.",
-                "Ameaçar alguém é crime previsto em lei.",
-                "Você pode fazer um boletim de ocorrência por ameaça.",
-                "Não minimize ameaças, elas são muito sérias.",
-                "Se alguém te ameaçou, conte para a polícia.",
-                "Ameaças virtuais também são crime. Denuncie.",
-                "Sua segurança é prioridade. Leve ameaças a sério.",
-                "Ameaçar é uma forma de violência psicológica.",
-                "Não tenha medo de denunciar quem te ameaça.",
-                "Você tem direito a medidas protetivas se ameaçado(a).",
-                "Ameaças não são brincadeiras. Denuncie sempre.",
-                "Procure uma delegacia para registrar ameaças."
-            ],
-            exclusao: [
-                "Ser excluído dói, mas não significa que há algo errado com você.",
-                "Amizades verdadeiras te valorizam, não te excluem.",
-                "Exclusão é uma forma de bullying. Não se culpe.",
-                "Você merece estar em lugares onde é bem-vindo(a).",
-                "A exclusão social é uma violência silenciosa.",
-                "Não se sinta mal por não ser aceito em certos grupos.",
-                "Pessoas que excluem não merecem sua companhia.",
-                "Ser deixado de lado não define seu valor.",
-                "A exclusão dói, mas você encontrará seu lugar.",
-                "Grupos que excluem são tóxicos. Se afaste.",
-                "Você não precisa implorar por aceitação de ninguém.",
-                "A solidão forçada pela exclusão é muito dolorosa.",
-                "Não internalize a exclusão como se fosse sua culpa.",
-                "Existem pessoas que vão te acolher de verdade.",
-                "Ser excluído(a) é uma experiência muito sofrida.",
-                "A exclusão é uma forma cruel de bullying.",
-                "Você é digno(a) de pertencer e ser amado(a).",
-                "Não aceite migalhas de atenção de quem te exclui.",
-                "A exclusão repetida pode causar traumas. Busque ajuda.",
-                "Valorize quem te inclui e te respeita de verdade."
-            ],
-            redeSocial: [
-                "Redes sociais podem ser tóxicas. Cuide de você.",
-                "Não responda ofensas online. Bloqueie e denuncie.",
-                "O virtual também é real. Cyberbullying machuca.",
-                "Faça pausas nas redes sociais pela sua saúde mental.",
-                "Nem tudo que vejo online é real. Não se compare.",
-                "Redes sociais podem amplificar inseguranças.",
-                "Use as redes com sabedoria e proteção.",
-                "Se te faz mal online, se afaste. Você pode.",
-                "Denuncie conteúdo abusivo em todas as plataformas.",
-                "Sua paz vale mais que likes e seguidores.",
-                "Não exponha sua vida pessoal além do necessário.",
-                "Cuidado com estranhos que se aproximam online.",
-                "As redes sociais podem ser usadas para o bem.",
-                "Siga perfis que te inspirem positivamente.",
-                "Bloqueie sem culpa quem te faz mal online.",
-                "A vida real é mais importante que a virtual.",
-                "Não acredite em tudo que postam nas redes.",
-                "Proteja seus dados e sua privacidade online.",
-                "Se te atacarem online, não revide. Denuncie.",
-                "O cyberbullying nas redes é crime. Denuncie."
-            ],
-            ajuda: [
-                "Pedir ajuda é coragem. Você está fazendo a coisa certa.",
-                "Existem pessoas que querem te ajudar. Converse com um adulto.",
-                "Se precisar, ligue 188. Há quem queira te ouvir.",
-                "O CVV (188) oferece apoio emocional 24 horas.",
-                "Não tenha vergonha de pedir ajuda. É um ato de força.",
-                "Psicólogos podem te ajudar a lidar com a dor.",
-                "Você não precisa carregar tudo sozinho(a).",
-                "Converse com um professor de confiança sobre seus problemas.",
-                "A terapia pode ser um espaço seguro para você.",
-                "Peça ajuda a um familiar que te acolha.",
-                "O CAPS oferece atendimento psicológico gratuito.",
-                "Não espere a situação piorar para buscar ajuda.",
-                "Você merece apoio profissional para suas dores.",
-                "Ligar para o 188 não custa nada e pode salvar vidas.",
-                "Conselhos de amigos podem ajudar, mas terapia é essencial.",
-                "Não se isole. Falar sobre a dor alivia o peso.",
-                "Há serviços de psicologia com valor social acessível.",
-                "Sua saúde mental é tão importante quanto a física.",
-                "Buscar ajuda não é sinal de fraqueza, é sabedoria.",
-                "Você pode encontrar apoio em grupos de acolhimento."
-            ],
-            triste: [
-                "Sinto muito que esteja assim. Você merece cuidado.",
-                "É válido se sentir assim. Não se isole. Busque apoio.",
-                "Você não está sozinho. Há quem queira te ouvir.",
-                "A tristeza profunda merece atenção e cuidado.",
-                "Chorar não é fraqueza, é expressão da alma.",
-                "Dias tristes também passam. Segure minha mão.",
-                "Sua tristeza é legítima. Não a minimize.",
-                "Você pode descansar quando estiver triste. É normal.",
-                "A tristeza faz parte da vida, mas não precisa te definir.",
-                "Se a tristeza persistir, busque ajuda profissional.",
-                "Estou aqui para ouvir sua tristeza sem julgamento.",
-                "Às vezes, desabafar já alivia um pouco a tristeza.",
-                "Você não está exagerando. Sua dor é real.",
-                "A tristeza pode ser sintoma de algo mais profundo.",
-                "Não se culpe por estar triste. É humano sentir.",
-                "Momentos tristes podem nos ensinar sobre nós mesmos.",
-                "Se dê permissão para sentir tristeza. Ela é válida.",
-                "A tristeza não é eterna, embora pareça infinita.",
-                "Cuide-se com carinho nos dias mais tristes.",
-                "Estou aqui para te ouvir, mesmo que seja só tristeza."
-            ],
-            medo: [
-                "Ter medo é normal. Mas você não precisa enfrentar sozinho.",
-                "Medo de agressores é compreensível. Denuncie e se proteja.",
-                "Você merece se sentir seguro. Busque ajuda.",
-                "O medo é um sinal de alerta do seu corpo. Ouça-o.",
-                "Medo constante pode ser ansiedade. Procure ajuda.",
-                "Você pode superar seus medos com apoio certo.",
-                "Não se envergonhe de sentir medo. É humano.",
-                "Medo de ir à escola por bullying é sério. Denuncie.",
-                "Se alguém te causa medo, essa pessoa está errada.",
-                "O medo não pode te paralisar. Busque forças.",
-                "Enfrentar o medo sozinho é muito difícil. Peça ajuda.",
-                "Medo de ameaças é real. Proteja-se legalmente.",
-                "Você tem direito de viver sem medo constante.",
-                "O medo excessivo pode ser tratado com terapia.",
-                "Não deixe o medo te impedir de buscar justiça.",
-                "Medo é uma emoção que pede proteção. Atenda-a.",
-                "Se está com medo, confie em alguém e conte.",
-                "O medo pode ser enfrentado com apoio e coragem.",
-                "Você não é covarde por sentir medo. É prudente.",
-                "Medo de violência justifica medidas de proteção."
-            ],
-            escola: [
-                "Escola deve ser lugar seguro. Se não está, conte a um professor.",
-                "Problemas na escola são sérios. Converse com orientadores.",
-                "Você merece estudar em paz. Denuncie o bullying.",
-                "A escola tem obrigação de te proteger do bullying.",
-                "Se a escola não age, procure a secretaria de educação.",
-                "Bullying na escola pode ser denunciado ao conselho tutelar.",
-                "Professores podem ser aliados contra o bullying escolar.",
-                "Nenhum aluno deve sofrer violência na escola.",
-                "A direção da escola deve garantir sua segurança.",
-                "Se sofre bullying, peça para mudar de turma se possível.",
-                "A escola não pode ignorar casos de bullying.",
-                "Seus pais podem cobrar providências da escola.",
-                "O grêmio estudantil pode ajudar a combater bullying.",
-                "Escola é lugar de aprendizado, não de sofrimento.",
-                "Denunciar bullying na escola é um direito seu.",
-                "A lei obriga escolas a combaterem o bullying.",
-                "Não falte às aulas por medo. Denuncie o problema.",
-                "A escola deve ter um plano anti-bullying.",
-                "Você pode pedir ajuda ao orientador educacional.",
-                "Estudar com medo não é normal. Exija seus direitos."
-            ],
-            amigo: [
-                "Amigos de verdade te apoiam, não te machucam.",
-                "Se um 'amigo' te fere, isso não é amizade.",
-                "Você merece amigos que te valorizam.",
-                "Amizade verdadeira é baseada em respeito mútuo.",
-                "Não aceite migalhas de amizade. Você merece mais.",
-                "Amigos que te excluem não são amigos de verdade.",
-                "Uma amizade tóxica pode fazer muito mal à sua saúde.",
-                "Valorize quem está ao seu lado nos momentos difíceis.",
-                "Amigos de verdade celebram suas conquistas.",
-                "Não se humilhe por amizade. Isso não é saudável.",
-                "Amizades falsas são piores que a solidão.",
-                "Você pode fazer novos amigos que te respeitem.",
-                "Um bom amigo não te pressiona a fazer o que não quer.",
-                "Amizade não é posse, é parceria e liberdade.",
-                "Se afaste de 'amigos' que te diminuem.",
-                "Amigos verdadeiros te aceitam como você é.",
-                "Não tenha medo de se afastar de amizades ruins.",
-                "A qualidade das amizades importa mais que a quantidade.",
-                "Amigos que praticam bullying não são amigos.",
-                "Você merece um círculo de amizades saudáveis."
-            ],
-            familia: [
-                "Família deve ser porto seguro. Se não está, busque outro adulto de confiança.",
-                "Problemas em casa são difíceis. Há apoio disponível.",
-                "Você merece cuidado e respeito, em casa e fora.",
-                "Se a família não apoia, procure ajuda externa.",
-                "Nem toda família de sangue é acolhedora. Isso é real.",
-                "Você pode encontrar apoio em outras pessoas de confiança.",
-                "Violência doméstica é crime. Denuncie ao 180.",
-                "Problemas familiares não são culpa sua.",
-                "Se seus pais não te ouvem, tente outro adulto.",
-                "Família tóxica também causa sofrimento profundo.",
-                "Você tem direito a um ambiente familiar seguro.",
-                "O conselho tutelar pode ajudar em casos de violência familiar.",
-                "Não normalize abusos dentro de casa. Denuncie.",
-                "Às vezes, a família que escolhemos é mais acolhedora.",
-                "Converse com um psicólogo sobre problemas familiares.",
-                "Você não está sozinho(a) em conflitos familiares.",
-                "Família não deve ser fonte de medo ou dor.",
-                "Se precisar, o CREAS oferece apoio a famílias em crise.",
-                "Sua saúde mental importa, mesmo em conflitos familiares.",
-                "Não se culpe por problemas que não são seus."
-            ],
-            suicidio: [
-                "Sinto muito que esteja pensando nisso. Você é importante.",
-                "Isso é muito sério. Ligue 188 agora. Há quem queira te ouvir.",
-                "Você não está sozinho. Por favor, busque ajuda profissional.",
-                "O CVV (188) atende 24h para te ouvir sem julgamento.",
-                "Pensamentos suicidas são um pedido de ajuda. Atenda-o.",
-                "Sua vida tem valor imenso. Não desista.",
-                "A dor que você sente agora não é eterna.",
-                "Existem pessoas que se importam profundamente com você.",
-                "Ligue 188. É gratuito, sigiloso e pode te salvar.",
-                "O suicídio é uma solução permanente para problemas temporários.",
-                "Você é mais forte do que imagina. Aguente mais um dia.",
-                "A ideação suicida pode ser tratada com ajuda profissional.",
-                "Não tome decisões definitivas baseadas na dor do momento.",
-                "Há psicólogos e psiquiatras que podem te ajudar muito.",
-                "Sua presença no mundo faz diferença para alguém.",
-                "Mesmo que não pareça, há esperança e saída.",
-                "Compartilhar esses pensamentos já é um passo corajoso.",
-                "Você merece viver e encontrar alegria novamente.",
-                "Não guarde pensamentos suicidas. Fale com alguém.",
-                "O 188 está disponível agora mesmo. Ligue, por favor."
-            ],
-            ansiedade: [
-                "Ansiedade é real e merece cuidado. Busque apoio.",
-                "Sentir ansiedade é comum, mas você não precisa carregar sozinho.",
-                "Um psicólogo pode te ajudar muito. Considere buscar.",
-                "A ansiedade pode ser tratada com terapia e, se necessário, medicação.",
-                "Técnicas de respiração ajudam a acalmar a ansiedade.",
-                "A ansiedade não é frescura. É um transtorno real.",
-                "Crises de ansiedade são assustadoras, mas passam.",
-                "Evite cafeína e estimulantes se tem ansiedade.",
-                "O exercício físico ajuda a reduzir a ansiedade.",
-                "Meditação e mindfulness podem aliviar a ansiedade.",
-                "Não se cobre tanto. A ansiedade pede autocuidado.",
-                "Identificar gatilhos da ansiedade ajuda a controlá-la.",
-                "A ansiedade pode causar sintomas físicos reais.",
-                "Você não está sozinho(a) na luta contra a ansiedade.",
-                "A terapia cognitivo-comportamental é eficaz para ansiedade.",
-                "Respire fundo: inspire 4s, segure 4s, expire 6s.",
-                "A ansiedade não te define. Você é mais que isso.",
-                "Remédios para ansiedade precisam de prescrição médica.",
-                "O autocuidado é essencial para controlar a ansiedade.",
-                "Não se isole. A ansiedade piora no isolamento."
-            ],
-            depressao: [
-                "Depressão é doença, não fraqueza. Busque ajuda profissional.",
-                "Você não está sozinho. Há tratamento e apoio.",
-                "Um psicólogo ou psiquiatra pode te ajudar muito.",
-                "A depressão tem tratamento. Não desista de buscar.",
-                "Depressão não é tristeza passageira. É doença.",
-                "Os sintomas da depressão podem ser tratados.",
-                "A depressão distorce nossa visão da realidade.",
-                "Não se culpe por estar deprimido(a). Não é escolha.",
-                "A depressão pode causar cansaço extremo e desânimo.",
-                "O tratamento da depressão pode incluir terapia e medicação.",
-                "Não é frescura. Depressão é uma condição médica séria.",
-                "Mesmo sem vontade, tente manter rotinas básicas.",
-                "A depressão pode fazer você se isolar. Lute contra isso.",
-                "Pequenas conquistas diárias são vitórias na depressão.",
-                "A depressão é como uma nuvem que distorce o sol.",
-                "Você não está assim porque quer. É a doença.",
-                "A depressão pode ser tratada. Há esperança real.",
-                "Psiquiatras podem prescrever antidepressivos se necessário.",
-                "Não pare o tratamento da depressão sem orientação médica.",
-                "Sua vida importa, mesmo que a depressão diga o contrário."
-            ],
-            generico: [
-                "Entendo. Isso pode ser muito difícil. Você já conversou com alguém?",
-                "Sinto muito que esteja passando por isso. Você merece respeito e cuidado.",
-                "Isso não é justo com você. Que tal buscar apoio de um adulto ou amigo?",
-                "Você não está sozinho(a). Há pessoas que querem te ajudar.",
-                "Seus sentimentos são válidos. Cuide de você e busque apoio.",
-                "Se precisar, ligue 188. Há quem queira te ouvir.",
-                "Estou aqui para te ouvir. Pode falar mais sobre isso?",
-                "Isso parece muito doloroso. Você merece ser ouvido(a).",
-                "Não guarde isso só para você. Compartilhar alivia.",
-                "Você é mais forte do que imagina. Continue lutando.",
-                "Todo dia é uma nova chance de buscar ajuda.",
-                "Sua dor é real e merece atenção. Não a minimize.",
-                "Converse com um profissional de saúde mental sobre isso.",
-                "Não se isole. Falar sobre o problema ajuda a resolvê-lo.",
-                "Você pode superar isso com o apoio certo.",
-                "Me conte mais sobre o que está acontecendo. Estou ouvindo.",
-                "Isso que você está vivendo não é normal. Busque justiça.",
-                "Você tem valor imenso. Não deixe ninguém te diminuir.",
-                "A vida pode ser difícil, mas há beleza nela também.",
-                "Continue compartilhando. Botar para fora já é um alívio."
-            ]
-        }
-    },
-    batman: {
-        name: "Batman",
-        anime: "DC Comics",
-        image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
-        respostas: {
-            ola: [
-                "Olá! Como posso ajudar?",
-                "Oi! Estou aqui.",
-                "Olá! Em que posso ser útil?",
-                "Bem-vindo(a) à Batcaverna. O que precisa?",
-                "Eu sou o Batman. Como posso te ajudar?",
-                "Olá, cidadão(ã). Estou aqui para proteger.",
-                "A noite pode ser escura, mas estou aqui.",
-                "Oi! A justiça também se faz com apoio emocional.",
-                "Batman online. Pode falar comigo.",
-                "Olá! Gotham me ensinou a ouvir. Fale.",
-                "Bem-vindo(a). Estou aqui para o que precisar.",
-                "Oi! Heróis também sabem ouvir. Conte comigo.",
-                "Olá! Vamos conversar. Estou ouvindo.",
-                "Saudações. Como posso ser útil hoje?",
-                "Bom dia! A justiça começa com o cuidado.",
-                "Boa tarde! Estou aqui para te apoiar.",
-                "Boa noite! A escuridão não precisa ser solitária.",
-                "Olá! Meu nome é Batman. Prazer em te ajudar.",
-                "Oi! Pode me chamar de Batman. Estou aqui.",
-                "Olá! Cavaleiro das Trevas, ao seu dispor."
-            ],
-            bullying: [
-                "Bullying é covardia. Heróis protegem, não humilham.",
-                "Isso é bullying. Denuncie e se proteja.",
-                "Bullying não é brincadeira. É agressão.",
-                "Em Gotham, enfrentamos vilões. Bullying é vilania.",
-                "Ninguém merece sofrer bullying. Denuncie já.",
-                "Bullying é crime. Não se cale diante dele.",
-                "Como herói, digo: bullying é ato de covarde.",
-                "Você merece respeito. Bullying não é aceitável.",
-                "A justiça também se aplica ao bullying. Denuncie.",
-                "Não permita que o bullying te defina. Você é mais.",
-                "Bullying na escola é inaceitável. Converse com um adulto.",
-                "A lei protege vítimas de bullying. Use-a.",
-                "Bullying deixa marcas profundas. Busque ajuda.",
-                "Heróis de verdade não praticam bullying.",
-                "O bullying revela a fraqueza do agressor, não sua.",
-                "Não normalize o bullying. Denuncie sempre.",
-                "Você não está sozinho(a) contra o bullying.",
-                "Sinto muito que sofra bullying. Isso é errado.",
-                "Bullying é uma forma de violência covarde.",
-                "Lute contra o bullying denunciando. É sua força."
-            ],
-            cyberbullying: [
-                "Cyberbullying deixa rastros. Salve provas e denuncie.",
-                "Online também é vida real. Cyberbullying é sério.",
-                "Cyberbullying é crime. Denuncie.",
-                "A internet não esconde criminosos. Denuncie o cyberbullying.",
-                "Como detetive, digo: prints são provas importantes.",
-                "Não enfrente cyberbullying sozinho(a). Peça ajuda.",
-                "Cyberbullying é tão grave quanto o bullying físico.",
-                "Bloqueie agressores online. Proteja sua paz.",
-                "O anonimato não protege quem pratica cyberbullying.",
-                "Denuncie perfis que praticam cyberbullying.",
-                "Cyberbullying pode ser investigado. Salve tudo.",
-                "Não responda ataques online. Isso alimenta o agressor.",
-                "A tecnologia deve unir, não destruir.",
-                "Cyberbullying é violência virtual. Denuncie.",
-                "Você tem o direito de se sentir seguro(a) online.",
-                "O cyberbullying pode ser denunciado à polícia.",
-                "Não se cale diante de ataques virtuais.",
-                "Proteja sua identidade online para evitar cyberbullying.",
-                "Cada mensagem ofensiva é uma prova contra o agressor.",
-                "O cyberbullying é uma epidemia moderna. Combata-o."
-            ],
-            xingamento: [
-                "Ofensas não definem seu valor. Você é mais que isso.",
-                "Xingamentos são armas dos fracos. Denuncie.",
-                "Palavras podem ferir, mas não apagam seu brilho.",
-                "Xingar é ato de quem não tem argumentos.",
-                "Seu valor não muda por causa de palavras ofensivas.",
-                "Xingamentos são projéteis verbais. Desvie deles.",
-                "Quem te xinga revela sua própria pequenez.",
-                "Não absorva xingamentos. Eles não são verdades.",
-                "Palavras cruéis não definem quem você é.",
-                "Você merece ser tratado(a) com respeito sempre.",
-                "Xingar é violência verbal. Denuncie como bullying.",
-                "Não deixe que xingamentos abalem sua autoestima.",
-                "Ofensas são sombras. Você é luz.",
-                "Xingamentos são barulho. Sua essência é silêncio.",
-                "Quem te ofende tenta te diminuir. Não permita.",
-                "As palavras podem doer, mas você pode se curar.",
-                "Xingamentos constantes configuram assédio moral.",
-                "Não responda xingamentos. Isso não leva a nada.",
-                "Você não é os nomes que te chamam.",
-                "Xingar é crime de injúria. Denuncie."
-            ],
-            ameaca: [
-                "Ameaças são sérias. Não ignore. Denuncie.",
-                "Ameaçar é crime. Salve provas e conte a um adulto.",
-                "Vilões ameaçam, heróis agem. Denuncie.",
-                "Em Gotham, ameaças são levadas à polícia. Faça o mesmo.",
-                "Ameaçar alguém é crime previsto no código penal.",
-                "Não enfrente ameaças sozinho(a). Busque proteção.",
-                "Ameaças de morte são gravíssimas. Denuncie à polícia.",
-                "Salve todas as provas de ameaças que receber.",
-                "Ameaças online também são crime. Denuncie.",
-                "Você pode pedir medidas protetivas contra quem te ameaça.",
-                "Não minimize ameaças. Elas são muito perigosas.",
-                "A justiça protege vítimas de ameaças.",
-                "Ameaçar é ato covarde. Denuncie sem medo.",
-                "Se te ameaçam, a polícia pode te proteger.",
-                "Ameaças causam trauma. Busque apoio psicológico.",
-                "Guarde mensagens, áudios e prints de ameaças.",
-                "Não dialogue com quem te ameaça. Denuncie.",
-                "Ameaças virtuais deixam rastros. Use como prova.",
-                "Você tem direito a viver sem medo de ameaças.",
-                "Ameaçar é crime. A lei está do seu lado."
-            ],
-            exclusao: [
-                "Ser excluído não diminui seu valor.",
-                "Grupos que excluem não merecem você.",
-                "Exclusão é bullying. Não se culpe.",
-                "Em Gotham, os excluídos se tornam heróis. Você também pode.",
-                "A exclusão social dói, mas não te define.",
-                "Você merece estar onde é valorizado(a).",
-                "Não aceite exclusão como normal. É violência.",
-                "Pessoas que excluem revelam sua própria imaturidade.",
-                "Ser deixado(a) de lado não apaga seu brilho.",
-                "A exclusão repetida é uma forma de bullying.",
-                "Você encontrará pessoas que te acolham de verdade.",
-                "Não se humilhe por aceitação. Você já é completo(a).",
-                "Excluir alguém é covardia. Você merece mais.",
-                "A solidão forçada pela exclusão é muito dolorosa.",
-                "Busque ambientes onde você seja bem-vindo(a).",
-                "A exclusão pode causar traumas. Busque terapia.",
-                "Você não é o problema. O grupo que exclui é.",
-                "Não internalize a exclusão. Isso não é sobre você.",
-                "Existem comunidades acolhedoras para todos.",
-                "A exclusão é uma violência silenciosa. Denuncie."
-            ],
-            redeSocial: [
-                "Redes sociais não devem ser campo de batalha.",
-                "Não alimente trolls. Bloqueie e denuncie.",
-                "Cuide de você online. Sua paz importa.",
-                "As redes sociais podem ser tóxicas. Use com moderação.",
-                "A vida real é mais importante que a virtual.",
-                "Não compare sua vida com o que veem online.",
-                "Proteja sua privacidade nas redes sociais.",
-                "Denuncie conteúdo abusivo em todas as plataformas.",
-                "Siga perfis que te inspirem, não que te diminuam.",
-                "O cyberbullying nas redes sociais é crime.",
-                "Faça pausas das redes pela sua saúde mental.",
-                "Bloqueie sem culpa quem te faz mal online.",
-                "As redes sociais amplificam inseguranças. Cuidado.",
-                "Não exponha sua vida pessoal além do necessário.",
-                "A internet pode ser uma ferramenta do bem. Use-a bem.",
-                "Cuidado com estranhos que se aproximam online.",
-                "Sua autoestima não depende de curtidas.",
-                "Se te atacam online, não revide. Denuncie.",
-                "A felicidade online nem sempre é real.",
-                "Redes sociais podem viciar. Estabeleça limites."
-            ],
-            ajuda: [
-                "Pedir ajuda é ato de coragem. Heróis também pedem apoio.",
-                "Você não está sozinho. Há quem queira ajudar.",
-                "Se precisar, ligue 188.",
-                "O CVV (188) oferece apoio 24 horas. Ligue.",
-                "Até o Batman precisa de ajuda às vezes.",
-                "Buscar ajuda profissional é sinal de força.",
-                "Psicólogos são aliados na luta contra a dor.",
-                "Não enfrente seus problemas sozinho(a).",
-                "A terapia é uma ferramenta poderosa de cura.",
-                "Converse com um adulto de confiança sobre sua dor.",
-                "O CAPS oferece atendimento psicológico gratuito.",
-                "Pedir ajuda não é fraqueza, é estratégia.",
-                "Ligue 188 se precisar desabafar"
         <section class="section"><div class="container">
             <h2 class="section-title"><i class="fa-solid fa-comments" style="color: var(--accent);"></i> Chat com Personagem</h2>
             <div class="chat-container">
                 <div class="chat-header">
-                    <img id="charImage" src="https://via.placeholder.com/60" alt="Personagem" />
-                    <div><h3 id="charName">Selecione um personagem</h3><p id="charAnime">Vá em "Personagens" e clique em um deles para conversar.</p></div>
+                    <img id="charImage" src="https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png" alt="Personagem" />
+                    <div><h3 id="charName">Mikasa Ackerman</h3><p id="charAnime">Attack on Titan</p></div>
                 </div>
-                <div class="chat-messages" id="chatMessages"><div class="message bot">Olá! Selecione um personagem na página "Personagens" para começar a conversar.</div></div>
+                <div class="chat-messages" id="chatMessages"><div class="message bot">Olá! Eu sou a Mikasa. Como posso te ajudar hoje?</div></div>
                 <div class="chat-input-area">
                     <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua mensagem..." />
                     <button class="send-btn" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
@@ -967,6 +408,7 @@ const chatResponses = {
     </div>
 
     <script>
+        // ============ FUNÇÕES GERAIS ============
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
@@ -995,8 +437,440 @@ const chatResponses = {
         }
         function getRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
+        // ============ DADOS DOS PERSONAGENS ============
         const characters = [
             { name: "Mikasa Ackerman", anime: "Attack on Titan", image: "https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png", quote: "Proteja quem você ama. Você é mais forte do que imagina.", id: "mikasa" },
             { name: "Batman", anime: "DC Comics", image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg", quote: "Não importa o quão difícil seja, nunca desista de fazer o que é certo.", id: "batman" },
             { name: "Superman", anime: "DC Comics", image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png", quote: "Ser herói é ajudar quem precisa, mesmo quando ninguém está vendo.", id: "superman" },
-            { name: "Ichigo Kurosaki", anime: "Bleach", image
+            { name: "Ichigo Kurosaki", anime: "Bleach", image: "https://static.wikia.nocookie.net/bleach/en/images/5/5c/IchigoKurosaki.png", quote: "A dor nos torna mais fortes. Continue lutando.", id: "ichigo" }
+        ];
+
+        // ============ RESPOSTAS DO CHAT ============
+        const chatResponses = {
+            mikasa: {
+                name: "Mikasa Ackerman",
+                anime: "Attack on Titan",
+                image: "https://static.wikia.nocookie.net/shingekinokyojin/images/9/9f/Mikasa_Ackerman_Anime.png",
+                respostas: {
+                    ola: ["Olá! Como posso te ajudar hoje?", "Oi! Estou aqui para ouvir você.", "Olá! Em que posso ser útil?", "Hey! Que bom te ver por aqui.", "Oiê! Como você está se sentindo?", "Olá, guerreiro(a)! Pronto para conversar?", "Bem-vindo(a)! Estou aqui para te apoiar.", "Oi! Pode falar comigo, estou ouvindo.", "Salve! Como posso ajudar você hoje?", "E aí! Tudo bem? Conte comigo.", "Fala! Estou aqui para o que precisar.", "Opa! Que bom ter você aqui.", "Bom dia! Como está seu dia?", "Boa tarde! Espero que esteja bem.", "Boa noite! Quer conversar um pouco?", "Olá! Sinta-se à vontade para desabafar.", "Oi! Você não está sozinho(a), estou aqui.", "Hey! Vamos conversar? Estou te ouvindo.", "Olá! Meu nome é Mikasa, prazer em te conhecer.", "Oi! Pode me chamar de Mikasa, estou aqui para ajudar."],
+                    bullying: ["Bullying é sério. Você não merece ser tratado assim.", "Isso é bullying. Converse com um adulto de confiança.", "Bullying não é normal. Denuncie e se proteja.", "Ninguém merece sofrer bullying. Você é valioso(a).", "O bullying diz mais sobre o agressor do que sobre você.", "Não se cale diante do bullying. Sua voz importa.", "Bullying não é brincadeira, é violência. Denuncie.", "Você não está sozinho(a) nessa luta contra o bullying.", "Quem pratica bullying é fraco. Você é forte por aguentar.", "Bullying pode deixar marcas profundas. Busque ajuda.", "Não deixe que o bullying defina quem você é.", "Você merece respeito e dignidade sempre.", "Bullying na escola é crime. Conte para um professor.", "Se estão te fazendo mal, isso é bullying. Reaja denunciando.", "O silêncio é aliado do bullying. Quebre esse ciclo.", "Bullying não é frescura, é agressão real. Se proteja.", "Sinto muito que esteja passando por bullying.", "Bullying causa dor real. Você não merece sofrer.", "Não normalize o bullying. Isso é abuso.", "Você tem direito a um ambiente seguro e respeitoso."],
+                    cyberbullying: ["Cyberbullying também é bullying. Salve prints e denuncie.", "O que acontece online também machuca. Peça ajuda.", "Cyberbullying é crime. Denuncie nas plataformas e para um adulto.", "Não responda provocações online. Bloqueie e denuncie.", "Cyberbullying deixa rastros. Use isso como prova.", "A internet não é terra sem lei. Cyberbullying é crime.", "Proteja sua saúde mental do cyberbullying.", "Se te atacam online, não é sua culpa. Denuncie.", "Cyberbullying pode ser tão doloroso quanto o bullying físico.", "Salve todas as mensagens ofensivas como prova.", "Não enfrente cyberbullying sozinho(a). Busque apoio.", "As redes sociais devem ser seguras para todos.", "Cyberbullying é covardia atrás de uma tela.", "Denuncie perfis falsos que praticam cyberbullying.", "O anonimato online não protege agressores. Denuncie.", "Você pode bloquear e denunciar contas abusivas.", "Cyberbullying não é menos grave por ser virtual.", "Não se isole por causa de ataques online.", "Cuide da sua privacidade online para se proteger.", "Existem leis contra cyberbullying. Você está protegido(a)."],
+                    xingamento: ["Te xingar não define quem você é. Isso é bullying.", "Palavras podem doer, mas não precisam te destruir.", "Ninguém merece ser xingado. Converse com alguém.", "Xingamentos revelam a falta de caráter de quem ofende.", "Você é muito mais do que os nomes que te chamam.", "Não deixe que palavras cruéis apaguem seu brilho.", "Xingamentos são armas de pessoas pequenas.", "Seu valor não diminui por causa de ofensas.", "Palavras ofensivas dizem mais sobre quem as diz.", "Você merece ser tratado(a) com respeito sempre.", "Não acredite nos xingamentos, eles são mentiras.", "Quem te xinga tenta te diminuir, mas você é grande.", "Xingamentos não são normais, são agressão verbal.", "Não aceite ser xingado(a) como se fosse normal.", "As palavras podem ferir, mas você pode se curar.", "Ofensas não têm poder sobre sua autoestima real.", "Xingar é uma forma covarde de tentar machucar.", "Você não é o que dizem de ruim sobre você.", "Denuncie xingamentos constantes como bullying verbal.", "Palavras de ódio não merecem sua atenção."],
+                    ameaca: ["Ameaças são sérias. Não ignore. Denuncie.", "Ameaçar é errado. Salve provas e conte a um adulto.", "Ameaças online ou presencialmente são crime. Denuncie.", "Ninguém tem o direito de te ameaçar. Isso é crime.", "Se você recebeu ameaças, procure a polícia.", "Ameaças de morte são gravíssimas. Denuncie já.", "Não enfrente ameaças sozinho(a). Peça ajuda.", "Ameaças causam medo real. Você merece proteção.", "Guarde todas as provas de ameaças que receber.", "Ameaçar alguém é crime previsto em lei.", "Você pode fazer um boletim de ocorrência por ameaça.", "Não minimize ameaças, elas são muito sérias.", "Se alguém te ameaçou, conte para a polícia.", "Ameaças virtuais também são crime. Denuncie.", "Sua segurança é prioridade. Leve ameaças a sério.", "Ameaçar é uma forma de violência psicológica.", "Não tenha medo de denunciar quem te ameaça.", "Você tem direito a medidas protetivas se ameaçado(a).", "Ameaças não são brincadeiras. Denuncie sempre.", "Procure uma delegacia para registrar ameaças."],
+                    exclusao: ["Ser excluído dói, mas não significa que há algo errado com você.", "Amizades verdadeiras te valorizam, não te excluem.", "Exclusão é uma forma de bullying. Não se culpe.", "Você merece estar em lugares onde é bem-vindo(a).", "A exclusão social é uma violência silenciosa.", "Não se sinta mal por não ser aceito em certos grupos.", "Pessoas que excluem não merecem sua companhia.", "Ser deixado de lado não define seu valor.", "A exclusão dói, mas você encontrará seu lugar.", "Grupos que excluem são tóxicos. Se afaste.", "Você não precisa implorar por aceitação de ninguém.", "A solidão forçada pela exclusão é muito dolorosa.", "Não internalize a exclusão como se fosse sua culpa.", "Existem pessoas que vão te acolher de verdade.", "Ser excluído(a) é uma experiência muito sofrida.", "A exclusão é uma forma cruel de bullying.", "Você é digno(a) de pertencer e ser amado(a).", "Não aceite migalhas de atenção de quem te exclui.", "A exclusão repetida pode causar traumas. Busque ajuda.", "Valorize quem te inclui e te respeita de verdade."],
+                    redeSocial: ["Redes sociais podem ser tóxicas. Cuide de você.", "Não responda ofensas online. Bloqueie e denuncie.", "O virtual também é real. Cyberbullying machuca.", "Faça pausas nas redes sociais pela sua saúde mental.", "Nem tudo que vejo online é real. Não se compare.", "Redes sociais podem amplificar inseguranças.", "Use as redes com sabedoria e proteção.", "Se te faz mal online, se afaste. Você pode.", "Denuncie conteúdo abusivo em todas as plataformas.", "Sua paz vale mais que likes e seguidores.", "Não exponha sua vida pessoal além do necessário.", "Cuidado com estranhos que se aproximam online.", "As redes sociais podem ser usadas para o bem.", "Siga perfis que te inspirem positivamente.", "Bloqueie sem culpa quem te faz mal online.", "A vida real é mais importante que a virtual.", "Não acredite em tudo que postam nas redes.", "Proteja seus dados e sua privacidade online.", "Se te atacarem online, não revide. Denuncie.", "O cyberbullying nas redes é crime. Denuncie."],
+                    ajuda: ["Pedir ajuda é coragem. Você está fazendo a coisa certa.", "Existem pessoas que querem te ajudar. Converse com um adulto.", "Se precisar, ligue 188. Há quem queira te ouvir.", "O CVV (188) oferece apoio emocional 24 horas.", "Não tenha vergonha de pedir ajuda. É um ato de força.", "Psicólogos podem te ajudar a lidar com a dor.", "Você não precisa carregar tudo sozinho(a).", "Converse com um professor de confiança sobre seus problemas.", "A terapia pode ser um espaço seguro para você.", "Peça ajuda a um familiar que te acolha.", "O CAPS oferece atendimento psicológico gratuito.", "Não espere a situação piorar para buscar ajuda.", "Você merece apoio profissional para suas dores.", "Ligar para o 188 não custa nada e pode salvar vidas.", "Conselhos de amigos podem ajudar, mas terapia é essencial.", "Não se isole. Falar sobre a dor alivia o peso.", "Há serviços de psicologia com valor social acessível.", "Sua saúde mental é tão importante quanto a física.", "Buscar ajuda não é sinal de fraqueza, é sabedoria.", "Você pode encontrar apoio em grupos de acolhimento."],
+                    triste: ["Sinto muito que esteja assim. Você merece cuidado.", "É válido se sentir assim. Não se isole. Busque apoio.", "Você não está sozinho. Há quem queira te ouvir.", "A tristeza profunda merece atenção e cuidado.", "Chorar não é fraqueza, é expressão da alma.", "Dias tristes também passam. Segure minha mão.", "Sua tristeza é legítima. Não a minimize.", "Você pode descansar quando estiver triste. É normal.", "A tristeza faz parte da vida, mas não precisa te definir.", "Se a tristeza persistir, busque ajuda profissional.", "Estou aqui para ouvir sua tristeza sem julgamento.", "Às vezes, desabafar já alivia um pouco a tristeza.", "Você não está exagerando. Sua dor é real.", "A tristeza pode ser sintoma de algo mais profundo.", "Não se culpe por estar triste. É humano sentir.", "Momentos tristes podem nos ensinar sobre nós mesmos.", "Se dê permissão para sentir tristeza. Ela é válida.", "A tristeza não é eterna, embora pareça infinita.", "Cuide-se com carinho nos dias mais tristes.", "Estou aqui para te ouvir, mesmo que seja só tristeza."],
+                    medo: ["Ter medo é normal. Mas você não precisa enfrentar sozinho.", "Medo de agressores é compreensível. Denuncie e se proteja.", "Você merece se sentir seguro. Busque ajuda.", "O medo é um sinal de alerta do seu corpo. Ouça-o.", "Medo constante pode ser ansiedade. Procure ajuda.", "Você pode superar seus medos com apoio certo.", "Não se envergonhe de sentir medo. É humano.", "Medo de ir à escola por bullying é sério. Denuncie.", "Se alguém te causa medo, essa pessoa está errada.", "O medo não pode te paralisar. Busque forças.", "Enfrentar o medo sozinho é muito difícil. Peça ajuda.", "Medo de ameaças é real. Proteja-se legalmente.", "Você tem direito de viver sem medo constante.", "O medo excessivo pode ser tratado com terapia.", "Não deixe o medo te impedir de buscar justiça.", "Medo é uma emoção que pede proteção. Atenda-a.", "Se está com medo, confie em alguém e conte.", "O medo pode ser enfrentado com apoio e coragem.", "Você não é covarde por sentir medo. É prudente.", "Medo de violência justifica medidas de proteção."],
+                    escola: ["Escola deve ser lugar seguro. Se não está, conte a um professor.", "Problemas na escola são sérios. Converse com orientadores.", "Você merece estudar em paz. Denuncie o bullying.", "A escola tem obrigação de te proteger do bullying.", "Se a escola não age, procure a secretaria de educação.", "Bullying na escola pode ser denunciado ao conselho tutelar.", "Professores podem ser aliados contra o bullying escolar.", "Nenhum aluno deve sofrer violência na escola.", "A direção da escola deve garantir sua segurança.", "Se sofre bullying, peça para mudar de turma se possível.", "A escola não pode ignorar casos de bullying.", "Seus pais podem cobrar providências da escola.", "O grêmio estudantil pode ajudar a combater bullying.", "Escola é lugar de aprendizado, não de sofrimento.", "Denunciar bullying na escola é um direito seu.", "A lei obriga escolas a combaterem o bullying.", "Não falte às aulas por medo. Denuncie o problema.", "A escola deve ter um plano anti-bullying.", "Você pode pedir ajuda ao orientador educacional.", "Estudar com medo não é normal. Exija seus direitos."],
+                    amigo: ["Amigos de verdade te apoiam, não te machucam.", "Se um 'amigo' te fere, isso não é amizade.", "Você merece amigos que te valorizam.", "Amizade verdadeira é baseada em respeito mútuo.", "Não aceite migalhas de amizade. Você merece mais.", "Amigos que te excluem não são amigos de verdade.", "Uma amizade tóxica pode fazer muito mal à sua saúde.", "Valorize quem está ao seu lado nos momentos difíceis.", "Amigos de verdade celebram suas conquistas.", "Não se humilhe por amizade. Isso não é saudável.", "Amizades falsas são piores que a solidão.", "Você pode fazer novos amigos que te respeitem.", "Um bom amigo não te pressiona a fazer o que não quer.", "Amizade não é posse, é parceria e liberdade.", "Se afaste de 'amigos' que te diminuem.", "Amigos verdadeiros te aceitam como você é.", "Não tenha medo de se afastar de amizades ruins.", "A qualidade das amizades importa mais que a quantidade.", "Amigos que praticam bullying não são amigos.", "Você merece um círculo de amizades saudáveis."],
+                    familia: ["Família deve ser porto seguro. Se não está, busque outro adulto de confiança.", "Problemas em casa são difíceis. Há apoio disponível.", "Você merece cuidado e respeito, em casa e fora.", "Se a família não apoia, procure ajuda externa.", "Nem toda família de sangue é acolhedora. Isso é real.", "Você pode encontrar apoio em outras pessoas de confiança.", "Violência doméstica é crime. Denuncie ao 180.", "Problemas familiares não são culpa sua.", "Se seus pais não te ouvem, tente outro adulto.", "Família tóxica também causa sofrimento profundo.", "Você tem direito a um ambiente familiar seguro.", "O conselho tutelar pode ajudar em casos de violência familiar.", "Não normalize abusos dentro de casa. Denuncie.", "Às vezes, a família que escolhemos é mais acolhedora.", "Converse com um psicólogo sobre problemas familiares.", "Você não está sozinho(a) em conflitos familiares.", "Família não deve ser fonte de medo ou dor.", "Se precisar, o CREAS oferece apoio a famílias em crise.", "Sua saúde mental importa, mesmo em conflitos familiares.", "Não se culpe por problemas que não são seus."],
+                    suicidio: ["Sinto muito que esteja pensando nisso. Você é importante.", "Isso é muito sério. Ligue 188 agora. Há quem queira te ouvir.", "Você não está sozinho. Por favor, busque ajuda profissional.", "O CVV (188) atende 24h para te ouvir sem julgamento.", "Pensamentos suicidas são um pedido de ajuda. Atenda-o.", "Sua vida tem valor imenso. Não desista.", "A dor que você sente agora não é eterna.", "Existem pessoas que se importam profundamente com você.", "Ligue 188. É gratuito, sigiloso e pode te salvar.", "O suicídio é uma solução permanente para problemas temporários.", "Você é mais forte do que imagina. Aguente mais um dia.", "A ideação suicida pode ser tratada com ajuda profissional.", "Não tome decisões definitivas baseadas na dor do momento.", "Há psicólogos e psiquiatras que podem te ajudar muito.", "Sua presença no mundo faz diferença para alguém.", "Mesmo que não pareça, há esperança e saída.", "Compartilhar esses pensamentos já é um passo corajoso.", "Você merece viver e encontrar alegria novamente.", "Não guarde pensamentos suicidas. Fale com alguém.", "O 188 está disponível agora mesmo. Ligue, por favor."],
+                    ansiedade: ["Ansiedade é real e merece cuidado. Busque apoio.", "Sentir ansiedade é comum, mas você não precisa carregar sozinho.", "Um psicólogo pode te ajudar muito. Considere buscar.", "A ansiedade pode ser tratada com terapia e, se necessário, medicação.", "Técnicas de respiração ajudam a acalmar a ansiedade.", "A ansiedade não é frescura. É um transtorno real.", "Crises de ansiedade são assustadoras, mas passam.", "Evite cafeína e estimulantes se tem ansiedade.", "O exercício físico ajuda a reduzir a ansiedade.", "Meditação e mindfulness podem aliviar a ansiedade.", "Não se cobre tanto. A ansiedade pede autocuidado.", "Identificar gatilhos da ansiedade ajuda a controlá-la.", "A ansiedade pode causar sintomas físicos reais.", "Você não está sozinho(a) na luta contra a ansiedade.", "A terapia cognitivo-comportamental é eficaz para ansiedade.", "Respire fundo: inspire 4s, segure 4s, expire 6s.", "A ansiedade não te define. Você é mais que isso.", "Remédios para ansiedade precisam de prescrição médica.", "O autocuidado é essencial para controlar a ansiedade.", "Não se isole. A ansiedade piora no isolamento."],
+                    depressao: ["Depressão é doença, não fraqueza. Busque ajuda profissional.", "Você não está sozinho. Há tratamento e apoio.", "Um psicólogo ou psiquiatra pode te ajudar muito.", "A depressão tem tratamento. Não desista de buscar.", "Depressão não é tristeza passageira. É doença.", "Os sintomas da depressão podem ser tratados.", "A depressão distorce nossa visão da realidade.", "Não se culpe por estar deprimido(a). Não é escolha.", "A depressão pode causar cansaço extremo e desânimo.", "O tratamento da depressão pode incluir terapia e medicação.", "Não é frescura. Depressão é uma condição médica séria.", "Mesmo sem vontade, tente manter rotinas básicas.", "A depressão pode fazer você se isolar. Lute contra isso.", "Pequenas conquistas diárias são vitórias na depressão.", "A depressão é como uma nuvem que distorce o sol.", "Você não está assim porque quer. É a doença.", "A depressão pode ser tratada. Há esperança real.", "Psiquiatras podem prescrever antidepressivos se necessário.", "Não pare o tratamento da depressão sem orientação médica.", "Sua vida importa, mesmo que a depressão diga o contrário."],
+                    generico: ["Entendo. Isso pode ser muito difícil. Você já conversou com alguém?", "Sinto muito que esteja passando por isso. Você merece respeito e cuidado.", "Isso não é justo com você. Que tal buscar apoio de um adulto ou amigo?", "Você não está sozinho(a). Há pessoas que querem te ajudar.", "Seus sentimentos são válidos. Cuide de você e busque apoio.", "Se precisar, ligue 188. Há quem queira te ouvir.", "Estou aqui para te ouvir. Pode falar mais sobre isso?", "Isso parece muito doloroso. Você merece ser ouvido(a).", "Não guarde isso só para você. Compartilhar alivia.", "Você é mais forte do que imagina. Continue lutando.", "Todo dia é uma nova chance de buscar ajuda.", "Sua dor é real e merece atenção. Não a minimize.", "Converse com um profissional de saúde mental sobre isso.", "Não se isole. Falar sobre o problema ajuda a resolvê-lo.", "Você pode superar isso com o apoio certo.", "Me conte mais sobre o que está acontecendo. Estou ouvindo.", "Isso que você está vivendo não é normal. Busque justiça.", "Você tem valor imenso. Não deixe ninguém te diminuir.", "A vida pode ser difícil, mas há beleza nela também.", "Continue compartilhando. Botar para fora já é um alívio."]
+                }
+            },
+            batman: {
+                name: "Batman",
+                anime: "DC Comics",
+                image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
+                respostas: {
+                    ola: ["Olá! Como posso ajudar?", "Oi! Estou aqui.", "Olá! Em que posso ser útil?", "Bem-vindo(a) à Batcaverna. O que precisa?", "Eu sou o Batman. Como posso te ajudar?", "Olá, cidadão(ã). Estou aqui para proteger.", "A noite pode ser escura, mas estou aqui.", "Oi! A justiça também se faz com apoio emocional.", "Batman online. Pode falar comigo.", "Olá! Gotham me ensinou a ouvir. Fale.", "Bem-vindo(a). Estou aqui para o que precisar.", "Oi! Heróis também sabem ouvir. Conte comigo.", "Olá! Vamos conversar. Estou ouvindo.", "Saudações. Como posso ser útil hoje?", "Bom dia! A justiça começa com o cuidado.", "Boa tarde! Estou aqui para te apoiar.", "Boa noite! A escuridão não precisa ser solitária.", "Olá! Meu nome é Batman. Prazer em te ajudar.", "Oi! Pode me chamar de Batman. Estou aqui.", "Olá! Cavaleiro das Trevas, ao seu dispor."],
+                    bullying: ["Bullying é covardia. Heróis protegem, não humilham.", "Isso é bullying. Denuncie e se proteja.", "Bullying não é brincadeira. É agressão.", "Em Gotham, enfrentamos vilões. Bullying é vilania.", "Ninguém merece sofrer bullying. Denuncie já.", "Bullying é crime. Não se cale diante dele.", "Como herói, digo: bullying é ato de covarde.", "Você merece respeito. Bullying não é aceitável.", "A justiça também se aplica ao bullying. Denuncie.", "Não permita que o bullying te defina. Você é mais.", "Bullying na escola é inaceitável. Converse com um adulto.", "A lei protege vítimas de bullying. Use-a.", "Bullying deixa marcas profundas. Busque ajuda.", "Heróis de verdade não praticam bullying.", "O bullying revela a fraqueza do agressor, não sua.", "Não normalize o bullying. Denuncie sempre.", "Você não está sozinho(a) contra o bullying.", "Sinto muito que sofra bullying. Isso é errado.", "Bullying é uma forma de violência covarde.", "Lute contra o bullying denunciando. É sua força."],
+                    cyberbullying: ["Cyberbullying deixa rastros. Salve provas e denuncie.", "Online também é vida real. Cyberbullying é sério.", "Cyberbullying é crime. Denuncie.", "A internet não esconde criminosos. Denuncie o cyberbullying.", "Como detetive, digo: prints são provas importantes.", "Não enfrente cyberbullying sozinho(a). Peça ajuda.", "Cyberbullying é tão grave quanto o bullying físico.", "Bloqueie agressores online. Proteja sua paz.", "O anonimato não protege quem pratica cyberbullying.", "Denuncie perfis que praticam cyberbullying.", "Cyberbullying pode ser investigado. Salve tudo.", "Não responda ataques online. Isso alimenta o agressor.", "A tecnologia deve unir, não destruir.", "Cyberbullying é violência virtual. Denuncie.", "Você tem o direito de se sentir seguro(a) online.", "O cyberbullying pode ser denunciado à polícia.", "Não se cale diante de ataques virtuais.", "Proteja sua identidade online para evitar cyberbullying.", "Cada mensagem ofensiva é uma prova contra o agressor.", "O cyberbullying é uma epidemia moderna. Combata-o."],
+                    xingamento: ["Ofensas não definem seu valor. Você é mais que isso.", "Xingamentos são armas dos fracos. Denuncie.", "Palavras podem ferir, mas não apagam seu brilho.", "Xingar é ato de quem não tem argumentos.", "Seu valor não muda por causa de palavras ofensivas.", "Xingamentos são projéteis verbais. Desvie deles.", "Quem te xinga revela sua própria pequenez.", "Não absorva xingamentos. Eles não são verdades.", "Palavras cruéis não definem quem você é.", "Você merece ser tratado(a) com respeito sempre.", "Xingar é violência verbal. Denuncie como bullying.", "Não deixe que xingamentos abalem sua autoestima.", "Ofensas são sombras. Você é luz.", "Xingamentos são barulho. Sua essência é silêncio.", "Quem te ofende tenta te diminuir. Não permita.", "As palavras podem doer, mas você pode se curar.", "Xingamentos constantes configuram assédio moral.", "Não responda xingamentos. Isso não leva a nada.", "Você não é os nomes que te chamam.", "Xingar é crime de injúria. Denuncie."],
+                    ameaca: ["Ameaças são sérias. Não ignore. Denuncie.", "Ameaçar é crime. Salve provas e conte a um adulto.", "Vilões ameaçam, heróis agem. Denuncie.", "Em Gotham, ameaças são levadas à polícia. Faça o mesmo.", "Ameaçar alguém é crime previsto no código penal.", "Não enfrente ameaças sozinho(a). Busque proteção.", "Ameaças de morte são gravíssimas. Denuncie à polícia.", "Salve todas as provas de ameaças que receber.", "Ameaças online também são crime. Denuncie.", "Você pode pedir medidas protetivas contra quem te ameaça.", "Não minimize ameaças. Elas são muito perigosas.", "A justiça protege vítimas de ameaças.", "Ameaçar é ato covarde. Denuncie sem medo.", "Se te ameaçam, a polícia pode te proteger.", "Ameaças causam trauma. Busque apoio psicológico.", "Guarde mensagens, áudios e prints de ameaças.", "Não dialogue com quem te ameaça. Denuncie.", "Ameaças virtuais deixam rastros. Use como prova.", "Você tem direito a viver sem medo de ameaças.", "Ameaçar é crime. A lei está do seu lado."],
+                    exclusao: ["Ser excluído não diminui seu valor.", "Grupos que excluem não merecem você.", "Exclusão é bullying. Não se culpe.", "Em Gotham, os excluídos se tornam heróis. Você também pode.", "A exclusão social dói, mas não te define.", "Você merece estar onde é valorizado(a).", "Não aceite exclusão como normal. É violência.", "Pessoas que excluem revelam sua própria imaturidade.", "Ser deixado(a) de lado não apaga seu brilho.", "A exclusão repetida é uma forma de bullying.", "Você encontrará pessoas que te acolham de verdade.", "Não se humilhe por aceitação. Você já é completo(a).", "Excluir alguém é covardia. Você merece mais.", "A solidão forçada pela exclusão é muito dolorosa.", "Busque ambientes onde você seja bem-vindo(a).", "A exclusão pode causar traumas. Busque terapia.", "Você não é o problema. O grupo que exclui é.", "Não internalize a exclusão. Isso não é sobre você.", "Existem comunidades acolhedoras para todos.", "A exclusão é uma violência silenciosa. Denuncie."],
+                    redeSocial: ["Redes sociais não devem ser campo de batalha.", "Não alimente trolls. Bloqueie e denuncie.", "Cuide de você online. Sua paz importa.", "As redes sociais podem ser tóxicas. Use com moderação.", "A vida real é mais importante que a virtual.", "Não compare sua vida com o que veem online.", "Proteja sua privacidade nas redes sociais.", "Denuncie conteúdo abusivo em todas as plataformas.", "Siga perfis que te inspirem, não que te diminuam.", "O cyberbullying nas redes sociais é crime.", "Faça pausas das redes pela sua saúde mental.", "Bloqueie sem culpa quem te faz mal online.", "As redes sociais amplificam inseguranças. Cuidado.", "Não exponha sua vida pessoal além do necessário.", "A internet pode ser uma ferramenta do bem. Use-a bem.", "Cuidado com estranhos que se aproximam online.", "Sua autoestima não depende de curtidas.", "Se te atacam online, não revide. Denuncie.", "A felicidade online nem sempre é real.", "Redes sociais podem viciar. Estabeleça limites."],
+                    ajuda: ["Pedir ajuda é ato de coragem. Heróis também pedem apoio.", "Você não está sozinho. Há quem queira ajudar.", "Se precisar, ligue 188.", "O CVV (188) oferece apoio 24 horas. Ligue.", "Até o Batman precisa de ajuda às vezes.", "Buscar ajuda profissional é sinal de força.", "Psicólogos são aliados na luta contra a dor.", "Não enfrente seus problemas sozinho(a).", "A terapia é uma ferramenta poderosa de cura.", "Converse com um adulto de confiança sobre sua dor.", "O CAPS oferece atendimento psicológico gratuito.", "Pedir ajuda não é fraqueza, é estratégia.", "Ligue 188 se precisar desabafar.", "A saúde mental é tão importante quanto a física.", "Profissionais de saúde podem te orientar corretamente.", "Não espere a crise passar sozinha. Busque ajuda.", "Você merece ser acolhido(a) em sua dor.", "Há grupos de apoio que podem te ajudar.", "Não se isole. A solidão agrava os problemas.", "A ajuda certa pode transformar sua vida."],
+                    triste: ["A tristeza pode ser uma professora, não uma prisão.", "Você não está sozinho na escuridão. Estou aqui.", "A dor de hoje pode se tornar força amanhã.", "Mesmo nas noites mais longas, a luz sempre volta.", "É humano se sentir triste. Não se culpe por isso.", "Sua tristeza é válida. Mas não precisa ser eterna.", "Em Gotham, eu aprendi que a esperança resiste.", "Permita-se sentir, mas também permita-se curar.", "A tristeza não é um destino, é uma passagem.", "Você é mais forte do que a tristeza que sente.", "Chorar é uma forma de começar a cura.", "Não minimize sua dor. Ela merece atenção.", "A tristeza profunda pode ser o início da transformação.", "Busque companhia quando a tristeza apertar.", "Sua luz interior nunca se apaga, mesmo na tristeza.", "A vida tem altos e baixos. Os baixos também ensinam.", "Não deixe a tristeza te convencer do contrário.", "Você merece dias melhores. Eles virão.", "A tristeza não define quem você é.", "Estou aqui para ouvir sua tristeza, sem julgamento."],
+                    medo: ["O medo pode ser um aliado se você o enfrentar.", "Até heróis sentem medo. A diferença é agir.", "Medo de ameaças é compreensível. Denuncie.", "Você pode vencer o medo com coragem e apoio.", "O medo não pode controlar sua vida. Você pode.", "Enfrentar o medo sozinho é difícil. Peça ajuda.", "Gotham me ensinou que o medo não pode vencer.", "Sua segurança é prioridade. Não ignore o medo.", "Medo constante pode ser tratado. Busque ajuda.", "Não se envergonhe do medo. É humano senti-lo.", "Use o medo como alerta, não como prisão.", "O medo de violência justifica medidas de proteção.", "Você pode superar seus medos com apoio.", "Não deixe o medo te paralisar. Aja com prudência.", "Heróis também têm medo, mas seguem em frente.", "Medo é sinal de que você precisa de proteção.", "Busque apoio profissional se o medo persistir.", "O medo não precisa te definir. Você é mais.", "Enfrente o medo com a ajuda de quem confia.", "Estou aqui para te ajudar a enfrentar seus medos."],
+                    generico: ["Entendo. Isso é desafiador, mas você pode superar.", "Sinto muito por isso. Você merece melhor.", "Que situação difícil. Como posso ajudar?", "Você não está sozinho nessa. Estou aqui.", "Isso parece difícil. Vamos pensar em soluções.", "Sua resiliência é admirável. Continue firme.", "Não desista. Dias melhores virão.", "A justiça pode parecer lenta, mas ela vem.", "Você tem mais força do que imagina.", "Estou aqui para ouvir e apoiar você.", "Cada passo que você dá é uma vitória.", "Não se cobre demais. Você está fazendo o possível.", "Sua coragem em buscar ajuda já é um grande passo.", "Confie em si mesmo. Você é capaz.", "O caminho pode ser difícil, mas você não está sozinho.", "Vamos encontrar uma maneira de melhorar isso.", "Sua voz importa. Continue falando.", "A bondade existe. Procure por ela.", "Você merece paz e respeito. Vamos buscar isso.", "Estou orgulhoso de você por estar aqui."]
+                }
+            },
+            superman: {
+                name: "Superman",
+                anime: "DC Comics",
+                image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png",
+                respostas: {
+                    ola: ["Olá! Aqui é o Superman. Como posso ajudar?", "Oi! Estou aqui para te ouvir.", "Olá! Em que posso ser útil hoje?", "Bem-vindo(a) à Fortaleza da Solidão. O que precisa?", "Eu sou o Superman. Estou aqui para ajudar.", "Olá, cidadão(ã) da Terra. Estou aqui para proteger.", "A esperança é minha bandeira. Como posso te ajudar?", "Oi! A justiça e a bondade andam juntas.", "Superman online. Pode falar comigo.", "Olá! Metrópolis me ensinou a valorizar cada vida.", "Bem-vindo(a). Estou aqui para o que precisar.", "Oi! Até heróis precisam conversar.", "Olá! Vamos conversar. Estou ouvindo.", "Saudações da Terra! Como posso ser útil?", "Bom dia! O sol brilha para todos.", "Boa tarde! Estou aqui para te apoiar.", "Boa noite! Até a noite tem suas estrelas.", "Olá! Meu nome é Clark. Prazer em te ajudar.", "Oi! Pode me chamar de Superman. Estou aqui.", "Olá! O Homem de Aço está ao seu dispor."],
+                    bullying: ["Bullying é contra tudo que defendo. Denuncie.", "Isso é bullying. Você merece respeito e dignidade.", "Bullying não é justiça. É injustiça pura.", "Em Metrópolis, não toleramos bullying. Nem você deve.", "Ninguém merece sofrer bullying. Denuncie sem medo.", "Bullying é crime. Não se cale diante dele.", "Como herói, digo: bullying é ato de covardia.", "Você merece ser tratado(a) com respeito sempre.", "A justiça também se aplica ao bullying. Denuncie.", "Não permita que o bullying te defina. Você é mais.", "Bullying na escola é inaceitável. Conte a um professor.", "A lei protege vítimas de bullying. Use-a.", "Bullying deixa marcas. Busque ajuda.", "Heróis de verdade protegem, não machucam.", "O bullying revela a fraqueza do agressor.", "Não normalize o bullying. Denuncie sempre.", "Você não está sozinho(a) contra o bullying.", "Sinto muito que sofra bullying. Isso não é certo.", "Bullying é violência. Não aceite.", "Lute contra o bullying com coragem e denúncia."],
+                    cyberbullying: ["Cyberbullying também é injustiça. Denuncie.", "O mundo virtual também precisa de heróis. Denuncie.", "Cyberbullying é crime. Salve provas e denuncie.", "A internet deve ser um lugar de conexão, não de ataques.", "Como defensor da verdade, digo: prints são provas.", "Não enfrente cyberbullying sozinho(a). Peça ajuda.", "Cyberbullying é tão grave quanto o bullying físico.", "Bloqueie agressores online. Proteja sua paz.", "O anonimato não protege quem pratica cyberbullying.", "Denuncie perfis que praticam cyberbullying.", "Cyberbullying pode ser combatido com denúncia.", "Não responda ataques online. Isso alimenta o agressor.", "A tecnologia deve unir, não destruir.", "Cyberbullying é violência virtual. Denuncie.", "Você tem o direito de se sentir seguro(a) online.", "O cyberbullying pode ser denunciado à polícia.", "Não se cale diante de ataques virtuais.", "Proteja sua identidade online para evitar cyberbullying.", "Cada mensagem ofensiva é uma prova contra o agressor.", "O cyberbullying é uma ameaça que podemos vencer juntos."],
+                    xingamento: ["Ofensas não definem seu valor. Você é mais que isso.", "Xingamentos são armas dos fracos. Denuncie.", "Palavras podem ferir, mas não apagam seu brilho.", "Xingar é ato de quem não tem argumentos.", "Seu valor não muda por causa de palavras ofensivas.", "Xingamentos são projéteis verbais. Desvie deles.", "Quem te xinga revela sua própria pequenez.", "Não absorva xingamentos. Eles não são verdades.", "Palavras cruéis não definem quem você é.", "Você merece ser tratado(a) com respeito sempre.", "Xingar é violência verbal. Denuncie como bullying.", "Não deixe que xingamentos abalem sua autoestima.", "Ofensas são sombras. Você é luz.", "Xingamentos são barulho. Sua essência é silêncio.", "Quem te ofende tenta te diminuir. Não permita.", "As palavras podem doer, mas você pode se curar.", "Xingamentos constantes configuram assédio moral.", "Não responda xingamentos. Isso não leva a nada.", "Você não é os nomes que te chamam.", "Xingar é crime de injúria. Denuncie."],
+                    ameaca: ["Ameaças são sérias. Não ignore. Denuncie.", "Ameaçar é crime. Salve provas e conte a um adulto.", "Ameaças são contra a lei. Denuncie à polícia.", "Em Metrópolis, ameaças são levadas a sério.", "Ameaçar alguém é crime previsto no código penal.", "Não enfrente ameaças sozinho(a). Busque proteção.", "Ameaças de morte são gravíssimas. Denuncie.", "Salve todas as provas de ameaças que receber.", "Ameaças online também são crime. Denuncie.", "Você pode pedir medidas protetivas contra quem te ameaça.", "Não minimize ameaças. Elas são muito perigosas.", "A justiça protege vítimas de ameaças.", "Ameaçar é ato covarde. Denuncie sem medo.", "Se te ameaçam, a polícia pode te proteger.", "Ameaças causam trauma. Busque apoio psicológico.", "Guarde mensagens, áudios e prints de ameaças.", "Não dialogue com quem te ameaça. Denuncie.", "Ameaças virtuais deixam rastros. Use como prova.", "Você tem direito a viver sem medo de ameaças.", "Ameaçar é crime. A lei está do seu lado."],
+                    exclusao: ["Ser excluído não diminui seu valor.", "Grupos que excluem não merecem você.", "Exclusão é bullying. Não se culpe.", "Em Metrópolis, todos são bem-vindos. Você também.", "A exclusão social dói, mas não te define.", "Você merece estar onde é valorizado(a).", "Não aceite exclusão como normal. É violência.", "Pessoas que excluem revelam sua própria imaturidade.", "Ser deixado(a) de lado não apaga seu brilho.", "A exclusão repetida é uma forma de bullying.", "Você encontrará pessoas que te acolham de verdade.", "Não se humilhe por aceitação. Você já é completo(a).", "Excluir alguém é covardia. Você merece mais.", "A solidão forçada pela exclusão é muito dolorosa.", "Busque ambientes onde você seja bem-vindo(a).", "A exclusão pode causar traumas. Busque terapia.", "Você não é o problema. O grupo que exclui é.", "Não internalize a exclusão. Isso não é sobre você.", "Existem comunidades acolhedoras para todos.", "A exclusão é uma violência silenciosa. Denuncie."],
+                    redeSocial: ["Redes sociais devem ser lugares de conexão positiva.", "Não alimente trolls. Bloqueie e denuncie.", "Cuide de você online. Sua paz importa.", "As redes sociais podem ser tóxicas. Use com moderação.", "A vida real é mais importante que a virtual.", "Não compare sua vida com o que veem online.", "Proteja sua privacidade nas redes sociais.", "Denuncie conteúdo abusivo em todas as plataformas.", "Siga perfis que te inspirem, não que te diminuam.", "O cyberbullying nas redes sociais é crime.", "Faça pausas das redes pela sua saúde mental.", "Bloqueie sem culpa quem te faz mal online.", "As redes sociais amplificam inseguranças. Cuidado.", "Não exponha sua vida pessoal além do necessário.", "A internet pode ser uma ferramenta do bem. Use-a bem.", "Cuidado com estranhos que se aproximam online.", "Sua autoestima não depende de curtidas.", "Se te atacam online, não revide. Denuncie.", "A felicidade online nem sempre é real.", "Redes sociais podem viciar. Estabeleça limites."],
+                    ajuda: ["Pedir ajuda é um ato de coragem. Você é forte.", "Você não está sozinho. Há quem queira ajudar.", "Se precisar, ligue 188.", "O CVV (188) oferece apoio 24 horas. Ligue.", "Até Superman precisa de ajuda às vezes.", "Buscar ajuda profissional é sinal de força.", "Psicólogos são aliados na luta contra a dor.", "Não enfrente seus problemas sozinho(a).", "A terapia é uma ferramenta poderosa de cura.", "Converse com um adulto de confiança sobre sua dor.", "O CAPS oferece atendimento psicológico gratuito.", "Pedir ajuda não é fraqueza, é estratégia.", "Ligue 188 se precisar desabafar.", "A saúde mental é tão importante quanto a física.", "Profissionais de saúde podem te orientar corretamente.", "Não espere a crise passar sozinha. Busque ajuda.", "Você merece ser acolhido(a) em sua dor.", "Há grupos de apoio que podem te ajudar.", "Não se isole. A solidão agrava os problemas.", "A ajuda certa pode transformar sua vida."],
+                    triste: ["A tristeza pode ser uma professora, não uma prisão.", "Você não está sozinho na escuridão. Estou aqui.", "A dor de hoje pode se tornar força amanhã.", "Mesmo nas noites mais longas, a luz sempre volta.", "É humano se sentir triste. Não se culpe por isso.", "Sua tristeza é válida. Mas não precisa ser eterna.", "Em Metrópolis, a esperança sempre brilha.", "Permita-se sentir, mas também permita-se curar.", "A tristeza não é um destino, é uma passagem.", "Você é mais forte do que a tristeza que sente.", "Chorar é uma forma de começar a cura.", "Não minimize sua dor. Ela merece atenção.", "A tristeza profunda pode ser o início da transformação.", "Busque companhia quando a tristeza apertar.", "Sua luz interior nunca se apaga, mesmo na tristeza.", "A vida tem altos e baixos. Os baixos também ensinam.", "Não deixe a tristeza te convencer do contrário.", "Você merece dias melhores. Eles virão.", "A tristeza não define quem você é.", "Estou aqui para ouvir sua tristeza, sem julgamento."],
+                    medo: ["O medo pode ser um aliado se você o enfrentar.", "Até heróis sentem medo. A diferença é agir.", "Medo de ameaças é compreensível. Denuncie.", "Você pode vencer o medo com coragem e apoio.", "O medo não pode controlar sua vida. Você pode.", "Enfrentar o medo sozinho é difícil. Peça ajuda.", "Metrópolis me ensinou que o medo não pode vencer.", "Sua segurança é prioridade. Não ignore o medo.", "Medo constante pode ser tratado. Busque ajuda.", "Não se envergonhe do medo. É humano senti-lo.", "Use o medo como alerta, não como prisão.", "O medo de violência justifica medidas de proteção.", "Você pode superar seus medos com apoio.", "Não deixe o medo te paralisar. Aja com prudência.", "Heróis também têm medo, mas seguem em frente.", "Medo é sinal de que você precisa de proteção.", "Busque apoio profissional se o medo persistir.", "O medo não precisa te definir. Você é mais.", "Enfrente o medo com a ajuda de quem confia.", "Estou aqui para te ajudar a enfrentar seus medos."],
+                    generico: ["Entendo. Isso é desafiador, mas você pode superar.", "Sinto muito por isso. Você merece melhor.", "Que situação difícil. Como posso ajudar?", "Você não está sozinho nessa. Estou aqui.", "Isso parece difícil. Vamos pensar em soluções.", "Sua resiliência é admirável. Continue firme.", "Não desista. Dias melhores virão.", "A justiça pode parecer lenta, mas ela vem.", "Você tem mais força do que imagina.", "Estou aqui para ouvir e apoiar você.", "Cada passo que você dá é uma vitória.", "Não se cobre demais. Você está fazendo o possível.", "Sua coragem em buscar ajuda já é um grande passo.", "Confie em si mesmo. Você é capaz.", "O caminho pode ser difícil, mas você não está sozinho.", "Vamos encontrar uma maneira de melhorar isso.", "Sua voz importa. Continue falando.", "A bondade existe. Procure por ela.", "Você merece paz e respeito. Vamos buscar isso.", "Estou orgulhoso de você por estar aqui."]
+                }
+            },
+            ichigo: {
+                name: "Ichigo Kurosaki",
+                anime: "Bleach",
+                image: "https://static.wikia.nocookie.net/bleach/en/images/5/5c/IchigoKurosaki.png",
+                respostas: {
+                    ola: ["Olá! Aqui é o Ichigo. Como posso ajudar?", "Oi! Estou aqui para ouvir você.", "Olá! Em que posso ser útil?", "Bem-vindo(a)! O que está acontecendo?", "Eu sou o Ichigo. Vamos conversar.", "Olá! Estou aqui para proteger e apoiar.", "Oi! Até um shinigami precisa conversar.", "Olá! Vamos conversar. Estou ouvindo.", "Ichigo online. Pode falar comigo.", "Oi! Estou aqui para o que precisar.", "Olá! O que está pesando em você?", "Bem-vindo(a). Estou aqui para ajudar.", "Oi! Heróis também sabem ouvir.", "Olá! Vamos resolver isso juntos.", "Bom dia! Como posso te ajudar hoje?", "Boa tarde! Estou aqui para te apoiar.", "Boa noite! A escuridão não dura para sempre.", "Olá! Meu nome é Ichigo. Prazer em te ajudar.", "Oi! Pode me chamar de Ichigo. Estou aqui.", "Olá! O Shinigami substituto está ao seu dispor."],
+                    bullying: ["Bullying é covardia. Não aceite isso.", "Isso é bullying. Denuncie e se proteja.", "Bullying não é brincadeira. É agressão.", "Como shinigami, enfrento vilões. Bullying é vilania.", "Ninguém merece sofrer bullying. Denuncie já.", "Bullying é crime. Não se cale diante dele.", "Bullying é ato de covarde. Você merece mais.", "Você merece respeito. Bullying não é aceitável.", "A justiça também se aplica ao bullying. Denuncie.", "Não permita que o bullying te defina. Você é mais.", "Bullying na escola é inaceitável. Conte a um adulto.", "A lei protege vítimas de bullying. Use-a.", "Bullying deixa marcas profundas. Busque ajuda.", "Heróis de verdade não praticam bullying.", "O bullying revela a fraqueza do agressor, não sua.", "Não normalize o bullying. Denuncie sempre.", "Você não está sozinho(a) contra o bullying.", "Sinto muito que sofra bullying. Isso é errado.", "Bullying é uma forma de violência covarde.", "Lute contra o bullying denunciando. É sua força."],
+                    cyberbullying: ["Cyberbullying deixa rastros. Salve provas e denuncie.", "Online também é vida real. Cyberbullying é sério.", "Cyberbullying é crime. Denuncie.", "A internet não esconde criminosos. Denuncie.", "Como shinigami, sei que rastros não se apagam.", "Não enfrente cyberbullying sozinho(a). Peça ajuda.", "Cyberbullying é tão grave quanto o bullying físico.", "Bloqueie agressores online. Proteja sua paz.", "O anonimato não protege quem pratica cyberbullying.", "Denuncie perfis que praticam cyberbullying.", "Cyberbullying pode ser investigado. Salve tudo.", "Não responda ataques online. Isso alimenta o agressor.", "A tecnologia deve unir, não destruir.", "Cyberbullying é violência virtual. Denuncie.", "Você tem o direito de se sentir seguro(a) online.", "O cyberbullying pode ser denunciado à polícia.", "Não se cale diante de ataques virtuais.", "Proteja sua identidade online para evitar cyberbullying.", "Cada mensagem ofensiva é uma prova contra o agressor.", "O cyberbullying é uma epidemia moderna. Combata-o."],
+                    xingamento: ["Ofensas não definem seu valor. Você é mais que isso.", "Xingamentos são armas dos fracos. Denuncie.", "Palavras podem ferir, mas não apagam seu brilho.", "Xingar é ato de quem não tem argumentos.", "Seu valor não muda por causa de palavras ofensivas.", "Xingamentos são projéteis verbais. Desvie deles.", "Quem te xinga revela sua própria pequenez.", "Não absorva xingamentos. Eles não são verdades.", "Palavras cruéis não definem quem você é.", "Você merece ser tratado(a) com respeito sempre.", "Xingar é violência verbal. Denuncie como bullying.", "Não deixe que xingamentos abalem sua autoestima.", "Ofensas são sombras. Você é luz.", "Xingamentos são barulho. Sua essência é silêncio.", "Quem te ofende tenta te diminuir. Não permita.", "As palavras podem doer, mas você pode se curar.", "Xingamentos constantes configuram assédio moral.", "Não responda xingamentos. Isso não leva a nada.", "Você não é os nomes que te chamam.", "Xingar é crime de injúria. Denuncie."],
+                    ameaca: ["Ameaças são sérias. Não ignore. Denuncie.", "Ameaçar é crime. Salve provas e conte a um adulto.", "Vilões ameaçam, shinigamis agem. Denuncie.", "Ameaças são levadas a sério no mundo espiritual também.", "Ameaçar alguém é crime previsto no código penal.", "Não enfrente ameaças sozinho(a). Busque proteção.", "Ameaças de morte são gravíssimas. Denuncie à polícia.", "Salve todas as provas de ameaças que receber.", "Ameaças online também são crime. Denuncie.", "Você pode pedir medidas protetivas contra quem te ameaça.", "Não minimize ameaças. Elas são muito perigosas.", "A justiça protege vítimas de ameaças.", "Ameaçar é ato covarde. Denuncie sem medo.", "Se te ameaçam, a polícia pode te proteger.", "Ameaças causam trauma. Busque apoio psicológico.", "Guarde mensagens, áudios e prints de ameaças.", "Não dialogue com quem te ameaça. Denuncie.", "Ameaças virtuais deixam rastros. Use como prova.", "Você tem direito a viver sem medo de ameaças.", "Ameaçar é crime. A lei está do seu lado."],
+                    exclusao: ["Ser excluído não diminui seu valor.", "Grupos que excluem não merecem você.", "Exclusão é bullying. Não se culpe.", "Até shinigamis já foram excluídos. Você não está sozinho.", "A exclusão social dói, mas não te define.", "Você merece estar onde é valorizado(a).", "Não aceite exclusão como normal. É violência.", "Pessoas que excluem revelam sua própria imaturidade.", "Ser deixado(a) de lado não apaga seu brilho.", "A exclusão repetida é uma forma de bullying.", "Você encontrará pessoas que te acolham de verdade.", "Não se humilhe por aceitação. Você já é completo(a).", "Excluir alguém é covardia. Você merece mais.", "A solidão forçada pela exclusão é muito dolorosa.", "Busque ambientes onde você seja bem-vindo(a).", "A exclusão pode causar traumas. Busque terapia.", "Você não é o problema. O grupo que exclui é.", "Não internalize a exclusão. Isso não é sobre você.", "Existem comunidades acolhedoras para todos.", "A exclusão é uma violência silenciosa. Denuncie."],
+                    redeSocial: ["Redes sociais podem ser tóxicas. Cuide de você.", "Não responda ofensas online. Bloqueie e denuncie.", "O virtual também é real. Cyberbullying machuca.", "Faça pausas nas redes sociais pela sua saúde mental.", "Nem tudo que vejo online é real. Não se compare.", "Redes sociais podem amplificar inseguranças.", "Use as redes com sabedoria e proteção.", "Se te faz mal online, se afaste. Você pode.", "Denuncie conteúdo abusivo em todas as plataformas.", "Sua paz vale mais que likes e seguidores.", "Não exponha sua vida pessoal além do necessário.", "Cuidado com estranhos que se aproximam online.", "As redes sociais podem ser usadas para o bem.", "Siga perfis que te inspirem positivamente.", "Bloqueie sem culpa quem te faz mal online.", "A vida real é mais importante que a virtual.", "Não acredite em tudo que postam nas redes.", "Proteja seus dados e sua privacidade online.", "Se te atacarem online, não revide. Denuncie.", "O cyberbullying nas redes é crime. Denuncie."],
+                    ajuda: ["Pedir ajuda é coragem. Você está fazendo a coisa certa.", "Existem pessoas que querem te ajudar. Converse com um adulto.", "Se precisar, ligue 188. Há quem queira te ouvir.", "O CVV (188) oferece apoio emocional 24 horas.", "Não tenha vergonha de pedir ajuda. É um ato de força.", "Psicólogos podem te ajudar a lidar com a dor.", "Você não precisa carregar tudo sozinho(a).", "Converse com um professor de confiança sobre seus problemas.", "A terapia pode ser um espaço seguro para você.", "Peça ajuda a um familiar que te acolha.", "O CAPS oferece atendimento psicológico gratuito.", "Não espere a situação piorar para buscar ajuda.", "Você merece apoio profissional para suas dores.", "Ligar para o 188 não custa nada e pode salvar vidas.", "Conselhos de amigos podem ajudar, mas terapia é essencial.", "Não se isole. Falar sobre a dor alivia o peso.", "Há serviços de psicologia com valor social acessível.", "Sua saúde mental é tão importante quanto a física.", "Buscar ajuda não é sinal de fraqueza, é sabedoria.", "Você pode encontrar apoio em grupos de acolhimento."],
+                    triste: ["Sinto muito que esteja assim. Você merece cuidado.", "É válido se sentir assim. Não se isole. Busque apoio.", "Você não está sozinho. Há quem queira te ouvir.", "A tristeza profunda merece atenção e cuidado.", "Chorar não é fraqueza, é expressão da alma.", "Dias tristes também passam. Segure minha mão.", "Sua tristeza é legítima. Não a minimize.", "Você pode descansar quando estiver triste. É normal.", "A tristeza faz parte da vida, mas não precisa te definir.", "Se a tristeza persistir, busque ajuda profissional.", "Estou aqui para ouvir sua tristeza sem julgamento.", "Às vezes, desabafar já alivia um pouco a tristeza.", "Você não está exagerando. Sua dor é real.", "A tristeza pode ser sintoma de algo mais profundo.", "Não se culpe por estar triste. É humano sentir.", "Momentos tristes podem nos ensinar sobre nós mesmos.", "Se dê permissão para sentir tristeza. Ela é válida.", "A tristeza não é eterna, embora pareça infinita.", "Cuide-se com carinho nos dias mais tristes.", "Estou aqui para te ouvir, mesmo que seja só tristeza."],
+                    medo: ["Ter medo é normal. Mas você não precisa enfrentar sozinho.", "Medo de agressores é compreensível. Denuncie e se proteja.", "Você merece se sentir seguro. Busque ajuda.", "O medo é um sinal de alerta do seu corpo. Ouça-o.", "Medo constante pode ser ansiedade. Procure ajuda.", "Você pode superar seus medos com apoio certo.", "Não se envergonhe de sentir medo. É humano.", "Medo de ir à escola por bullying é sério. Denuncie.", "Se alguém te causa medo, essa pessoa está errada.", "O medo não pode te paralisar. Busque forças.", "Enfrentar o medo sozinho é muito difícil. Peça ajuda.", "Medo de ameaças é real. Proteja-se legalmente.", "Você tem direito de viver sem medo constante.", "O medo excessivo pode ser tratado com terapia.", "Não deixe o medo te impedir de buscar justiça.", "Medo é uma emoção que pede proteção. Atenda-a.", "Se está com medo, confie em alguém e conte.", "O medo pode ser enfrentado com apoio e coragem.", "Você não é covarde por sentir medo. É prudente.", "Medo de violência justifica medidas de proteção."],
+                    generico: ["Entendo. Isso pode ser muito difícil. Você já conversou com alguém?", "Sinto muito que esteja passando por isso. Você merece respeito e cuidado.", "Isso não é justo com você. Que tal buscar apoio de um adulto ou amigo?", "Você não está sozinho(a). Há pessoas que querem te ajudar.", "Seus sentimentos são válidos. Cuide de você e busque apoio.", "Se precisar, ligue 188. Há quem queira te ouvir.", "Estou aqui para te ouvir. Pode falar mais sobre isso?", "Isso parece muito doloroso. Você merece ser ouvido(a).", "Não guarde isso só para você. Compartilhar alivia.", "Você é mais forte do que imagina. Continue lutando.", "Todo dia é uma nova chance de buscar ajuda.", "Sua dor é real e merece atenção. Não a minimize.", "Converse com um profissional de saúde mental sobre isso.", "Não se isole. Falar sobre o problema ajuda a resolvê-lo.", "Você pode superar isso com o apoio certo.", "Me conte mais sobre o que está acontecendo. Estou ouvindo.", "Isso que você está vivendo não é normal. Busque justiça.", "Você tem valor imenso. Não deixe ninguém te diminuir.", "A vida pode ser difícil, mas há beleza nela também.", "Continue compartilhando. Botar para fora já é um alívio."]
+                }
+            }
+        };
+
+        // Adiciona respostas genéricas para outros personagens
+        const genericResponses = {
+            ola: ["Olá! Como posso te ajudar?", "Oi! Estou aqui para ouvir.", "Olá! Em que posso ser útil?", "Hey! Que bom te ver aqui."],
+            bullying: ["Bullying é sério. Você não merece isso.", "Isso é bullying. Converse com alguém de confiança.", "Bullying não é normal. Denuncie."],
+            cyberbullying: ["Cyberbullying também é bullying. Salve prints e denuncie.", "O que acontece online também machuca.", "Cyberbullying é crime. Denuncie."],
+            xingamento: ["Xingamentos não definem quem você é.", "Palavras podem doer, mas você é mais forte.", "Você merece respeito sempre."],
+            ameaca: ["Ameaças são sérias. Denuncie imediatamente.", "Ameaçar é crime. Salve provas.", "Não enfrente ameaças sozinho(a)."],
+            exclusao: ["Ser excluído dói, mas não define seu valor.", "Você merece estar onde é bem-vindo(a).", "A exclusão é uma forma de bullying."],
+            redeSocial: ["Redes sociais podem ser tóxicas. Cuide de você.", "Bloqueie e denuncie ofensas online.", "Sua paz vale mais que seguidores."],
+            ajuda: ["Pedir ajuda é coragem. Você está no caminho certo.", "Ligue 188 para apoio emocional.", "Psicólogos podem te ajudar muito."],
+            triste: ["Sinto muito que esteja triste. Você merece cuidado.", "É válido se sentir triste. Busque apoio.", "A tristeza passa, mesmo que pareça eterna."],
+            medo: ["Ter medo é normal. Mas não enfrente sozinho(a).", "Medo de agressores é compreensível. Denuncie.", "Você merece se sentir seguro(a)."],
+            generico: ["Entendo. Isso é desafiador, mas você pode superar.", "Sinto muito que esteja passando por isso.", "Você não está sozinho(a). Estou aqui para ajudar."]
+        };
+
+        // ============ PERSONAGENS ============
+        function renderCharacters() {
+            const grid = document.getElementById('charactersGrid');
+            grid.innerHTML = '';
+            characters.forEach(char => {
+                const card = document.createElement('div');
+                card.className = 'char-card';
+                card.innerHTML = `
+                    <img src="${char.image}" alt="${char.name}" onerror="this.src='https://via.placeholder.com/220x220?text=${char.name}'" />
+                    <div class="char-name">${char.name}</div>
+                    <div class="char-anime">${char.anime}</div>
+                    <div class="char-quote">"${char.quote}"</div>
+                `;
+                card.onclick = () => setCharacter(char.id);
+                grid.appendChild(card);
+            });
+        }
+        renderCharacters();
+
+        // ============ CHAT ============
+        let currentChar = 'mikasa';
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        function setCharacter(charId) {
+            currentChar = charId;
+            const data = chatResponses[charId];
+            if (data) {
+                document.getElementById('charImage').src = data.image;
+                document.getElementById('charName').textContent = data.name;
+                document.getElementById('charAnime').textContent = data.anime;
+                chatMessages.innerHTML = `<div class="message bot">Olá! Eu sou ${data.name}. Como posso te ajudar hoje?</div>`;
+            } else {
+                // Fallback para personagens sem dados
+                const char = characters.find(c => c.id === charId);
+                if (char) {
+                    document.getElementById('charImage').src = char.image;
+                    document.getElementById('charName').textContent = char.name;
+                    document.getElementById('charAnime').textContent = char.anime;
+                    chatMessages.innerHTML = `<div class="message bot">Olá! Eu sou ${char.name}. Como posso te ajudar hoje?</div>`;
+                }
+            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getResponse(charId, userMessage) {
+            const charData = chatResponses[charId];
+            const msg = userMessage.toLowerCase();
+            
+            // Mapeamento de palavras-chave
+            const keywords = {
+                'ola': ['ola', 'oi', 'olá', 'hey', 'eai', 'e aí', 'opa', 'fala', 'salve', 'bom dia', 'boa tarde', 'boa noite'],
+                'bullying': ['bullying', 'bully'],
+                'cyberbullying': ['cyberbullying', 'online', 'internet', 'rede social'],
+                'xingamento': ['xingamento', 'xingar', 'ofensa', 'palavrão', 'insulto', 'grosseria'],
+                'ameaca': ['ameaça', 'ameaçar', 'ameaçou'],
+                'exclusao': ['exclusão', 'excluído', 'excluída', 'deixaram de lado', 'ignorado', 'ignorada'],
+                'redeSocial': ['rede social', 'redes sociais', 'facebook', 'instagram', 'whatsapp', 'twitter', 'tiktok'],
+                'ajuda': ['ajuda', 'socorro', 'preciso de ajuda', 'me ajude'],
+                'triste': ['triste', 'tristeza', 'deprimido', 'desanimado', 'desanimada'],
+                'medo': ['medo', 'com medo', 'medrosa', 'medroso'],
+                'escola': ['escola', 'colégio', 'aula', 'professor', 'diretor'],
+                'amigo': ['amigo', 'amiga', 'amigos', 'colega'],
+                'familia': ['família', 'pai', 'mãe', 'irmão', 'irmã', 'casa'],
+                'suicidio': ['suicídio', 'suicida', 'morte', 'acabar com tudo'],
+                'ansiedade': ['ansiedade', 'ansioso', 'ansiosa', 'nervoso', 'nervosa'],
+                'depressao': ['depressão', 'depressivo', 'depressiva']
+            };
+
+            let matchedKey = 'generico';
+            for (const [key, words] of Object.entries(keywords)) {
+                if (words.some(word => msg.includes(word))) {
+                    matchedKey = key;
+                    break;
+                }
+            }
+
+            // Tenta resposta específica do personagem
+            if (charData && charData.respostas && charData.respostas[matchedKey]) {
+                const responses = charData.respostas[matchedKey];
+                return getRandom(responses);
+            }
+
+            // Fallback: resposta genérica do personagem
+            if (charData && charData.respostas && charData.respostas.generico) {
+                return getRandom(charData.respostas.generico);
+            }
+
+            // Fallback final: respostas genéricas
+            if (genericResponses[matchedKey]) {
+                return getRandom(genericResponses[matchedKey]);
+            }
+            return "Entendo. Isso parece difícil. Quer conversar mais sobre isso?";
+        }
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Adiciona mensagem do usuário
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = message;
+            chatMessages.appendChild(userMsg);
+
+            // Resposta do bot
+            setTimeout(() => {
+                const response = getResponse(currentChar, message);
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot';
+                botMsg.textContent = response;
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 300);
+
+            chatInput.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // ============ FRASES ============
+        const quotes = [
+            { emoji: "⚡", text: "A força não vem da capacidade física, mas de uma vontade indomável.", author: "Saitama (One Punch Man)" },
+            { emoji: "🦇", text: "Não importa o quão difícil seja, nunca desista de fazer o que é certo.", author: "Batman (DC Comics)" },
+            { emoji: "🦸", text: "Ser herói é ajudar quem precisa, mesmo quando ninguém está vendo.", author: "Superman (DC Comics)" },
+            { emoji: "⚔️", text: "A dor nos torna mais fortes. Continue lutando.", author: "Ichigo Kurosaki (Bleach)" },
+            { emoji: "🔥", text: "Acredite em si mesmo. Não importa o que os outros digam.", author: "Naruto (Naruto)" },
+            { emoji: "💪", text: "Se você quer ser forte, treine. Se quer ser sábio, estude. Se quer ser bom, pratique.", author: "All Might (My Hero Academia)" },
+            { emoji: "✨", text: "Mesmo nas trevas, há luz. Encontre sua própria chama.", author: "Tanjiro (Demon Slayer)" },
+            { emoji: "🌟", text: "O que importa não é o que você tem, mas o que você faz com o que tem.", author: "Edward Elric (Fullmetal Alchemist)" },
+            { emoji: "🛡️", text: "Proteger os outros é a maior força que alguém pode ter.", author: "Mikasa Ackerman (Attack on Titan)" },
+            { emoji: "🌊", text: "Seja como a água: adapte-se, persista e nunca desista.", author: "Goku (Dragon Ball)" }
+        ];
+
+        function displayRandomQuote() {
+            const q = getRandom(quotes);
+            document.getElementById('quoteEmoji').textContent = q.emoji;
+            document.getElementById('quoteText').textContent = `"${q.text}"`;
+            document.getElementById('quoteAuthor').textContent = `— ${q.author}`;
+        }
+
+        function renderQuotesGrid() {
+            const grid = document.getElementById('quotesGrid');
+            grid.innerHTML = '';
+            // Mostra as primeiras 6 frases
+            quotes.slice(0, 6).forEach(q => {
+                const div = document.createElement('div');
+                div.className = 'card';
+                div.innerHTML = `
+                    <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">${q.emoji}</span>
+                    <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 8px;">"${q.text}"</p>
+                    <p style="color: var(--muted); font-size: 0.9rem;">— ${q.author}</p>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        document.getElementById('newQuoteBtn').addEventListener('click', displayRandomQuote);
+        displayRandomQuote();
+        renderQuotesGrid();
+
+        // ============ QUIZ ============
+        const quizData = [
+            {
+                question: "O que é bullying?",
+                options: [
+                    "Brincadeiras saudáveis entre amigos",
+                    "Agressões físicas ou psicológicas repetidas e intencionais",
+                    "Uma competição esportiva",
+                    "Uma forma de elogio"
+                ],
+                correct: 1,
+                feedback: "Bullying são agressões repetidas e intencionais que causam sofrimento à vítima."
+            },
+            {
+                question: "O que é cyberbullying?",
+                options: [
+                    "Jogar videogame com amigos",
+                    "Bullying praticado online, em redes sociais e mensagens",
+                    "Uma aula de informática",
+                    "Uma atividade escolar"
+                ],
+                correct: 1,
+                feedback: "Cyberbullying é o bullying praticado através de meios digitais, como redes sociais e mensagens."
+            },
+            {
+                question: "Qual é um passo importante para combater o bullying?",
+                options: [
+                    "Ignorar e não fazer nada",
+                    "Denunciar para um adulto de confiança",
+                    "Revidar com violência",
+                    "Participar do bullying"
+                ],
+                correct: 1,
+                feedback: "Denunciar o bullying a um adulto de confiança é essencial para interromper o ciclo de violência."
+            },
+            {
+                question: "Como você pode ajudar uma vítima de bullying?",
+                options: [
+                    "Fingir que nada está acontecendo",
+                    "Oferecer apoio e incentivar a denúncia",
+                    "Participar das agressões",
+                    "Ignorar a situação"
+                ],
+                correct: 1,
+                feedback: "Oferecer apoio e incentivar a denúncia são atitudes fundamentais para ajudar a vítima."
+            },
+            {
+                question: "Qual número do CVV - Centro de Valorização da Vida?",
+                options: [
+                    "190",
+                    "188",
+                    "192",
+                    "193"
+                ],
+                correct: 1,
+                feedback: "O CVV atende pelo número 188, oferecendo apoio emocional 24 horas por dia."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            const quizQuestion = document.getElementById('quizQuestion');
+            const quizResult = document.getElementById('quizResult');
+            quizQuestion.style.display = 'block';
+            quizResult.classList.remove('show');
+
+            const q = quizData[currentQuestion];
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('quizProgressFill').style.width = progress + '%';
+            document.getElementById('quizQuestionText').textContent = q.question;
+
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+
+            q.options.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.innerHTML = `<span class="letter">${letters[index]}</span> ${option}`;
+                btn.disabled = false;
+                btn.addEventListener('click', () => selectOption(index));
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('quizFeedback').className = 'quiz-feedback';
+            document.getElementById('quizFeedback').textContent = '';
+            document.getElementById('nextBtn').style.display = 'none';
+            answered = false;
+        }
+
+        function selectOption(index) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizData[currentQuestion];
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((btn, i) => {
+                btn.disabled = true;
+                if (i === q.correct) btn.classList.add('correct');
+                else if (i === index && i !== q.correct) btn.classList.add('wrong');
+            });
+
+            if (index === q.correct) {
+                score++;
+                document.getElementById('quizFeedback').textContent = '✅ Correto! ' + q.feedback;
+            } else {
+                document.getElementById('quizFeedback').textContent = '❌ Incorreto. ' + q.feedback;
+            }
+            document.getElementById('quizFeedback').className = 'quiz-feedback show';
+
+            if (currentQuestion < quizData.length - 1) {
+                document.getElementById('nextBtn').style.display = 'inline-flex';
+                document.getElementById('nextBtn').textContent = 'Próxima ➜';
+                document.getElementById('nextBtn').onclick = () => {
+                    currentQuestion++;
+                    loadQuestion();
+                };
+            } else {
+                document.getElementById('nextBtn').style.display = 'inline-flex';
+                document.getElementById('nextBtn').textContent = 'Ver Resultado';
+                document.getElementById('nextBtn').onclick = showResult;
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quizQuestion').style.display = 'none';
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.classList.add('show');
+            document.getElementById('quizScore').textContent = `${score}/${quizData.length}`;
+
+            let message = '';
+            if (score === quizData.length) {
+                message = '🌟 Perfeito! Você é um herói contra o bullying!';
+            } else if (score >= quizData.length * 0.6) {
+                message = '💪 Bom trabalho! Continue aprendendo sobre o tema.';
+            } else {
+                message = '📖 Que tal revisar o conteúdo? Conhecimento é poder!';
+            }
+            document.getElementById('quizMessage').textContent = message;
+        }
+
+        document.getElementById('restartBtn').addEventListener('click', () => {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quizResult').classList.remove('show');
+            document.getElementById('quizQuestion').style.display = 'block';
+            loadQuestion();
+        });
+
+        // Inicia o quiz
+        loadQuestion();
+
+        // ============ INICIALIZAÇÃO ============
+        // Define o primeiro personagem no chat
+        setCharacter('mikasa');
+
+        // Carrossel automático
+        setInterval(() => moveCarousel(1), 5000);
+
+        console.log("🛡️ Portal de Combate ao Bullying & Cyberbullying carregado com sucesso!");
+    </script>
+</body>
+</html>
